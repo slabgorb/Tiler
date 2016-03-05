@@ -21,16 +21,30 @@ class TilerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testDeadEnd() {
+        let tile1 = Tile(openings:[Opening(size: .Small, .North)])
+        let tile2 = Tile(openings:[Opening(size: .Small, .North), Opening(size: .Large, .East)])
+        XCTAssert(tile1.isDeadEnd())
+        XCTAssert(!tile2.isDeadEnd())
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+    func testMatchingOpening() {
+        let o1 = Opening(size: .Small, .North)
+        let o2 = Opening(size: .Small, .South)
+        XCTAssert(o1 ~ o2)
+        let o3 = Opening(size: .Large, .North)
+        let o4 = Opening(size: .Small, .South)
+        XCTAssert(!(o3 ~ o4))
     }
+    
+    func testMatchingTile() {
+        let tile1 = Tile(openings:[Opening(size: .Small, .North)])
+        let tile2 = Tile(openings:[Opening(size: .Small, .South),Opening(size: .Large, .East)])
+        let tile3 = Tile(openings:[Opening(size: .Small, .North),Opening(size:.Large, .East)])
+        XCTAssert(tile1 ~ tile2)
+        XCTAssert(!(tile1 ~ tile3) )
+    }
+    
+
     
 }
