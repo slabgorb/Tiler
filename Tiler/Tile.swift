@@ -23,21 +23,36 @@ enum Direction: Int {
             case .West: return .East
         }
     }
+    func rotate(direction: RotationDirection) -> Direction {
+        switch direction {
+        case .Clockwise:
+            switch self {
+            case .North: return .East
+            case .East: return .South
+            case .South: return .West
+            case .West: return .North
+            }
+        case .Counterclockwise:
+            switch self {
+            case .North: return .West
+            case .East: return .North
+            case .South: return .East
+            case .West: return .South
+            }
+        }
+    }
 }
 
-struct Door  {
-    enum Mechanism {
-        case OpensIn
-        case OpensOut
-        case SlidesHorizontal
-        case Secret
-    }
-    var mechanism: Mechanism
-    var open: Bool
+enum RotationDirection {
+    case Clockwise, Counterclockwise
 }
 
 protocol Matchable {
     func matchWith(other: Self) -> Bool
+}
+
+protocol Rotatable {
+    func rotate(direction: RotationDirection) -> Void
 }
 
 infix operator ~ {}
@@ -66,6 +81,10 @@ struct Opening: Matchable {
         return opening.size == self.size
     }
     
+    mutating func rotate(direction: RotationDirection) -> Void {
+        self.direction = self.direction.rotate(direction)
+    }
+    
     func matchWith(other:Opening) -> Bool {
         switch self.direction {
         case .North: return other.direction == .South && matchSize(other)
@@ -75,6 +94,8 @@ struct Opening: Matchable {
         }
     }
 }
+
+
 
 class Connection {
     var from: Tile
@@ -88,10 +109,11 @@ class Connection {
 }
 
 class Tile: Matchable {
-
+ 
     var openings: [Opening] = []
     var connections: [Connection] = []
-
+    var rotation: Direction = .North
+ 
     init(openings:[Opening]) {
         self.openings = openings
     }
@@ -99,6 +121,16 @@ class Tile: Matchable {
     func isDeadEnd() -> Bool {
         return self.openings.count == 1
     }
+    
+    func rotate(direction: RotationDirection) -> Void {
+        var newOpenings: [Opening] = []
+        for var opening in openings {
+            opening.rotate(direction)
+            newOpenings.append(opening)
+        }
+        self.openings = newOpenings
+        self.rotation = self.rotation.rotate(direction)
+     }
     
     func connectedToDirection(direction: Direction) -> Bool {
         return connections.filter({$0.direction == direction}).count > 0

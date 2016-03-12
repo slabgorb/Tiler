@@ -37,6 +37,17 @@ class TilerTests: XCTestCase {
         XCTAssert(!(o3 ~ o4))
     }
     
+    func testRotation() {
+        let tile = Tile(openings:[Opening(size: .Small, .North)])
+        tile.rotate(.Clockwise)
+        XCTAssert(tile.rotation == .East)
+        XCTAssert(tile.openings[0].direction == .East)
+        tile.rotate(.Counterclockwise)
+        XCTAssert(tile.rotation == .North)
+        XCTAssert(tile.openings[0].direction == .North)
+
+    }
+    
     func testMatchingTile() {
         let tile1 = Tile(openings:[Opening(size: .Small, .North)])
         let tile2 = Tile(openings:[Opening(size: .Small, .South),Opening(size: .Large, .East)])

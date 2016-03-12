@@ -15,7 +15,8 @@
 		2403BBFC1C88F66C00F79C53 /* TilerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403BBFB1C88F66C00F79C53 /* TilerTests.swift */; };
 		2403BC071C88F66C00F79C53 /* TilerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403BC061C88F66C00F79C53 /* TilerUITests.swift */; };
 		2403BC151C88F6A100F79C53 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403BC141C88F6A100F79C53 /* Tile.swift */; };
-		242541C11C8A4A17000582FB /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242541C01C8A4A17000582FB /* Map.swift */; };
+		2435513B1C937D1B00D7E088 /* Door.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435513A1C937D1B00D7E088 /* Door.swift */; };
+		243551461C93ABC400D7E088 /* DoorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243551451C93ABC400D7E088 /* DoorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,8 @@
 		2403BC061C88F66C00F79C53 /* TilerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilerUITests.swift; sourceTree = "<group>"; };
 		2403BC081C88F66C00F79C53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2403BC141C88F6A100F79C53 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
-		242541C01C8A4A17000582FB /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		2435513A1C937D1B00D7E088 /* Door.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Door.swift; sourceTree = "<group>"; };
+		243551451C93ABC400D7E088 /* DoorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +83,6 @@
 		2403BBDA1C88F66B00F79C53 = {
 			isa = PBXGroup;
 			children = (
-				242541C01C8A4A17000582FB /* Map.swift */,
 				2403BBE51C88F66B00F79C53 /* Tiler */,
 				2403BBFA1C88F66C00F79C53 /* TilerTests */,
 				2403BC051C88F66C00F79C53 /* TilerUITests */,
@@ -102,9 +103,9 @@
 		2403BBE51C88F66B00F79C53 /* Tiler */ = {
 			isa = PBXGroup;
 			children = (
+				24E788201C9085A2004F766B /* Models */,
 				2403BBE61C88F66B00F79C53 /* AppDelegate.swift */,
 				2403BBE81C88F66B00F79C53 /* ViewController.swift */,
-				2403BC141C88F6A100F79C53 /* Tile.swift */,
 				2403BBEA1C88F66B00F79C53 /* Main.storyboard */,
 				2403BBED1C88F66B00F79C53 /* Assets.xcassets */,
 				2403BBEF1C88F66B00F79C53 /* LaunchScreen.storyboard */,
@@ -118,6 +119,7 @@
 			children = (
 				2403BBFB1C88F66C00F79C53 /* TilerTests.swift */,
 				2403BBFD1C88F66C00F79C53 /* Info.plist */,
+				243551451C93ABC400D7E088 /* DoorTests.swift */,
 			);
 			path = TilerTests;
 			sourceTree = "<group>";
@@ -129,6 +131,15 @@
 				2403BC081C88F66C00F79C53 /* Info.plist */,
 			);
 			path = TilerUITests;
+			sourceTree = "<group>";
+		};
+		24E788201C9085A2004F766B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2403BC141C88F6A100F79C53 /* Tile.swift */,
+				2435513A1C937D1B00D7E088 /* Door.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,8 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2403BC151C88F6A100F79C53 /* Tile.swift in Sources */,
+				2435513B1C937D1B00D7E088 /* Door.swift in Sources */,
 				2403BBE91C88F66B00F79C53 /* ViewController.swift in Sources */,
-				242541C11C8A4A17000582FB /* Map.swift in Sources */,
 				2403BBE71C88F66B00F79C53 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2403BBFC1C88F66C00F79C53 /* TilerTests.swift in Sources */,
+				243551461C93ABC400D7E088 /* DoorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
