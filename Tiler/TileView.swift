@@ -14,24 +14,30 @@ class TileView: UIView {
     let background: UIImage? = UIImage(named: "texture1")
     let grid: UIImage? = UIImage(named: "grid")
     var image: UIImage?
-    var tile: Tile?
-    
-    init(tile:Tile, x:Double, y:Double) {
-        self.tile = tile
+    var tile: Tile
+
+    required init?(coder aDecoder: NSCoder) {
+        let openings = [
+            Opening(size: .Small, .North),
+            Opening(size: .Small, .South)
+        ]
+        self.tile = Tile(openings: openings, imageName: "straight")
         
         if (tile.imageName != nil) {
             if let image = UIImage(named: tile.imageName!) {
                 self.image = image
             
             }
+            
         }
-        super.init(frame: CGRect(x: x, y: y, width: TileView.width, height: TileView.height))
+        super.init(coder: aDecoder)
+        self.frame = CGRect(x: 0, y: 0, width: TileView.width, height: TileView.height)
+        addSubview(UIImageView(image: background))
+        addSubview(UIImageView(image: image))
+        addSubview(UIImageView(image: grid))
+        
     }
+    
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
     
 }
