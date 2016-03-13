@@ -8,7 +8,12 @@
 
 import Foundation
 
-class Tile: Matchable, CustomStringConvertible {
+func ==(lhs: Tile, rhs: Tile) -> Bool {
+    return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+}
+
+class Tile: Matchable, CustomStringConvertible, Hashable, Equatable {
+    static var current:Int = 0
  
     // MARK: Properties
     var openings: [Opening] = []
@@ -17,6 +22,10 @@ class Tile: Matchable, CustomStringConvertible {
     var imageName: String?
     var flippedVertically: Bool = false
     var flippedHorizontally: Bool = false
+    var hashValue: Int  = {
+        Tile.current += 1
+        return Tile.current
+    }()
     
     var description:String {
         var output:[String] = ["Tile Object"]
@@ -47,6 +56,8 @@ class Tile: Matchable, CustomStringConvertible {
     }
 
     // MARK: Methods
+    
+
     
     func rotate(direction: RotationDirection) -> Void {
         for opening in openings {

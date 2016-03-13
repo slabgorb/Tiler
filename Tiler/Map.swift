@@ -10,7 +10,7 @@ import Foundation
 
 class Map: CustomStringConvertible {
     // MARK: Properties
-    var tiles: [Tile] = []
+    var tiles: [Tile:[Int]] = [:]
     var title: String?
     
     var description: String {
@@ -19,6 +19,10 @@ class Map: CustomStringConvertible {
             output.append(tile.description)
         }
         return output.joinWithSeparator("\n\t")
+    }
+    
+    func add(tile: Tile, row: Int, column: Int) {
+        tiles[tile] = [row, column]
     }
     
     // MARK: Initializers
