@@ -111,9 +111,11 @@ class Tile: Matchable {
     var openings: [Opening] = []
     var connections: [Connection] = []
     var rotation: Direction = .North
+    var imageName: String?
  
-    init(openings:[Opening]) {
+    init(openings:[Opening], imageName: String = "") {
         self.openings = openings
+        self.imageName = imageName
     }
     
     func isDeadEnd() -> Bool {
