@@ -9,8 +9,8 @@
 import UIKit
 
 class TileView: UIView {
-    static let width = 144.0
-    static let height = 144.0
+    static let width = 72.0
+    static let height = 72.0
     let background: UIImage? = UIImage(named: "texture1")
     let grid: UIImage? = UIImage(named: "grid")
     //var image: UIImage?
@@ -35,13 +35,21 @@ class TileView: UIView {
         }
         return nil
     }
+
+    func makeImageView(image: UIImage?) -> UIImageView {
+        let imageView = UIImageView(frame: self.frame)
+        if image != nil {
+            imageView.image = image
+        }
+        return imageView
+    }
     
     func layout() {
-                addSubview(UIImageView(image: background))
+        addSubview(makeImageView(background))
         if let img = image() {
-            addSubview(UIImageView(image: img))
+            addSubview(makeImageView(img))
         }
-        addSubview(UIImageView(image: grid))
+        addSubview(makeImageView(grid))
     }
     
     required init?(coder aDecoder: NSCoder, tile: Tile?) {
