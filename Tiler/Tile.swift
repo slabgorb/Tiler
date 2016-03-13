@@ -7,120 +7,31 @@
 //
 
 import Foundation
-enum Size: Int {
-    case Small = 1, Medium, Large
-}
-enum Direction: Int {
-    case North
-    case East
-    case South
-    case West
-    func opposite() -> Direction {
-        switch self {
-            case .North: return .South
-            case .South: return .North
-            case .East: return .West
-            case .West: return .East
-        }
-    }
-    func rotate(direction: RotationDirection) -> Direction {
-        switch direction {
-        case .Clockwise:
-            switch self {
-            case .North: return .East
-            case .East: return .South
-            case .South: return .West
-            case .West: return .North
-            }
-        case .Counterclockwise:
-            switch self {
-            case .North: return .West
-            case .East: return .North
-            case .South: return .East
-            case .West: return .South
-            }
-        }
-    }
-}
 
-enum RotationDirection {
-    case Clockwise, Counterclockwise
-}
-
-protocol Matchable {
-    func matchWith(other: Self) -> Bool
-}
-
-protocol Rotatable {
-    func rotate(direction: RotationDirection) -> Void
-}
-
-infix operator ~ {}
-func ~<T: Matchable>(left: T, right: T) -> Bool {
-    return left.matchWith(right)
-}
-
-
-struct Opening: Matchable {
-    var direction: Direction
-    var size: Size
-    var door: Door?
-    
-    init(size: Size, _ direction: Direction, door: Door) {
-        self.size = size
-        self.direction = direction
-        self.door = door
-    }
-    init(size: Size, _ direction: Direction) {
-        self.size = size
-        self.direction = direction
-        self.door = nil
-    }
-   
-    func matchSize(opening: Opening) -> Bool {
-        return opening.size == self.size
-    }
-    
-    mutating func rotate(direction: RotationDirection) -> Void {
-        self.direction = self.direction.rotate(direction)
-    }
-    
-    func matchWith(other:Opening) -> Bool {
-        switch self.direction {
-        case .North: return other.direction == .South && matchSize(other)
-        case .South: return other.direction == .North && matchSize(other)
-        case .East: return other.direction == .West && matchSize(other)
-        case .West: return other.direction == .East && matchSize(other)
-        }
-    }
-}
-
-class Connection {
-    var from: Tile
-    var to: Tile
-    var direction: Direction
-    init(direction:Direction, from: Tile, to:Tile) {
-        self.from = from
-        self.to = to
-        self.direction = direction
-    }
-}
-
-class Tile: Matchable {
+class Tile: Matchable, CustomStringConvertible {
  
+    // MARK: Properties
     var openings: [Opening] = []
     var connections: [Connection] = []
     var rotation: Direction = .North
     var imageName: String?
+    
+    var description:String {
+        return "TILE\n\tRotation: \(self.rotation)\n\tImage: \(self.imageName)\n\tConnections:\(self.connections)"
+    }
+    
+    var isDeadEnd:Bool {
+        return self.openings.count == 1
+    }
  
+    // MARK: Initializers
+    
     init(openings:[Opening], imageName: String = "") {
         self.openings = openings
         self.imageName = imageName
     }
-    
-    func isDeadEnd() -> Bool {
-        return self.openings.count == 1
-    }
+
+    // MARK: Methods
     
     func rotate(direction: RotationDirection) -> Void {
         var newOpenings: [Opening] = []

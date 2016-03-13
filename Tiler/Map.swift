@@ -9,10 +9,14 @@
 import Foundation
 
 class Map {
+    // MARK: Properties
     var tiles: [Tile] = []
     var title: String?
     
+    // MARK: Initializers
     init(title: String) {
         self.title = title
     }
+    
+    // MARK: Methods
 }

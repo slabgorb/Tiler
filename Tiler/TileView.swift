@@ -13,29 +13,45 @@ class TileView: UIView {
     static let height = 144.0
     let background: UIImage? = UIImage(named: "texture1")
     let grid: UIImage? = UIImage(named: "grid")
-    var image: UIImage?
-    var tile: Tile
+    //var image: UIImage?
+    var tile: Tile?
 
-    required init?(coder aDecoder: NSCoder) {
-        let openings = [
-            Opening(size: .Small, .North),
-            Opening(size: .Small, .South)
-        ]
-        self.tile = Tile(openings: openings, imageName: "straight")
-        
-        if (tile.imageName != nil) {
-            if let image = UIImage(named: tile.imageName!) {
-                self.image = image
-            
+    init(frame: CGRect, tile: Tile) {
+        super.init(frame: frame)
+        self.tile = tile
+        layout()
+    }
+    
+    convenience init(tile: Tile) {
+        let  frame = CGRect(x: 0, y: 0, width: TileView.width, height: TileView.height)
+        self.init(frame: frame, tile: tile)
+    }
+    
+    func image() -> UIImage? {
+        if (self.tile != nil) && (tile!.imageName != nil){
+            if let image = UIImage(named: tile!.imageName!) {
+                return image
             }
-            
         }
-        super.init(coder: aDecoder)
-        self.frame = CGRect(x: 0, y: 0, width: TileView.width, height: TileView.height)
-        addSubview(UIImageView(image: background))
-        addSubview(UIImageView(image: image))
+        return nil
+    }
+    
+    func layout() {
+                addSubview(UIImageView(image: background))
+        if let img = image() {
+            addSubview(UIImageView(image: img))
+        }
         addSubview(UIImageView(image: grid))
-        
+    }
+    
+    required init?(coder aDecoder: NSCoder, tile: Tile?) {
+        self.tile = tile
+        super.init(coder: aDecoder)
+        layout()
+    }
+
+    required convenience init?(coder aDecoder: NSCoder) {
+        self.init(coder: aDecoder, tile:nil)
     }
     
 

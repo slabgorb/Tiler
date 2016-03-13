@@ -16,8 +16,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        let openings = [
+            Opening(size: .Small, .North),
+            Opening(size: .Small, .South)
+        ]
+        let tile = Tile(openings: openings, imageName: "straight")
+        print(tile)
+        self.mapView.addTileView(TileView(tile: tile))
     }
 
     override func didReceiveMemoryWarning() {
