@@ -27,8 +27,6 @@ class Door  {
     var isOpen: OpenState = .Open
     var isLocked: LockState = .Unlocked
     
-    
-    
     init () { }
     
     convenience init (mechanism: Mechanism) {

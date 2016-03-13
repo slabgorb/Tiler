@@ -95,8 +95,6 @@ struct Opening: Matchable {
     }
 }
 
-
-
 class Connection {
     var from: Tile
     var to: Tile
