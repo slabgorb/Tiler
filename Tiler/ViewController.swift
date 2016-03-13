@@ -21,10 +21,12 @@ class ViewController: UIViewController {
             Opening(size: .Small, .South)
         ]
         let tile = Tile(openings: openings, imageName: "straight")
-        print(tile)
         self.mapView.addTileView(TileView(tile: tile), row: 0, column: 0)
         self.mapView.addTileView(TileView(tile: tile), row: 1, column: 0)
         self.mapView.addTileView(TileView(tile: tile), row: 0, column: 1)
+        print(tile)
+        tile.rotate(.Clockwise)
+        print(tile)
         self.mapView.addTileView(TileView(tile: tile), row: 1, column: 1)
     }
 

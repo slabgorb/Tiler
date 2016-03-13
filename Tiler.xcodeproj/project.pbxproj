@@ -27,6 +27,8 @@
 		24948F401C95E25000EB118F /* Matchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F3F1C95E25000EB118F /* Matchable.swift */; };
 		24948F431C95E2C100EB118F /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F421C95E2C100EB118F /* Size.swift */; };
 		24948F451C95E2D800EB118F /* RotationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F441C95E2D800EB118F /* RotationDirection.swift */; };
+		24948F481C95ED7800EB118F /* UIImage+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F471C95ED7800EB118F /* UIImage+Rotation.swift */; };
+		24948F4A1C95F5EE00EB118F /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F491C95F5EE00EB118F /* Transform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		24948F3F1C95E25000EB118F /* Matchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matchable.swift; sourceTree = "<group>"; };
 		24948F421C95E2C100EB118F /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		24948F441C95E2D800EB118F /* RotationDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotationDirection.swift; sourceTree = "<group>"; };
+		24948F471C95ED7800EB118F /* UIImage+Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Rotation.swift"; sourceTree = "<group>"; };
+		24948F491C95F5EE00EB118F /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 		2403BBE51C88F66B00F79C53 /* Tiler */ = {
 			isa = PBXGroup;
 			children = (
+				24948F461C95ED5900EB118F /* Extensions */,
 				24948F411C95E2AB00EB118F /* Enums */,
 				24948F3C1C95E23100EB118F /* Protocols */,
 				24948F2F1C94EA2700EB118F /* Views */,
@@ -180,8 +185,17 @@
 				24948F361C95DF1800EB118F /* Direction.swift */,
 				24948F421C95E2C100EB118F /* Size.swift */,
 				24948F441C95E2D800EB118F /* RotationDirection.swift */,
+				24948F491C95F5EE00EB118F /* Transform.swift */,
 			);
 			name = Enums;
+			sourceTree = "<group>";
+		};
+		24948F461C95ED5900EB118F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				24948F471C95ED7800EB118F /* UIImage+Rotation.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		24E788201C9085A2004F766B /* Models */ = {
@@ -333,8 +347,10 @@
 				2435513B1C937D1B00D7E088 /* Door.swift in Sources */,
 				24948F371C95DF1800EB118F /* Direction.swift in Sources */,
 				24948F351C95CBC400EB118F /* Map.swift in Sources */,
+				24948F4A1C95F5EE00EB118F /* Transform.swift in Sources */,
 				2403BBE91C88F66B00F79C53 /* ViewController.swift in Sources */,
 				24948F451C95E2D800EB118F /* RotationDirection.swift in Sources */,
+				24948F481C95ED7800EB118F /* UIImage+Rotation.swift in Sources */,
 				24948F3B1C95E1D100EB118F /* Connection.swift in Sources */,
 				24948F3E1C95E23E00EB118F /* Rotatable.swift in Sources */,
 				24948F311C94EA4C00EB118F /* TileView.swift in Sources */,

@@ -15,11 +15,15 @@ class Tile: Matchable, CustomStringConvertible {
     var connections: [Connection] = []
     var rotation: Direction = .North
     var imageName: String?
+    var flippedVertically: Bool = false
+    var flippedHorizontally: Bool = false
     
     var description:String {
         var output:[String] = ["Tile Object"]
-        output.append("Rotation: \(self.rotation)")
         output.append("Image: \(self.imageName)")
+        output.append("Rotation: \(self.rotation) \(self.rotation.toDegrees())")
+        output.append("Flipped Vertically: \(self.flippedVertically)")
+        output.append("Flipped Horizontally: \(self.flippedHorizontally)")
         output.append("Connections: \(self.connections.count)")
         for connection in connections {
             output.append("\t\(connection.description)")
@@ -45,17 +49,21 @@ class Tile: Matchable, CustomStringConvertible {
     // MARK: Methods
     
     func rotate(direction: RotationDirection) -> Void {
-        var newOpenings: [Opening] = []
-        for var opening in openings {
+        for opening in openings {
             opening.rotate(direction)
-            newOpenings.append(opening)
         }
-        self.openings = newOpenings
         self.rotation = self.rotation.rotate(direction)
      }
     
     func connectedToDirection(direction: Direction) -> Bool {
         return connections.filter({$0.direction == direction}).count > 0
+    }
+    
+    func flip(transform: Transform) {
+        switch transform {
+        case .Vertical: self.flippedVertically = !self.flippedVertically
+        case .Horizontal: self.flippedHorizontally = !self.flippedHorizontally
+        }
     }
     
     func isConnected() -> Bool {

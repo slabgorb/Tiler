@@ -14,6 +14,33 @@ enum Direction: String {
     case East = "East"
     case South = "South"
     case West = "West"
+    
+    func toDegrees() -> Float {
+        switch self {
+        case .North: return 0.0
+        case .East: return 90.0
+        case .South: return 180.0
+        case .West: return 270.0
+        }
+    }
+    
+    func flipHorizontal() -> Direction {
+        switch self {
+        case .North: return self
+        case .South: return self
+        case .East: return opposite()
+        case .West: return opposite()
+        }
+    }
+    func flipVertical() -> Direction {
+        switch self {
+        case .North: return opposite()
+        case .South: return opposite()
+        case .East: return self
+        case .West: return self
+        }
+    }
+    
     func opposite() -> Direction {
         switch self {
         case .North: return .South

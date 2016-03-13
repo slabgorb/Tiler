@@ -38,9 +38,16 @@ class TileView: UIView {
 
     func makeImageView(image: UIImage?) -> UIImageView {
         let imageView = UIImageView(frame: self.frame)
+        var img = image
         if image != nil {
-            imageView.image = image
+            if (self.tile != nil) {
+                img = image?.imageRotatedByDegrees(CGFloat(tile!.rotation.toDegrees()), flipX: tile!.flippedHorizontally, flipY: tile!.flippedVertically)
+            } else {
+                img = image
+            }
+            imageView.image = img
         }
+
         return imageView
     }
     
