@@ -17,7 +17,18 @@ class Tile: Matchable, CustomStringConvertible {
     var imageName: String?
     
     var description:String {
-        return "TILE\n\tRotation: \(self.rotation)\n\tImage: \(self.imageName)\n\tConnections:\(self.connections)"
+        var output:[String] = ["Tile Object"]
+        output.append("Rotation: \(self.rotation)")
+        output.append("Image: \(self.imageName)")
+        output.append("Connections: \(self.connections.count)")
+        for connection in connections {
+            output.append("\t\(connection.description)")
+        }
+        output.append("Openings: \(self.openings.count)")
+        for opening in openings {
+            output.append("\t\(opening.description)")
+        }
+        return output.joinWithSeparator("\n\t")
     }
     
     var isDeadEnd:Bool {

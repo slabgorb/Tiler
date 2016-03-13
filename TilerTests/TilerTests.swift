@@ -24,8 +24,8 @@ class TilerTests: XCTestCase {
     func testDeadEnd() {
         let tile1 = Tile(openings:[Opening(size: .Small, .North)])
         let tile2 = Tile(openings:[Opening(size: .Small, .North), Opening(size: .Large, .East)])
-        XCTAssert(tile1.isDeadEnd())
-        XCTAssert(!tile2.isDeadEnd())
+        XCTAssert(tile1.isDeadEnd)
+        XCTAssert(!tile2.isDeadEnd)
     }
     
     func testMatchingOpening() {

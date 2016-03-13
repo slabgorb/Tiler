@@ -8,15 +8,12 @@
 
 import Foundation
 
-enum Size: Int {
-    case Small = 1, Medium, Large
-}
 
-enum Direction: Int {
-    case North
-    case East
-    case South
-    case West
+enum Direction: String {
+    case North =  "North"
+    case East = "East"
+    case South = "South"
+    case West = "West"
     func opposite() -> Direction {
         switch self {
         case .North: return .South
@@ -45,6 +42,3 @@ enum Direction: Int {
     }
 }
 
-enum RotationDirection {
-    case Clockwise, Counterclockwise
-}

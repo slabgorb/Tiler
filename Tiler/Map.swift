@@ -8,10 +8,18 @@
 
 import Foundation
 
-class Map {
+class Map: CustomStringConvertible {
     // MARK: Properties
     var tiles: [Tile] = []
     var title: String?
+    
+    var description: String {
+        var output:[String] =  ["MAP\n"]
+        for tile in tiles {
+            output.append(tile.description)
+        }
+        return output.joinWithSeparator("\n\t")
+    }
     
     // MARK: Initializers
     init(title: String) {

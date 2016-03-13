@@ -14,7 +14,7 @@ struct Opening: Matchable, CustomStringConvertible {
     var size: Size
     var door: Door?
     var description: String {
-        return String(format: "Direction: %10s Size: %10s", arguments: [String(direction), String(size)])
+        return String(format: "Direction: %10@ Size: %10@", arguments: [direction.rawValue, size.rawValue])
     }
     
     
