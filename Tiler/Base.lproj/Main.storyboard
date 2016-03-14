@@ -25,14 +25,14 @@
                                     <action selector="buttonAddPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NIy-1x-OPi"/>
                                 </connections>
                             </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="qZP-BA-JTH">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" autorepeat="NO" wraps="YES" value="1" minimumValue="1" maximumValue="35" translatesAutoresizingMaskIntoConstraints="NO" id="qZP-BA-JTH">
                                 <rect key="frame" x="265" y="20" width="94" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="H5X-T2-dwP"/>
                                     <constraint firstAttribute="width" constant="94" id="de4-nG-f07"/>
                                 </constraints>
                             </stepper>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="sFf-1J-Kx0">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" autorepeat="NO" wraps="YES" value="1" minimumValue="1" maximumValue="35" translatesAutoresizingMaskIntoConstraints="NO" id="sFf-1J-Kx0">
                                 <rect key="frame" x="265" y="48" width="94" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="3CW-Ye-Mto"/>
@@ -42,14 +42,14 @@
                                     <action selector="stepperColumnChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="VEi-34-qWv"/>
                                 </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6c-DU-fdS">
-                                <rect key="frame" x="250" y="51" width="8" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6c-DU-fdS">
+                                <rect key="frame" x="250" y="51" width="8" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1M-Fe-gGo">
-                                <rect key="frame" x="250" y="24" width="8" height="20.5"/>
+                                <rect key="frame" x="250" y="24" width="8" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
