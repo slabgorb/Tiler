@@ -18,7 +18,9 @@ class MapView: UIView {
     
     func addTileView(tileView: TileView, row: Int, column: Int) {
         self.tileViews[tileView] = [row, column]
-        map.tiles.append(tileView.tile, row, column)
+        if tileView.tile != nil {
+            map.tiles[tileView.tile!] = [row, column]
+        }
         let rect = CGRect(x: Double(column) * TileView.height, y: Double(row) * TileView.width,  width: TileView.width, height: TileView.height)
         tileView.frame = rect
         addSubview(tileView)

@@ -12,7 +12,7 @@ func ==(lhs: Tile, rhs: Tile) -> Bool {
     return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
 }
 
-class Tile: Matchable, CustomStringConvertible, Hashable, Equatable {
+class Tile: Matchable, Rotatable, CustomStringConvertible, Hashable, Equatable {
     static var current:Int = 0
  
     // MARK: Properties
@@ -28,7 +28,7 @@ class Tile: Matchable, CustomStringConvertible, Hashable, Equatable {
     }()
     
     var description:String {
-        var output:[String] = ["Tile Object"]
+        var output:[String] = ["Tile Object #\(hashValue)"]
         output.append("Image: \(self.imageName)")
         output.append("Rotation: \(self.rotation) \(self.rotation.toDegrees())")
         output.append("Flipped Vertically: \(self.flippedVertically)")
