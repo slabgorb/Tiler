@@ -1,5 +1,5 @@
 //
-//  TilerTests.swift
+//  TileTests.swift
 //  TilerTests
 //
 //  Created by Keith Avery on 3/3/16.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Tiler
 
-class TilerTests: XCTestCase {
+class TileTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

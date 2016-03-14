@@ -16,6 +16,8 @@ class Map: CustomStringConvertible {
     
     var description: String {
         var output:[String] =  ["MAP\n"]
+        output.append("Rows: \(self.maxRow())")
+        output.append("Columns: \(self.maxColumn())")
         for tile in tiles {
             output.append("Row: \(tile.1[0]) Column: \(tile.1[1])")
             output.append(tile.0.description)
@@ -24,13 +26,19 @@ class Map: CustomStringConvertible {
     }
 
     func maxRow() -> Int {
-        var max = 0
+        var maxV = 0
         for tile in tiles {
-            if tile.1[0] > max {
-                max = tile.1[0]
-            }
+            maxV = max(maxV, tile.1[0])
         }
-        return max
+        return maxV
+    }
+    
+    func maxColumn() -> Int {
+        var maxV = 0
+        for tile in tiles {
+            maxV = max(maxV, tile.1[1])
+        }
+        return maxV
     }
     
     func add(tile: Tile, row: Int, column: Int) {

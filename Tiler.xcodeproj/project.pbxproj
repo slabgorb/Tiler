@@ -12,7 +12,7 @@
 		2403BBEC1C88F66B00F79C53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2403BBEA1C88F66B00F79C53 /* Main.storyboard */; };
 		2403BBEE1C88F66B00F79C53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2403BBED1C88F66B00F79C53 /* Assets.xcassets */; };
 		2403BBF11C88F66B00F79C53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2403BBEF1C88F66B00F79C53 /* LaunchScreen.storyboard */; };
-		2403BBFC1C88F66C00F79C53 /* TilerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403BBFB1C88F66C00F79C53 /* TilerTests.swift */; };
+		2403BBFC1C88F66C00F79C53 /* TileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403BBFB1C88F66C00F79C53 /* TileTests.swift */; };
 		2403BC071C88F66C00F79C53 /* TilerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403BC061C88F66C00F79C53 /* TilerUITests.swift */; };
 		2403BC151C88F6A100F79C53 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403BC141C88F6A100F79C53 /* Tile.swift */; };
 		2435513B1C937D1B00D7E088 /* Door.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435513A1C937D1B00D7E088 /* Door.swift */; };
@@ -29,6 +29,7 @@
 		24948F451C95E2D800EB118F /* RotationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F441C95E2D800EB118F /* RotationDirection.swift */; };
 		24948F481C95ED7800EB118F /* UIImage+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F471C95ED7800EB118F /* UIImage+Rotation.swift */; };
 		24948F4A1C95F5EE00EB118F /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F491C95F5EE00EB118F /* Transform.swift */; };
+		24EFBD2E1C96F9E900442921 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFBD2D1C96F9E900442921 /* MapTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +58,7 @@
 		2403BBF01C88F66B00F79C53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2403BBF21C88F66B00F79C53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2403BBF71C88F66C00F79C53 /* TilerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TilerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2403BBFB1C88F66C00F79C53 /* TilerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilerTests.swift; sourceTree = "<group>"; };
+		2403BBFB1C88F66C00F79C53 /* TileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileTests.swift; sourceTree = "<group>"; };
 		2403BBFD1C88F66C00F79C53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2403BC021C88F66C00F79C53 /* TilerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TilerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2403BC061C88F66C00F79C53 /* TilerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilerUITests.swift; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		24948F441C95E2D800EB118F /* RotationDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotationDirection.swift; sourceTree = "<group>"; };
 		24948F471C95ED7800EB118F /* UIImage+Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Rotation.swift"; sourceTree = "<group>"; };
 		24948F491C95F5EE00EB118F /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		24EFBD2D1C96F9E900442921 /* MapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,9 +145,10 @@
 		2403BBFA1C88F66C00F79C53 /* TilerTests */ = {
 			isa = PBXGroup;
 			children = (
-				2403BBFB1C88F66C00F79C53 /* TilerTests.swift */,
+				2403BBFB1C88F66C00F79C53 /* TileTests.swift */,
 				2403BBFD1C88F66C00F79C53 /* Info.plist */,
 				243551451C93ABC400D7E088 /* DoorTests.swift */,
+				24EFBD2D1C96F9E900442921 /* MapTests.swift */,
 			);
 			path = TilerTests;
 			sourceTree = "<group>";
@@ -372,8 +375,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2403BBFC1C88F66C00F79C53 /* TilerTests.swift in Sources */,
+				2403BBFC1C88F66C00F79C53 /* TileTests.swift in Sources */,
 				243551461C93ABC400D7E088 /* DoorTests.swift in Sources */,
+				24EFBD2E1C96F9E900442921 /* MapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
