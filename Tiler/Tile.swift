@@ -12,12 +12,11 @@ func ==(lhs: Tile, rhs: Tile) -> Bool {
     return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
 }
 
-class Tile: Matchable, Rotatable, CustomStringConvertible, Hashable, Equatable {
+class Tile: Matchable, Rotatable, Flippable, CustomStringConvertible, Hashable, Equatable {
     static var current:Int = 0
  
     // MARK: Properties
     var openings: [Opening] = []
-    var connections: [Connection] = []
     var rotation: Direction = .North
     var imageName: String?
     var flippedVertically: Bool = false
@@ -33,10 +32,6 @@ class Tile: Matchable, Rotatable, CustomStringConvertible, Hashable, Equatable {
         output.append("Rotation: \(self.rotation) \(self.rotation.toDegrees())")
         output.append("Flipped Vertically: \(self.flippedVertically)")
         output.append("Flipped Horizontally: \(self.flippedHorizontally)")
-        output.append("Connections: \(self.connections.count)")
-        for connection in connections {
-            output.append("\t\(connection.description)")
-        }
         output.append("Openings: \(self.openings.count)")
         for opening in openings {
             output.append("\t\(opening.description)")
@@ -59,41 +54,32 @@ class Tile: Matchable, Rotatable, CustomStringConvertible, Hashable, Equatable {
     
 
     
-    func rotate(direction: RotationDirection) -> Void {
+    func rotate(direction: RotationDirection) -> Direction {
         for opening in openings {
             opening.rotate(direction)
         }
         self.rotation = self.rotation.rotate(direction)
+        return self.rotation
+        
      }
     
-    func connectedToDirection(direction: Direction) -> Bool {
-        return connections.filter({$0.direction == direction}).count > 0
-    }
     
-    func flip(transform: Transform) {
+    func flip(transform: Transform) -> Void {
         switch transform {
         case .Vertical: self.flippedVertically = !self.flippedVertically
         case .Horizontal: self.flippedHorizontally = !self.flippedHorizontally
         }
-    }
-    
-    func isConnected() -> Bool {
         for opening in openings {
-            if !connectedToDirection(opening.direction) {
-                return false
-            }
+            opening.flip(transform)
         }
-        return true
     }
     
-    func connectWith(tile:Tile, direction:Direction) -> Void {
-        connections.append(Connection(direction: direction, from: self, to: tile))
-        tile.connections.append(Connection(direction: direction.opposite(), from: tile, to: self))
-    }
+
     
     func matchWith(other:Tile) -> Bool {
         for opening in self.openings {
             for matchingOpening in other.openings {
+                print("\(self.hashValue) \(opening):\(other.hashValue) \(matchingOpening)")
                 if opening.matchWith(matchingOpening) {
                     return true
                 }

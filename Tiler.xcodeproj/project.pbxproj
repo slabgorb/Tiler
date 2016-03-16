@@ -22,14 +22,15 @@
 		24948F351C95CBC400EB118F /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F341C95CBC400EB118F /* Map.swift */; };
 		24948F371C95DF1800EB118F /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F361C95DF1800EB118F /* Direction.swift */; };
 		24948F391C95E1BF00EB118F /* Opening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F381C95E1BF00EB118F /* Opening.swift */; };
-		24948F3B1C95E1D100EB118F /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F3A1C95E1D100EB118F /* Connection.swift */; };
 		24948F3E1C95E23E00EB118F /* Rotatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F3D1C95E23E00EB118F /* Rotatable.swift */; };
 		24948F401C95E25000EB118F /* Matchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F3F1C95E25000EB118F /* Matchable.swift */; };
 		24948F431C95E2C100EB118F /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F421C95E2C100EB118F /* Size.swift */; };
 		24948F451C95E2D800EB118F /* RotationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F441C95E2D800EB118F /* RotationDirection.swift */; };
 		24948F481C95ED7800EB118F /* UIImage+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F471C95ED7800EB118F /* UIImage+Rotation.swift */; };
 		24948F4A1C95F5EE00EB118F /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F491C95F5EE00EB118F /* Transform.swift */; };
+		24C728041C986558009ED999 /* Flippable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C728031C986558009ED999 /* Flippable.swift */; };
 		24EFBD2E1C96F9E900442921 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFBD2D1C96F9E900442921 /* MapTests.swift */; };
+		24EFBD341C9748DA00442921 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFBD331C9748DA00442921 /* Either.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,14 +72,15 @@
 		24948F341C95CBC400EB118F /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		24948F361C95DF1800EB118F /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		24948F381C95E1BF00EB118F /* Opening.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opening.swift; sourceTree = "<group>"; };
-		24948F3A1C95E1D100EB118F /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		24948F3D1C95E23E00EB118F /* Rotatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rotatable.swift; sourceTree = "<group>"; };
 		24948F3F1C95E25000EB118F /* Matchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matchable.swift; sourceTree = "<group>"; };
 		24948F421C95E2C100EB118F /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		24948F441C95E2D800EB118F /* RotationDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotationDirection.swift; sourceTree = "<group>"; };
 		24948F471C95ED7800EB118F /* UIImage+Rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Rotation.swift"; sourceTree = "<group>"; };
 		24948F491C95F5EE00EB118F /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		24C728031C986558009ED999 /* Flippable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flippable.swift; sourceTree = "<group>"; };
 		24EFBD2D1C96F9E900442921 /* MapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
+		24EFBD331C9748DA00442921 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			children = (
 				24948F3D1C95E23E00EB118F /* Rotatable.swift */,
 				24948F3F1C95E25000EB118F /* Matchable.swift */,
+				24C728031C986558009ED999 /* Flippable.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				24948F421C95E2C100EB118F /* Size.swift */,
 				24948F441C95E2D800EB118F /* RotationDirection.swift */,
 				24948F491C95F5EE00EB118F /* Transform.swift */,
+				24EFBD331C9748DA00442921 /* Either.swift */,
 			);
 			name = Enums;
 			sourceTree = "<group>";
@@ -213,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				2403BC141C88F6A100F79C53 /* Tile.swift */,
-				24948F3A1C95E1D100EB118F /* Connection.swift */,
 				24948F341C95CBC400EB118F /* Map.swift */,
 				2435513A1C937D1B00D7E088 /* Door.swift */,
 				24948F381C95E1BF00EB118F /* Opening.swift */,
@@ -353,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24948F391C95E1BF00EB118F /* Opening.swift in Sources */,
+				24C728041C986558009ED999 /* Flippable.swift in Sources */,
 				2403BC151C88F6A100F79C53 /* Tile.swift in Sources */,
 				24948F331C95CADD00EB118F /* MapView.swift in Sources */,
 				2435513B1C937D1B00D7E088 /* Door.swift in Sources */,
@@ -362,7 +366,7 @@
 				2403BBE91C88F66B00F79C53 /* ViewController.swift in Sources */,
 				24948F451C95E2D800EB118F /* RotationDirection.swift in Sources */,
 				24948F481C95ED7800EB118F /* UIImage+Rotation.swift in Sources */,
-				24948F3B1C95E1D100EB118F /* Connection.swift in Sources */,
+				24EFBD341C9748DA00442921 /* Either.swift in Sources */,
 				24948F3E1C95E23E00EB118F /* Rotatable.swift in Sources */,
 				24948F311C94EA4C00EB118F /* TileView.swift in Sources */,
 				2403BBE71C88F66B00F79C53 /* AppDelegate.swift in Sources */,

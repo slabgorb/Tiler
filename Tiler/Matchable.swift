@@ -15,6 +15,10 @@ protocol Matchable {
 
 
 infix operator ~ {}
-func ~<T: Matchable>(left: T, right: T) -> Bool {
-    return left.matchWith(right)
+func ~<T: Matchable>(left: T?, right: T?) -> Bool {
+    if (left != nil && right != nil) {
+        return left!.matchWith(right!)
+    } else {
+        return true
+    }
 }

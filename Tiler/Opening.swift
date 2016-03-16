@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Opening: Matchable, Rotatable, CustomStringConvertible {
+class Opening: Matchable, Rotatable, Flippable, CustomStringConvertible {
     var direction: Direction
     var size: Size
     var door: Door?
@@ -18,12 +18,12 @@ class Opening: Matchable, Rotatable, CustomStringConvertible {
     }
     
     
-    init(size: Size, _ direction: Direction, door: Door) {
+    init(_ size: Size, _ direction: Direction, door: Door) {
         self.size = size
         self.direction = direction
         self.door = door
     }
-    init(size: Size, _ direction: Direction) {
+    init(_ size: Size, _ direction: Direction) {
         self.size = size
         self.direction = direction
         self.door = nil
@@ -33,8 +33,12 @@ class Opening: Matchable, Rotatable, CustomStringConvertible {
         return opening.size == self.size
     }
     
-    func rotate(direction: RotationDirection) -> Void {
+    func rotate(direction: RotationDirection) -> Direction {
         self.direction = self.direction.rotate(direction)
+        return self.direction
+    }
+    func flip(transform: Transform) -> Void {
+        self.direction.flip(transform)
     }
     
     func matchWith(other:Opening) -> Bool {

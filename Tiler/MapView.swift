@@ -16,13 +16,25 @@ class MapView: UIView {
         super.init(coder: aDecoder)
     }
     
-    func addTileView(tileView: TileView, row: Int, column: Int) {
-        self.tileViews[tileView] = [row, column]
+    func addTileView(tileView: TileView, row: Int, column: Int)  -> Either<String,Bool> {
+        
         if tileView.tile != nil {
-            map.tiles[tileView.tile!] = [row, column]
+            do {
+                try map.add(tileView.tile!, row: row, column: column)
+                self.tileViews[tileView] = [row, column]
+            } catch MapError.TileDoesNotConnect  {
+                return Either.Left("Could not add tile to map, does not connect")
+            } catch MapError.BadColumn  {
+                return Either.Left("Could not add tile to map, bad column")
+            } catch MapError.BadRow  {
+                return Either.Left("Could not add tile to map, bad row")
+            } catch _ {
+                return Either.Left("Unknown error adding tile")
+            }
         }
         let rect = CGRect(x: Double(column) * TileView.height, y: Double(row) * TileView.width,  width: TileView.width, height: TileView.height)
         tileView.frame = rect
         addSubview(tileView)
+        return Either.Right(true)
     }
 }

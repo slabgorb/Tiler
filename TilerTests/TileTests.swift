@@ -22,23 +22,23 @@ class TileTests: XCTestCase {
     }
     
     func testDeadEnd() {
-        let tile1 = Tile(openings:[Opening(size: .Small, .North)])
-        let tile2 = Tile(openings:[Opening(size: .Small, .North), Opening(size: .Large, .East)])
+        let tile1 = Tile(openings:[Opening(.Small, .North)])
+        let tile2 = Tile(openings:[Opening(.Small, .North), Opening(.Large, .East)])
         XCTAssert(tile1.isDeadEnd)
         XCTAssert(!tile2.isDeadEnd)
     }
     
     func testMatchingOpening() {
-        let o1 = Opening(size: .Small, .North)
-        let o2 = Opening(size: .Small, .South)
+        let o1 = Opening(.Small, .North)
+        let o2 = Opening(.Small, .South)
         XCTAssert(o1 ~ o2)
-        let o3 = Opening(size: .Large, .North)
-        let o4 = Opening(size: .Small, .South)
+        let o3 = Opening(.Large, .North)
+        let o4 = Opening(.Small, .South)
         XCTAssert(!(o3 ~ o4))
     }
     
     func testRotation() {
-        let tile = Tile(openings:[Opening(size: .Small, .North)])
+        let tile = Tile(openings:[Opening(.Small, .North)])
         tile.rotate(.Clockwise)
         XCTAssert(tile.rotation == .East)
         XCTAssert(tile.openings[0].direction == .East)
@@ -49,11 +49,20 @@ class TileTests: XCTestCase {
     }
     
     func testMatchingTile() {
-        let tile1 = Tile(openings:[Opening(size: .Small, .North)])
-        let tile2 = Tile(openings:[Opening(size: .Small, .South),Opening(size: .Large, .East)])
-        let tile3 = Tile(openings:[Opening(size: .Small, .North),Opening(size:.Large, .East)])
+        let tile1 = Tile(openings:[Opening(.Small, .North),Opening(.Large, .South)])
+        let tile2 = Tile(openings:[Opening(.Small, .South),Opening(.Large, .East)])
+        let tile3 = Tile(openings:[Opening(.Small, .North),Opening(.Large, .East)])
         XCTAssert(tile1 ~ tile2)
         XCTAssert(!(tile1 ~ tile3) )
+    }
+    
+    func testRotatingMatch() {
+        let tile1 = Tile(openings:[Opening(.Small, .East)])
+        let tile2 = Tile(openings:[Opening(.Small, .South),Opening(.Large, .East)])
+        tile1.rotate(.Counterclockwise)
+        XCTAssert(tile1 ~ tile2)
+        tile1.rotate(.Clockwise)
+        XCTAssert(!(tile1 ~ tile2) )
     }
     
 

@@ -18,9 +18,16 @@ enum Direction: String {
     func toDegrees() -> Float {
         switch self {
         case .North: return 0.0
-        case .East: return 90.0
-        case .South: return 180.0
-        case .West: return 270.0
+        case .East: return -90.0
+        case .South: return -180.0
+        case .West: return -270.0
+        }
+    }
+    
+    func flip(transform: Transform) {
+        switch transform {
+        case .Horizontal: flipHorizontal()
+        case .Vertical: flipVertical()
         }
     }
     

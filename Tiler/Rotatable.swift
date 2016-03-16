@@ -9,5 +9,6 @@
 import Foundation
 
 protocol Rotatable {
-    func rotate(direction: RotationDirection) -> Void
+    func rotate(direction: RotationDirection) -> Direction
+    
 }
