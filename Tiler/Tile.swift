@@ -55,9 +55,12 @@ class Tile: Matchable, Rotatable, Flippable, CustomStringConvertible, Hashable, 
 
     
     func rotate(direction: RotationDirection) -> Direction {
-        for opening in openings {
+        var newOpenings: [Opening] = []
+        for var opening in openings {
             opening.rotate(direction)
+            newOpenings.append(opening)
         }
+        self.openings = newOpenings
         self.rotation = self.rotation.rotate(direction)
         return self.rotation
         

@@ -57,11 +57,21 @@ class TileTests: XCTestCase {
     }
     
     func testRotatingMatch() {
-        let tile1 = Tile(openings:[Opening(.Small, .East)])
-        let tile2 = Tile(openings:[Opening(.Small, .South),Opening(.Large, .East)])
+        let openings = [
+            Opening(.Small, .West),
+            Opening(.Small, .North)
+        ]
+        let tile1 = Tile(openings:openings)
+        let tile2 = Tile(openings:openings)
         tile1.rotate(.Counterclockwise)
+        tile1.rotate(.Counterclockwise)
+        print(tile1)
+        print(tile2)
         XCTAssert(tile1 ~ tile2)
         tile1.rotate(.Clockwise)
+        tile1.rotate(.Clockwise)
+        print(tile1)
+        print(tile2)
         XCTAssert(!(tile1 ~ tile2) )
     }
     
