@@ -15,6 +15,7 @@
 		2403BBFC1C88F66C00F79C53 /* TileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403BBFB1C88F66C00F79C53 /* TileTests.swift */; };
 		2403BC071C88F66C00F79C53 /* TilerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403BC061C88F66C00F79C53 /* TilerUITests.swift */; };
 		2403BC151C88F6A100F79C53 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403BC141C88F6A100F79C53 /* Tile.swift */; };
+		2418D5591CA31BCD0041AC47 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 2418D5581CA31BCD0041AC47 /* Podfile */; };
 		2435513B1C937D1B00D7E088 /* Door.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435513A1C937D1B00D7E088 /* Door.swift */; };
 		243551461C93ABC400D7E088 /* DoorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243551451C93ABC400D7E088 /* DoorTests.swift */; };
 		24948F311C94EA4C00EB118F /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F301C94EA4C00EB118F /* TileView.swift */; };
@@ -65,6 +66,7 @@
 		2403BC061C88F66C00F79C53 /* TilerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilerUITests.swift; sourceTree = "<group>"; };
 		2403BC081C88F66C00F79C53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2403BC141C88F6A100F79C53 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		2418D5581CA31BCD0041AC47 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Podfile; path = Tiler/Podfile; sourceTree = "<group>"; };
 		2435513A1C937D1B00D7E088 /* Door.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Door.swift; sourceTree = "<group>"; };
 		243551451C93ABC400D7E088 /* DoorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoorTests.swift; sourceTree = "<group>"; };
 		24948F301C94EA4C00EB118F /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		2403BBDA1C88F66B00F79C53 = {
 			isa = PBXGroup;
 			children = (
+				2418D5581CA31BCD0041AC47 /* Podfile */,
 				2403BBE51C88F66B00F79C53 /* Tiler */,
 				2403BBFA1C88F66C00F79C53 /* TilerTests */,
 				2403BC051C88F66C00F79C53 /* TilerUITests */,
@@ -330,6 +333,7 @@
 			files = (
 				2403BBF11C88F66B00F79C53 /* LaunchScreen.storyboard in Resources */,
 				2403BBEE1C88F66B00F79C53 /* Assets.xcassets in Resources */,
+				2418D5591CA31BCD0041AC47 /* Podfile in Resources */,
 				2403BBEC1C88F66B00F79C53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
