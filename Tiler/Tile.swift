@@ -82,7 +82,6 @@ class Tile: Matchable, Rotatable, Flippable, CustomStringConvertible, Hashable, 
     func matchWith(other:Tile) -> Bool {
         for opening in self.openings {
             for matchingOpening in other.openings {
-                print("\(self.hashValue) \(opening):\(other.hashValue) \(matchingOpening)")
                 if opening.matchWith(matchingOpening) {
                     return true
                 }

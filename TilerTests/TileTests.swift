@@ -65,13 +65,9 @@ class TileTests: XCTestCase {
         let tile2 = Tile(openings:openings)
         tile1.rotate(.Counterclockwise)
         tile1.rotate(.Counterclockwise)
-        print(tile1)
-        print(tile2)
         XCTAssert(tile1 ~ tile2)
         tile1.rotate(.Clockwise)
         tile1.rotate(.Clockwise)
-        print(tile1)
-        print(tile2)
         XCTAssert(!(tile1 ~ tile2) )
     }
     
