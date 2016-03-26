@@ -16,7 +16,6 @@ import UIKit
     @IBOutlet weak var stepperRow: UIStepper!
     @IBOutlet weak var stepperColumn: UIStepper!
     @IBOutlet weak var buttonMapName: UIButton!
-    @IBOutlet weak var buttonAdd: UIButton!
     @IBOutlet weak var buttonOK: UIButton!
     /*
     // Only override drawRect: if you perform custom drawing.

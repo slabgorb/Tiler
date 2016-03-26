@@ -30,7 +30,6 @@ class Map: CustomStringConvertible {
     // MARK: Properties
     var tiles: [Tile:[Int]] = [:]
     var title: String?
-
     
     var description: String {
         var output:[String] =  ["MAP\n"]
