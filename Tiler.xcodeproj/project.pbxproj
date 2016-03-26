@@ -35,6 +35,7 @@
 		24DA4A1F1CA72681005EDF71 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DA4A1E1CA72681005EDF71 /* MapTableViewCell.swift */; };
 		24EFBD2E1C96F9E900442921 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFBD2D1C96F9E900442921 /* MapTests.swift */; };
 		24EFBD341C9748DA00442921 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFBD331C9748DA00442921 /* Either.swift */; };
+		7D76A1031CA74ED1004CA3B8 /* FileSaveHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76A1021CA74ED1004CA3B8 /* FileSaveHelper.swift */; };
 		BF11D3F115554FBCA5909030 /* Pods_Tiler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE538244737F2468AB68F93A /* Pods_Tiler.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		24EFBD2D1C96F9E900442921 /* MapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
 		24EFBD331C9748DA00442921 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		5EEFA50C4CEBB9DE91B6EE26 /* Pods-Tiler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tiler/Pods-Tiler.release.xcconfig"; sourceTree = "<group>"; };
+		7D76A1021CA74ED1004CA3B8 /* FileSaveHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSaveHelper.swift; sourceTree = "<group>"; };
 		8FB1D33F787124EF8087EB8F /* Pods-Tiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tiler/Pods-Tiler.debug.xcconfig"; sourceTree = "<group>"; };
 		EE538244737F2468AB68F93A /* Pods_Tiler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tiler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -156,6 +158,7 @@
 				2403BBE61C88F66B00F79C53 /* AppDelegate.swift */,
 				2403BBED1C88F66B00F79C53 /* Assets.xcassets */,
 				2403BBF21C88F66B00F79C53 /* Info.plist */,
+				7D76A1021CA74ED1004CA3B8 /* FileSaveHelper.swift */,
 			);
 			path = Tiler;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D76A1031CA74ED1004CA3B8 /* FileSaveHelper.swift in Sources */,
 				24948F391C95E1BF00EB118F /* Opening.swift in Sources */,
 				24C728041C986558009ED999 /* Flippable.swift in Sources */,
 				2403BC151C88F6A100F79C53 /* Tile.swift in Sources */,
