@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -11,93 +10,34 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tiler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dkX-Lp-Nxz"/>
-                        <viewControllerLayoutGuide type="bottom" id="Zq3-oi-GuB"/>
+                        <viewControllerLayoutGuide type="top" id="4Cv-tS-AmP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fed-wn-OVk"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="k13-eo-qX8" userLabel="mapView" customClass="MapView" customModule="Tiler" customModuleProvider="target">
+                    <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" id="lIW-ux-kTO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lA4-a4-0x5">
-                                <rect key="frame" x="205" y="35" width="30" height="30"/>
-                                <state key="normal" title="Add"/>
-                                <connections>
-                                    <action selector="buttonAddPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NIy-1x-OPi"/>
-                                </connections>
-                            </button>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" autorepeat="NO" wraps="YES" value="1" minimumValue="1" maximumValue="35" translatesAutoresizingMaskIntoConstraints="NO" id="qZP-BA-JTH">
-                                <rect key="frame" x="265" y="20" width="94" height="29"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6f-gd-sUy" customClass="MapControlsView" customModule="Tiler" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="H5X-T2-dwP"/>
-                                    <constraint firstAttribute="width" constant="94" id="de4-nG-f07"/>
+                                    <constraint firstAttribute="height" constant="110" id="4IU-Fl-je0"/>
                                 </constraints>
-                                <connections>
-                                    <action selector="stepperRowChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="IzL-Sn-l9l"/>
-                                </connections>
-                            </stepper>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" autorepeat="NO" wraps="YES" value="1" minimumValue="1" maximumValue="35" translatesAutoresizingMaskIntoConstraints="NO" id="sFf-1J-Kx0">
-                                <rect key="frame" x="265" y="48" width="94" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="94" id="3CW-Ye-Mto"/>
-                                    <constraint firstAttribute="height" constant="29" id="egO-PL-OAo"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="stepperColumnChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="zBk-ch-XFe"/>
-                                </connections>
-                            </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6c-DU-fdS">
-                                <rect key="frame" x="250" y="52" width="8" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1M-Fe-gGo">
-                                <rect key="frame" x="250" y="24" width="8" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOk-gf-CpF" customClass="MapView" customModule="Tiler" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="110" width="375" height="557"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="qZP-BA-JTH" firstAttribute="leading" secondItem="Z1M-Fe-gGo" secondAttribute="trailing" constant="7" id="0vT-bh-cxI"/>
-                            <constraint firstItem="sFf-1J-Kx0" firstAttribute="centerX" secondItem="e6c-DU-fdS" secondAttribute="centerX" id="6KP-Y7-p8G"/>
-                            <constraint firstItem="qZP-BA-JTH" firstAttribute="leading" secondItem="lA4-a4-0x5" secondAttribute="trailing" constant="30" id="7KZ-bs-7V5"/>
-                            <constraint firstItem="sFf-1J-Kx0" firstAttribute="leading" secondItem="e6c-DU-fdS" secondAttribute="trailing" constant="7" id="8hX-1F-lN1"/>
-                            <constraint firstItem="e6c-DU-fdS" firstAttribute="trailing" secondItem="Z1M-Fe-gGo" secondAttribute="trailing" id="M9d-ca-bry"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="sFf-1J-Kx0" secondAttribute="trailing" id="RHd-5h-FUt"/>
-                            <constraint firstItem="qZP-BA-JTH" firstAttribute="trailing" secondItem="k13-eo-qX8" secondAttribute="trailingMargin" id="RND-8V-aoj"/>
-                            <constraint firstItem="Z1M-Fe-gGo" firstAttribute="top" secondItem="dkX-Lp-Nxz" secondAttribute="bottom" constant="4" id="RNi-Nj-mjk"/>
-                            <constraint firstItem="qZP-BA-JTH" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="k13-eo-qX8" secondAttribute="trailingMargin" id="T7e-lv-Pgv"/>
-                            <constraint firstItem="qZP-BA-JTH" firstAttribute="top" secondItem="dkX-Lp-Nxz" secondAttribute="bottom" id="bpe-3E-dvW"/>
-                            <constraint firstItem="lA4-a4-0x5" firstAttribute="top" secondItem="dkX-Lp-Nxz" secondAttribute="bottom" constant="15" id="jUY-es-iMw"/>
-                            <constraint firstItem="e6c-DU-fdS" firstAttribute="top" secondItem="Z1M-Fe-gGo" secondAttribute="bottom" constant="7" id="kDE-q5-7Un"/>
-                            <constraint firstItem="qZP-BA-JTH" firstAttribute="centerX" secondItem="Z1M-Fe-gGo" secondAttribute="centerX" id="lD4-nr-PaY"/>
-                            <constraint firstItem="sFf-1J-Kx0" firstAttribute="top" secondItem="dkX-Lp-Nxz" secondAttribute="bottom" constant="28" id="oWH-1R-WbZ"/>
-                            <constraint firstItem="qZP-BA-JTH" firstAttribute="leading" secondItem="Z1M-Fe-gGo" secondAttribute="trailing" constant="7" id="pyh-Aj-yXe"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="RND-8V-aoj"/>
-                                <exclude reference="lD4-nr-PaY"/>
-                                <exclude reference="pyh-Aj-yXe"/>
-                                <exclude reference="6KP-Y7-p8G"/>
-                            </mask>
-                        </variation>
-                    </view>
+                    </stackView>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="buttonAdd" destination="lA4-a4-0x5" id="XIZ-3w-W0f"/>
-                        <outlet property="lblColumn" destination="e6c-DU-fdS" id="q9b-jv-9Gp"/>
-                        <outlet property="lblRow" destination="Z1M-Fe-gGo" id="XgU-Pp-wBR"/>
-                        <outlet property="mapView" destination="k13-eo-qX8" id="IwL-bc-UxK"/>
-                        <outlet property="stepperColumn" destination="sFf-1J-Kx0" id="fnq-65-T77"/>
-                        <outlet property="stepperRow" destination="qZP-BA-JTH" id="6Yn-rp-dOk"/>
+                        <outlet property="mapView" destination="dOk-gf-CpF" id="qXa-d9-OFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="294.5" y="273.5"/>
+            <point key="canvasLocation" x="-116.5" y="208.5"/>
         </scene>
     </scenes>
 </document>

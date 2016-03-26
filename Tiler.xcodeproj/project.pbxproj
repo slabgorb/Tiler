@@ -15,6 +15,9 @@
 		2403BBFC1C88F66C00F79C53 /* TileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403BBFB1C88F66C00F79C53 /* TileTests.swift */; };
 		2403BC071C88F66C00F79C53 /* TilerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403BC061C88F66C00F79C53 /* TilerUITests.swift */; };
 		2403BC151C88F6A100F79C53 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2403BC141C88F6A100F79C53 /* Tile.swift */; };
+		2429F7CF1CA415930097D24E /* MapControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2429F7CE1CA415930097D24E /* MapControls.xib */; };
+		2429F7D11CA418FC0097D24E /* MapControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2429F7D01CA418FC0097D24E /* MapControlsView.swift */; };
+		2429F7ED1CA451850097D24E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2429F7EC1CA451850097D24E /* UIView.swift */; };
 		2435513B1C937D1B00D7E088 /* Door.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435513A1C937D1B00D7E088 /* Door.swift */; };
 		243551461C93ABC400D7E088 /* DoorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243551451C93ABC400D7E088 /* DoorTests.swift */; };
 		24948F311C94EA4C00EB118F /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F301C94EA4C00EB118F /* TileView.swift */; };
@@ -66,6 +69,9 @@
 		2403BC061C88F66C00F79C53 /* TilerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TilerUITests.swift; sourceTree = "<group>"; };
 		2403BC081C88F66C00F79C53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2403BC141C88F6A100F79C53 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		2429F7CE1CA415930097D24E /* MapControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapControls.xib; sourceTree = "<group>"; };
+		2429F7D01CA418FC0097D24E /* MapControlsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapControlsView.swift; sourceTree = "<group>"; };
+		2429F7EC1CA451850097D24E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		2435513A1C937D1B00D7E088 /* Door.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Door.swift; sourceTree = "<group>"; };
 		243551451C93ABC400D7E088 /* DoorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoorTests.swift; sourceTree = "<group>"; };
 		24948F301C94EA4C00EB118F /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
@@ -142,8 +148,9 @@
 				24948F411C95E2AB00EB118F /* Enums */,
 				24E788201C9085A2004F766B /* Models */,
 				24948F3C1C95E23100EB118F /* Protocols */,
-				24948F2F1C94EA2700EB118F /* Views */,
 				24948F4B1C95F99200EB118F /* Storyboards */,
+				2429F7D21CA41CC90097D24E /* ViewControllers */,
+				24948F2F1C94EA2700EB118F /* Views */,
 				2403BBE61C88F66B00F79C53 /* AppDelegate.swift */,
 				2403BBED1C88F66B00F79C53 /* Assets.xcassets */,
 				2403BBF21C88F66B00F79C53 /* Info.plist */,
@@ -171,12 +178,20 @@
 			path = TilerUITests;
 			sourceTree = "<group>";
 		};
-		24948F2F1C94EA2700EB118F /* Views */ = {
+		2429F7D21CA41CC90097D24E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				2403BBE81C88F66B00F79C53 /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		24948F2F1C94EA2700EB118F /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				24948F301C94EA4C00EB118F /* TileView.swift */,
 				24948F321C95CADD00EB118F /* MapView.swift */,
+				2429F7D01CA418FC0097D24E /* MapControlsView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -207,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				24948F471C95ED7800EB118F /* UIImage+Rotation.swift */,
+				2429F7EC1CA451850097D24E /* UIView.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -216,6 +232,7 @@
 			children = (
 				2403BBEA1C88F66B00F79C53 /* Main.storyboard */,
 				2403BBEF1C88F66B00F79C53 /* LaunchScreen.storyboard */,
+				2429F7CE1CA415930097D24E /* MapControls.xib */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -357,6 +374,7 @@
 			files = (
 				2403BBF11C88F66B00F79C53 /* LaunchScreen.storyboard in Resources */,
 				2403BBEE1C88F66B00F79C53 /* Assets.xcassets in Resources */,
+				2429F7CF1CA415930097D24E /* MapControls.xib in Resources */,
 				2403BBEC1C88F66B00F79C53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,11 +455,13 @@
 				2435513B1C937D1B00D7E088 /* Door.swift in Sources */,
 				24948F371C95DF1800EB118F /* Direction.swift in Sources */,
 				24948F351C95CBC400EB118F /* Map.swift in Sources */,
+				2429F7D11CA418FC0097D24E /* MapControlsView.swift in Sources */,
 				24948F4A1C95F5EE00EB118F /* Transform.swift in Sources */,
 				2403BBE91C88F66B00F79C53 /* ViewController.swift in Sources */,
 				24948F451C95E2D800EB118F /* RotationDirection.swift in Sources */,
 				24948F481C95ED7800EB118F /* UIImage+Rotation.swift in Sources */,
 				24EFBD341C9748DA00442921 /* Either.swift in Sources */,
+				2429F7ED1CA451850097D24E /* UIView.swift in Sources */,
 				24948F3E1C95E23E00EB118F /* Rotatable.swift in Sources */,
 				24948F311C94EA4C00EB118F /* TileView.swift in Sources */,
 				2403BBE71C88F66B00F79C53 /* AppDelegate.swift in Sources */,
