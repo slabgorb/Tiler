@@ -20,6 +20,8 @@ class Tile: NSObject, Matchable, Rotatable, Flippable, NSCoding {
     var backgroundImageName: String?
     var flippedVertically: Bool = false
     var flippedHorizontally: Bool = false
+    var row:Int32 = 0
+    var column: Int32 = 0
     
     struct PropertyKey {
         static let imageNameKey = "imageName"
@@ -28,6 +30,8 @@ class Tile: NSObject, Matchable, Rotatable, Flippable, NSCoding {
         static let flippedVerticallyKey = "flippedVertically"
         static let flippedHorizontallyKey = "flippedHorizontally"
         static let openingsKey = "openings"
+        static let rowKey = "row"
+        static let columnKey = "column"
     }
     
     override var description:String {
@@ -67,7 +71,11 @@ class Tile: NSObject, Matchable, Rotatable, Flippable, NSCoding {
         }
         self.flippedHorizontally = aDecoder.decodeBoolForKey(PropertyKey.flippedHorizontallyKey)
         self.flippedVertically = aDecoder.decodeBoolForKey(PropertyKey.flippedVerticallyKey)
-        
+        self.row = aDecoder.decodeIntForKey(PropertyKey.rowKey)
+        self.column = aDecoder.decodeIntForKey(PropertyKey.columnKey)
+        if let openingRawArray = aDecoder.decodeObjectForKey(PropertyKey.openingsKey) as? [NSDictionary] {
+            self.openings = openingRawArray.map({Opening(propertyListRepresentation: $0)!})
+        }
     }
     
     func encodeWithCoder(aCoder: NSCoder) {
@@ -76,7 +84,9 @@ class Tile: NSObject, Matchable, Rotatable, Flippable, NSCoding {
         aCoder.encodeBool(self.flippedVertically, forKey: PropertyKey.flippedVerticallyKey)
         aCoder.encodeObject(self.imageName, forKey: PropertyKey.imageNameKey)
         aCoder.encodeObject(self.backgroundImageName, forKey: PropertyKey.backgroundImageNameKey)
-        
+        aCoder.encodeInt(self.row, forKey: PropertyKey.rowKey)
+        aCoder.encodeInt(self.column, forKey: PropertyKey.columnKey)
+        aCoder.encodeObject(openings.map({$0.propertyListRepresentation()}), forKey: PropertyKey.openingsKey)
         
     }
     
