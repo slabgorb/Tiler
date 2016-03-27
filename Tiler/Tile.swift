@@ -53,13 +53,20 @@ class Tile: NSObject, Matchable, Rotatable, Flippable, NSCoding {
  
     // MARK: Initializers
     
-    init(openings:[Opening], imageName: String?, backgroundImageName: String? ) {
+    init(openings:[Opening], imageName: String?, backgroundImageName: String?, row:Int, column: Int ) {
         self.openings = openings
         self.imageName = imageName
         self.backgroundImageName = backgroundImageName
+        self.row = Int32(row)
+        self.column = Int32(column)
         super.init()
     }
+    
+    convenience init(openings:[Opening], imageName: String?, backgroundImageName: String? ) {
+        self.init(openings:openings, imageName:imageName, backgroundImageName: backgroundImageName, row:0, column:0)
+    }
 
+    
     // MARK:- Serialize/Deserialize 
     required init?(coder aDecoder: NSCoder) {
         self.imageName = aDecoder.decodeObjectForKey(PropertyKey.imageNameKey) as? String

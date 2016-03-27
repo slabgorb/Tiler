@@ -11,13 +11,18 @@ import UIKit
 class MapListTableViewController: UITableViewController {
 
     var mapList:MapList?
+    var selectedMap: Map?
     
     @IBOutlet weak var editMapBarButton: UIBarButtonItem!
     @IBOutlet weak var addMapBarButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         if let savedMaps = loadMaps() {
-            mapList = savedMaps
+            if savedMaps.count > 0 {
+                mapList = savedMaps
+            } else {
+                mapList = loadSampleMaps()
+            }
         } else {
             mapList = loadSampleMaps()
         }
@@ -52,19 +57,19 @@ class MapListTableViewController: UITableViewController {
         return cell
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedMap = mapList!.get(indexPath.row)
+    }
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             mapList!.remove(indexPath.row)
-            // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            if mapList!.count == 0 {
+                mapList = loadSampleMaps()
+                finishEditing()
+            }
         } else if editingStyle == .Insert {
             let newMap = Map(title: "Untitled")
             mapList!.append(newMap)
@@ -87,24 +92,37 @@ class MapListTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if (segue.identifier  == "MapSegue") {
+            let viewController = segue.destinationViewController as! MapViewController
+            selectedMap = mapList!.get(tableView.indexPathForSelectedRow!.row)
+            viewController.mapView = MapView()
+            viewController.mapView.map = selectedMap
+        }
+        
     }
-    */
+
+    // MARK: - Editing
+    func finishEditing() {
+        self.tableView.setEditing(false, animated: true)
+        saveMaps()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editMapList:")
+        tableView.reloadData()
+    }
+    
+    func startEditing() {
+        self.tableView.setEditing(true, animated: true)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "editMapList:")
+    }
     
     @IBAction func editMapList(sender: UIBarButtonItem) {
         if self.tableView.editing {
-            self.tableView.setEditing(false, animated: true)
-            saveMaps()
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editMapList:")
+            finishEditing()
         } else {
-            self.tableView.setEditing(true, animated: true)
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "editMapList:")
+            startEditing()
         }
 
     }
@@ -116,9 +134,23 @@ class MapListTableViewController: UITableViewController {
     }
     
     func loadSampleMaps() -> MapList {
+        let openings = [
+            Opening(.Small, .West),
+            Opening(.Small, .North)
+        ]
+        let tile1 = Tile(openings: openings, imageName: "bend", backgroundImageName: "texture1", row: 0, column: 0)
+        let tile2 = Tile(openings: openings, imageName: "bend", backgroundImageName: "texture1", row: 0, column: 1)
+        let tile3 = Tile(openings: openings, imageName: "bend", backgroundImageName: "texture1", row: 1, column: 0)
+        let tile4 = Tile(openings: openings, imageName: "bend", backgroundImageName: "texture1", row: 1, column: 1)
+        tile1.rotate(.Clockwise)
+        tile3.rotate(.Counterclockwise)
+        tile4.rotate(.Clockwise)
+        tile4.rotate(.Clockwise)
+        let map1 = Map(title: "Sample Map 1", tiles:[tile1, tile2, tile3, tile4])
+        let map2 = Map(title: "Sample Map 2", tiles:[tile1, tile2, tile3, tile4])
         return MapList(maps:[
-            Map(title:"One"),
-            Map(title:"Two")
+            map1,
+            map2
         ])
         
     }

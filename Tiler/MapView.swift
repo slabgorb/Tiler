@@ -9,23 +9,11 @@
 import UIKit
 
 class MapView: UIView {
-    var map: Map
+    var map: Map?
     var zoom: Double = 1.0
     var tileViews:[TileView] = []
 
-    required init?(coder aDecoder: NSCoder) {
-        self.map = Map(title: "Untitled")
-        super.init(coder: aDecoder)
-    }
-    
-    init(map:Map) {
-        self.map = map
-        for tile in map.tiles {
-            tileViews.append(TileView(tile: tile))
-        }
-        super.init(frame: CGRectZero)
-    }
-    
+ 
     func drawTiles() {
         for view in tileViews {
             drawTileView(view)
@@ -36,7 +24,7 @@ class MapView: UIView {
         
         if tileView.tile != nil {
             do {
-                try map.add(tileView.tile!, row: row, column: column)
+                try map?.add(tileView.tile!, row: row, column: column)
                 self.tileViews.append(tileView)
             } catch MapError.TileDoesNotConnect  {
                 return Either.Left("Could not add tile to map, does not connect")

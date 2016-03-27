@@ -52,9 +52,14 @@ class Map: NSObject, NSCoding {
     }
     
     // MARK:- Initializers
-    init(title: String) {
+    convenience init(title: String) {
+        self.init(title: title, tiles:[])
+    }
+    
+    init(title:String, tiles:[Tile]) {
         self.title = title
-        self.tiles = []
+        self.tiles = tiles
+        
     }
     
     // MARK:- NSCoding

@@ -40,7 +40,7 @@
                                 <connections>
                                     <outlet property="detailLabel" destination="mPs-h8-rGU" id="kTU-ww-tAj"/>
                                     <outlet property="titleLabel" destination="S9h-SD-tuh" id="jwZ-vS-gn8"/>
-                                    <segue destination="T7Q-4a-C1Z" kind="show" id="teJ-wS-2we"/>
+                                    <segue destination="T7Q-4a-C1Z" kind="show" identifier="MapSegue" id="teJ-wS-2we"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -83,6 +83,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="bag-DK-ymL" id="Hwz-2S-iKG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGK-E7-osQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
