@@ -9,7 +9,7 @@
         <scene sceneID="2Sq-AO-WPI">
             <objects>
                 <tableViewController title="Map List" id="w0b-et-JeJ" customClass="MapListTableViewController" customModule="Tiler" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qjd-0q-Xzc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qjd-0q-Xzc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -49,12 +49,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Maps" id="WxX-Lg-kXJ">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="edit" id="HIo-fa-qiK">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="edit" id="HIo-fa-qiK">
                             <connections>
                                 <action selector="editMapList:" destination="w0b-et-JeJ" id="8BF-fq-2TD"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="amH-lX-MMU">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="amH-lX-MMU">
                             <connections>
                                 <action selector="addMap:" destination="w0b-et-JeJ" id="xAM-va-IgO"/>
                             </connections>

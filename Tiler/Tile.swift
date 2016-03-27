@@ -8,25 +8,29 @@
 
 import Foundation
 
-func ==(lhs: Tile, rhs: Tile) -> Bool {
-    return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
-}
 
-class Tile: Matchable, Rotatable, Flippable, CustomStringConvertible, Hashable, Equatable {
+
+class Tile: NSObject, Matchable, Rotatable, Flippable, NSCoding {
     static var current:Int = 0
  
     // MARK: Properties
     var openings: [Opening] = []
     var rotation: Direction = .North
     var imageName: String?
+    var backgroundImageName: String?
     var flippedVertically: Bool = false
     var flippedHorizontally: Bool = false
-    var hashValue: Int  = {
-        Tile.current += 1
-        return Tile.current
-    }()
     
-    var description:String {
+    struct PropertyKey {
+        static let imageNameKey = "imageName"
+        static let backgroundImageNameKey = "backgroundImageName"
+        static let rotationKey = "rotation"
+        static let flippedVerticallyKey = "flippedVertically"
+        static let flippedHorizontallyKey = "flippedHorizontally"
+        static let openingsKey = "openings"
+    }
+    
+    override var description:String {
         var output:[String] = ["Tile Object #\(hashValue)"]
         output.append("Image: \(self.imageName)")
         output.append("Rotation: \(self.rotation) \(self.rotation.toDegrees())")
@@ -45,14 +49,40 @@ class Tile: Matchable, Rotatable, Flippable, CustomStringConvertible, Hashable, 
  
     // MARK: Initializers
     
-    init(openings:[Opening], imageName: String = "") {
+    init(openings:[Opening], imageName: String?, backgroundImageName: String? ) {
         self.openings = openings
         self.imageName = imageName
+        self.backgroundImageName = backgroundImageName
+        super.init()
     }
 
+    // MARK:- Serialize/Deserialize 
+    required init?(coder aDecoder: NSCoder) {
+        self.imageName = aDecoder.decodeObjectForKey(PropertyKey.imageNameKey) as? String
+        self.backgroundImageName = aDecoder.decodeObjectForKey(PropertyKey.backgroundImageNameKey) as? String
+        if let rotationDirectionString = aDecoder.decodeObjectForKey(PropertyKey.rotationKey) as? String {
+            if let rotationDirection =  Direction(rawValue:rotationDirectionString) {
+                self.rotation = rotationDirection
+            }
+        }
+        self.flippedHorizontally = aDecoder.decodeBoolForKey(PropertyKey.flippedHorizontallyKey)
+        self.flippedVertically = aDecoder.decodeBoolForKey(PropertyKey.flippedVerticallyKey)
+        
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.rotation.rawValue, forKey: PropertyKey.rotationKey)
+        aCoder.encodeBool(self.flippedHorizontally, forKey: PropertyKey.flippedHorizontallyKey)
+        aCoder.encodeBool(self.flippedVertically, forKey: PropertyKey.flippedVerticallyKey)
+        aCoder.encodeObject(self.imageName, forKey: PropertyKey.imageNameKey)
+        aCoder.encodeObject(self.backgroundImageName, forKey: PropertyKey.backgroundImageNameKey)
+        
+        
+    }
+    
     // MARK: Methods
     
-
+    
     
     func rotate(direction: RotationDirection) -> Direction {
         var newOpenings: [Opening] = []

@@ -12,21 +12,14 @@ import Foundation
 struct Opening: Matchable,  Flippable, CustomStringConvertible {
     var direction: Direction
     var size: Size
-    var door: Door?
     var description: String {
         return String(format: "Direction: %10@ Size: %10@", arguments: [direction.rawValue, size.rawValue])
     }
     
-    
-    init(_ size: Size, _ direction: Direction, door: Door) {
-        self.size = size
-        self.direction = direction
-        self.door = door
-    }
+
     init(_ size: Size, _ direction: Direction) {
         self.size = size
         self.direction = direction
-        self.door = nil
     }
     
     func matchSize(opening: Opening) -> Bool {
@@ -49,4 +42,25 @@ struct Opening: Matchable,  Flippable, CustomStringConvertible {
         case .West: return other.direction == .East && matchSize(other)
         }
     }
+
 }
+// MARK:- Property List Readable
+extension Opening: PropertyListReadable  {
+    
+    func propertyListRepresentation() -> NSDictionary {
+        let representation:[String:AnyObject] = [
+            "size": self.size.rawValue,
+            "direction": self.direction.rawValue,
+        ]
+        return representation
+    }
+    
+    init?(propertyListRepresentation:NSDictionary?) {
+        guard let values = propertyListRepresentation else { return nil }
+        guard let sizeString = values["size"] as? String else { return nil }
+        guard let directionString = values["direction"] as? String else { return nil }
+        self.size = Size(rawValue: sizeString)!
+        self.direction = Direction(rawValue: directionString)!
+    }
+}
+

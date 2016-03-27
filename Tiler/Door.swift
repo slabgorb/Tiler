@@ -7,27 +7,35 @@
 //
 
 import Foundation
-class Door  {
-    enum Mechanism {
-        case OpensIn
-        case OpensOut
-        case SlidesHorizontal
-        case Secret
+class Door:NSObject, NSCoding {
+    // MARK:- Mechanism
+    enum Mechanism:String {
+        case OpensIn = "Opens In"
+        case OpensOut = "Opens Out"
+        case SlidesHorizontal = "Slides Horizontally"
+        case Secret = "Secret"
     }
     
-    enum OpenState {
-        case Open, Closed
+    // MARK:- OpenState
+    enum OpenState: String {
+        case Open = "Open"
+        case Closed = "Closed"
     }
     
-    enum LockState {
-        case Locked, Unlocked
+    // MARK:- LockState
+    enum LockState: String {
+        case Locked = "Locked"
+        case Unlocked = "Unlocked"
     }
     
+    // MARK:- Properties
     var mechanism: Mechanism = .OpensIn
     var isOpen: OpenState = .Open
     var isLocked: LockState = .Unlocked
     
-    init () { }
+    // MARK:- Initialization
+    override init () { }
+    
     
     convenience init (mechanism: Mechanism) {
         self.init()
@@ -43,6 +51,18 @@ class Door  {
         self.isLocked = locked
     }
     
+    // MARK:- Serialization
+    required init?(coder aDecoder: NSCoder) {
+        
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.mechanism.rawValue, forKey: "size")
+        aCoder.encodeObject(self.isOpen.rawValue, forKey: "isOpen")
+        aCoder.encodeObject(self.isLocked.rawValue, forKey: "isLocked")
+    }
+    
+    // MARK:- Methods
     func open(state: OpenState = .Open) {
         self.isOpen = state
     }

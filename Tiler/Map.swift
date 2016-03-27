@@ -95,5 +95,6 @@ class Map: CustomStringConvertible {
         self.title = title
     }
     
+    
     // MARK: Methods
 }

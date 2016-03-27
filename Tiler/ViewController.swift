@@ -38,10 +38,10 @@ class ViewController: UIViewController {
             Opening(.Small, .West),
             Opening(.Small, .North)
         ]
-        let tile1 = Tile(openings: openings, imageName: "bend")
-        let tile2 = Tile(openings: openings, imageName: "bend")
-        let tile3 = Tile(openings: openings, imageName: "bend")
-        let tile4 = Tile(openings: openings, imageName: "bend")
+        let tile1 = Tile(openings: openings, imageName: "bend", backgroundImageName: "")
+        let tile2 = Tile(openings: openings, imageName: "bend", backgroundImageName: "")
+        let tile3 = Tile(openings: openings, imageName: "bend", backgroundImageName: "")
+        let tile4 = Tile(openings: openings, imageName: "bend", backgroundImageName: "")
         tile1.rotate(.Clockwise)
         addTile(tile1, 0, 0)
         addTile(tile2, 0, 1)
