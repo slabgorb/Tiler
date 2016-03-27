@@ -14,7 +14,7 @@ class TileView: UIView {
     let background: UIImage? = UIImage(named: "texture1")
     let grid: UIImage? = UIImage(named: "grid")
     //var image: UIImage?
-    var tile: Tile?
+    var tile: Tile!
 
     init(frame: CGRect, tile: Tile) {
         super.init(frame: frame)

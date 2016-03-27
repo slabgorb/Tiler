@@ -40,6 +40,7 @@
                                 <connections>
                                     <outlet property="detailLabel" destination="mPs-h8-rGU" id="kTU-ww-tAj"/>
                                     <outlet property="titleLabel" destination="S9h-SD-tuh" id="jwZ-vS-gn8"/>
+                                    <segue destination="T7Q-4a-C1Z" kind="show" id="teJ-wS-2we"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -68,6 +69,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEX-pN-dhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-155" y="48"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="4G5-Jq-xhz">
+            <objects>
+                <viewController id="T7Q-4a-C1Z" customClass="MapViewController" customModule="Tiler" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jwE-Jk-VQ8"/>
+                        <viewControllerLayoutGuide type="bottom" id="M7K-lR-XdE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bag-DK-ymL" customClass="MapView" customModule="Tiler" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FGK-E7-osQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="365" y="48"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SOW-fN-N9E">
