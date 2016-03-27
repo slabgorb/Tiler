@@ -10,25 +10,18 @@ import UIKit
 
 class MapListTableViewController: UITableViewController {
 
-    var mapList: [Map] = [
-        Map(title:"One"),
-        Map(title:"Two")
-    ]
+    var mapList:MapList?
     
     @IBOutlet weak var editMapBarButton: UIBarButtonItem!
     @IBOutlet weak var addMapBarButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let testFile = FileSaveHelper(fileName: "testFile", fileExtension: .JSON, subDirectory: "SavedMaps", directory: .DocumentDirectory)
-        
-        //loadMap(Map(title:"Untitled"))
-        
-    
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        if let savedMaps = loadMaps() {
+            mapList = savedMaps
+        } else {
+            mapList = loadSampleMaps()
+        }
+        self.clearsSelectionOnViewWillAppear = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,13 +36,19 @@ class MapListTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mapList.count
+        if let count = mapList?.count {
+            return count
+        } else {
+            return 0
+        }
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> MapTableViewCell {
         let cell:MapTableViewCell = tableView.dequeueReusableCellWithIdentifier("mapTableCell", forIndexPath: indexPath) as! MapTableViewCell
-        let map = mapList[indexPath.row]
-        cell.loadItem(map)
+        if let ml = self.mapList {
+            let map = ml.get(indexPath.row)
+            cell.loadItem(map)
+        }
         return cell
     }
 
@@ -63,20 +62,21 @@ class MapListTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            mapList.removeAtIndex(indexPath.row)
+            mapList!.remove(indexPath.row)
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             let newMap = Map(title: "Untitled")
-            mapList.append(newMap)
+            mapList!.append(newMap)
 
-        }    
+        }
+        saveMaps()
     }
 
 
 
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-        swap(&mapList[fromIndexPath.row], &mapList[toIndexPath.row])
+        mapList!.swapItems(fromIndexPath.row, toIndexPath.row)
     }
 
     /*
@@ -100,6 +100,7 @@ class MapListTableViewController: UITableViewController {
     @IBAction func editMapList(sender: UIBarButtonItem) {
         if self.tableView.editing {
             self.tableView.setEditing(false, animated: true)
+            saveMaps()
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editMapList:")
         } else {
             self.tableView.setEditing(true, animated: true)
@@ -109,11 +110,29 @@ class MapListTableViewController: UITableViewController {
     }
     @IBAction func addMap(sender: UIBarButtonItem) {
         let newMap = Map(title: "Untitled")
-        mapList.append(newMap)
+        mapList!.append(newMap)
         self.tableView.reloadData()
         
     }
     
+    func loadSampleMaps() -> MapList {
+        return MapList(maps:[
+            Map(title:"One"),
+            Map(title:"Two")
+        ])
+        
+    }
+    
+    func loadMaps() -> MapList? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(MapList.ArchiveURL.path!) as? MapList
+    }
+    
+    func saveMaps() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(mapList!, toFile: MapList.ArchiveURL.path!)
+        if !isSuccessfulSave {
+            print("Failed to save maps...")
+        }
+    }
     
 
 }
