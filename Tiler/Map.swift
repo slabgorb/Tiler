@@ -86,7 +86,9 @@ class Map: CustomStringConvertible {
         tiles[tile] = [row, column]
     }
     
-    
+    func details() -> String {
+        return "\(maxRow()):\(maxColumn())"
+    }
     
     // MARK: Initializers
     init(title: String) {

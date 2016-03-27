@@ -24,6 +24,7 @@ class FileSaveHelper {
     enum FileExtension:String {
         case TXT = ".txt"
         case JPG = ".jpg"
+        case PNG = ".png"
         case JSON = ".json"
     }
     
@@ -35,8 +36,8 @@ class FileSaveHelper {
     private let filePath:String
     private let fullyQualifiedPath:String
     private let subDirectory:String
-    
-    
+
+    // MARK:- Properties
     var fileExists:Bool {
         get {
             return fileManager.fileExistsAtPath(fullyQualifiedPath)
@@ -50,6 +51,8 @@ class FileSaveHelper {
         }
     }
     
+    // MARK:- Initializers
+
     convenience init(fileName:String, fileExtension:FileExtension){
         self.init(fileName:fileName, fileExtension:fileExtension, subDirectory:"", directory:.DocumentDirectory)
     }
@@ -58,6 +61,15 @@ class FileSaveHelper {
         self.init(fileName:fileName, fileExtension:fileExtension, subDirectory:subDirectory, directory:.DocumentDirectory)
     }
     
+    /**
+     Initialize the FileSaveHelper Object with parameters
+     
+     - Parameter fileName:      The name of the file
+     - Parameter fileExtension: The file extension
+     - Parameter directory:     The desired sub directory
+     - Parameter saveDirectory: Specify the NSSearchPathDirectory to save the file to
+     
+     */
     init(fileName:String, fileExtension:FileExtension, subDirectory:String, directory:NSSearchPathDirectory){
         self.fileName = fileName + fileExtension.rawValue
         self.subDirectory = "/\(subDirectory)"
@@ -68,6 +80,8 @@ class FileSaveHelper {
         createDirectory()
     }
 
+    
+    // MARK:- File Saving Methods
     private func createDirectory(){
         if !directoryExists {
             do {
@@ -80,12 +94,12 @@ class FileSaveHelper {
     }
 
     /** 
-     Save an image file 
+     Save an image file as PNG
      
      - Parameter image: image to save
     */
     func saveFile(image image:UIImage) throws {
-        guard let data = UIImageJPEGRepresentation(image, 1.0) else {
+        guard let data = UIImagePNGRepresentation(image) else {
             throw FileErrors.ImageNotConvertedToData
         }
         if !fileManager.createFileAtPath(fullyQualifiedPath, contents: data, attributes: nil){
@@ -108,7 +122,7 @@ class FileSaveHelper {
     }
     
     /**
-     Save a plaintext file.
+     Save a json file.
      
      Parameter dataForJson: data to convert to JSON format ans save
      
@@ -157,14 +171,8 @@ class FileSaveHelper {
      Read an image from a file
      */
     func getImage() throws -> UIImage {
-        guard fileExists else {
-            throw FileErrors.FileNotFound
-        }
-        
-        guard let image = UIImage(contentsOfFile: fullyQualifiedPath) else {
-            throw FileErrors.FileNotRead
-        }
-        
+        guard fileExists else { throw FileErrors.FileNotFound }
+        guard let image = UIImage(contentsOfFile: fullyQualifiedPath) else { throw FileErrors.FileNotRead }
         return image
     }
     

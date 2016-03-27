@@ -54,9 +54,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let testFile = FileSaveHelper(fileName: "testFile", fileExtension: .TXT, subDirectory: "SavingFiles", directory: .DocumentDirectory)
 
         //loadMap(Map(title:"Untitled"))
-
+        
+        print("Directory exists: \(testFile.directoryExists)")
+        print("File exists: \(testFile.fileExists)")
 
     }
 

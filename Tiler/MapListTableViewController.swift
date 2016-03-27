@@ -10,9 +10,19 @@ import UIKit
 
 class MapListTableViewController: UITableViewController {
 
+    var mapList: [Map] = [
+        Map(title:"One"),
+        Map(title:"Two")
+    ]
+    
+    @IBOutlet weak var addMapBarButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //let testFile = FileSaveHelper(fileName: "testFile", fileExtension: .JSON, subDirectory: "SavedMaps", directory: .DocumentDirectory)
+        
+        //loadMap(Map(title:"Untitled"))
+        
+    
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -28,24 +38,19 @@ class MapListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return mapList.count
     }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> MapTableViewCell {
+        let cell:MapTableViewCell = tableView.dequeueReusableCellWithIdentifier("mapTableCell", forIndexPath: indexPath) as! MapTableViewCell
+        let map = mapList[indexPath.row]
+        cell.loadItem(map)
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -91,5 +96,14 @@ class MapListTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func addMap(sender: UIBarButtonItem) {
+        let newMap = Map(title: "Untitled")
+        mapList.append(newMap)
+        self.tableView.reloadData()
+        
+    }
+    
+    
 
 }
