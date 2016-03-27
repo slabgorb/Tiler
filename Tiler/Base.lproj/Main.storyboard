@@ -49,6 +49,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Maps" id="WxX-Lg-kXJ">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="edit" id="HIo-fa-qiK">
+                            <connections>
+                                <action selector="editMapList:" destination="w0b-et-JeJ" id="8BF-fq-2TD"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="amH-lX-MMU">
                             <connections>
                                 <action selector="addMap:" destination="w0b-et-JeJ" id="xAM-va-IgO"/>
@@ -57,6 +62,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addMapBarButton" destination="amH-lX-MMU" id="Gym-pA-JBU"/>
+                        <outlet property="editMapBarButton" destination="HIo-fa-qiK" id="ccZ-rP-Ugp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEX-pN-dhY" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -15,6 +15,7 @@ class MapListTableViewController: UITableViewController {
         Map(title:"Two")
     ]
     
+    @IBOutlet weak var editMapBarButton: UIBarButtonItem!
     @IBOutlet weak var addMapBarButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,24 +61,23 @@ class MapListTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
+            mapList.removeAtIndex(indexPath.row)
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            let newMap = Map(title: "Untitled")
+            mapList.append(newMap)
+
         }    
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
+
+
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+        swap(&mapList[fromIndexPath.row], &mapList[toIndexPath.row])
     }
-    */
 
     /*
     // Override to support conditional rearranging of the table view.
@@ -97,6 +97,16 @@ class MapListTableViewController: UITableViewController {
     }
     */
     
+    @IBAction func editMapList(sender: UIBarButtonItem) {
+        if self.tableView.editing {
+            self.tableView.setEditing(false, animated: true)
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editMapList:")
+        } else {
+            self.tableView.setEditing(true, animated: true)
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "editMapList:")
+        }
+
+    }
     @IBAction func addMap(sender: UIBarButtonItem) {
         let newMap = Map(title: "Untitled")
         mapList.append(newMap)
