@@ -19,6 +19,7 @@
 		2429F7ED1CA451850097D24E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2429F7EC1CA451850097D24E /* UIView.swift */; };
 		2435513B1C937D1B00D7E088 /* Door.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2435513A1C937D1B00D7E088 /* Door.swift */; };
 		243551461C93ABC400D7E088 /* DoorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243551451C93ABC400D7E088 /* DoorTests.swift */; };
+		245B6ACB1CAC509900C840A7 /* Tile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 245B6ACA1CAC509900C840A7 /* Tile.storyboard */; };
 		24948F311C94EA4C00EB118F /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F301C94EA4C00EB118F /* TileView.swift */; };
 		24948F331C95CADD00EB118F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F321C95CADD00EB118F /* MapView.swift */; };
 		24948F351C95CBC400EB118F /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F341C95CBC400EB118F /* Map.swift */; };
@@ -33,8 +34,13 @@
 		24C728041C986558009ED999 /* Flippable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C728031C986558009ED999 /* Flippable.swift */; };
 		24DA4A1D1CA725F9005EDF71 /* MapListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DA4A1C1CA725F9005EDF71 /* MapListTableViewController.swift */; };
 		24DA4A1F1CA72681005EDF71 /* MapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DA4A1E1CA72681005EDF71 /* MapTableViewCell.swift */; };
+		24DDC7B31CADB22600B96AD8 /* CircleColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDC7B21CADB22600B96AD8 /* CircleColorButton.swift */; };
 		24EFBD2E1C96F9E900442921 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFBD2D1C96F9E900442921 /* MapTests.swift */; };
 		24EFBD341C9748DA00442921 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFBD331C9748DA00442921 /* Either.swift */; };
+		24FD962F1CADD80B00BC2B93 /* TileCustomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FD962E1CADD80B00BC2B93 /* TileCustomizationViewController.swift */; };
+		24FD96311CADD99000BC2B93 /* backgroundImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24FD96301CADD99000BC2B93 /* backgroundImages.plist */; };
+		24FD96331CADDA2000BC2B93 /* BackgroundItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FD96321CADDA2000BC2B93 /* BackgroundItem.swift */; };
+		24FD96371CAEA3D400BC2B93 /* BackgroundImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FD96361CAEA3D400BC2B93 /* BackgroundImageViewCell.swift */; };
 		7D143C761CA81A6B004CAEF8 /* MapList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D143C751CA81A6B004CAEF8 /* MapList.swift */; };
 		7D76A1031CA74ED1004CA3B8 /* FileSaveHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76A1021CA74ED1004CA3B8 /* FileSaveHelper.swift */; };
 		7D80F5331CA833E3009FE4C6 /* PropertyListReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D80F5321CA833E3009FE4C6 /* PropertyListReadable.swift */; };
@@ -77,6 +83,7 @@
 		2429F7EC1CA451850097D24E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		2435513A1C937D1B00D7E088 /* Door.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Door.swift; sourceTree = "<group>"; };
 		243551451C93ABC400D7E088 /* DoorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoorTests.swift; sourceTree = "<group>"; };
+		245B6ACA1CAC509900C840A7 /* Tile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tile.storyboard; sourceTree = "<group>"; };
 		24948F301C94EA4C00EB118F /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		24948F321C95CADD00EB118F /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		24948F341C95CBC400EB118F /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
@@ -91,8 +98,13 @@
 		24C728031C986558009ED999 /* Flippable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flippable.swift; sourceTree = "<group>"; };
 		24DA4A1C1CA725F9005EDF71 /* MapListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapListTableViewController.swift; sourceTree = "<group>"; };
 		24DA4A1E1CA72681005EDF71 /* MapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTableViewCell.swift; sourceTree = "<group>"; };
+		24DDC7B21CADB22600B96AD8 /* CircleColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleColorButton.swift; sourceTree = "<group>"; };
 		24EFBD2D1C96F9E900442921 /* MapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
 		24EFBD331C9748DA00442921 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
+		24FD962E1CADD80B00BC2B93 /* TileCustomizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileCustomizationViewController.swift; sourceTree = "<group>"; };
+		24FD96301CADD99000BC2B93 /* backgroundImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = backgroundImages.plist; sourceTree = "<group>"; };
+		24FD96321CADDA2000BC2B93 /* BackgroundItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundItem.swift; sourceTree = "<group>"; };
+		24FD96361CAEA3D400BC2B93 /* BackgroundImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundImageViewCell.swift; sourceTree = "<group>"; };
 		5EEFA50C4CEBB9DE91B6EE26 /* Pods-Tiler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tiler/Pods-Tiler.release.xcconfig"; sourceTree = "<group>"; };
 		7D143C751CA81A6B004CAEF8 /* MapList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapList.swift; sourceTree = "<group>"; };
 		7D76A1021CA74ED1004CA3B8 /* FileSaveHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSaveHelper.swift; sourceTree = "<group>"; };
@@ -152,6 +164,7 @@
 		2403BBE51C88F66B00F79C53 /* Tiler */ = {
 			isa = PBXGroup;
 			children = (
+				24DDC7B11CADB20400B96AD8 /* Controls */,
 				24948F461C95ED5900EB118F /* Extensions */,
 				24948F411C95E2AB00EB118F /* Enums */,
 				24E788201C9085A2004F766B /* Models */,
@@ -190,10 +203,21 @@
 		2429F7D21CA41CC90097D24E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				245B6ACE1CAC58F800C840A7 /* Tile */,
 				2403BBE81C88F66B00F79C53 /* MapViewController.swift */,
 				24DA4A1C1CA725F9005EDF71 /* MapListTableViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		245B6ACE1CAC58F800C840A7 /* Tile */ = {
+			isa = PBXGroup;
+			children = (
+				24FD962E1CADD80B00BC2B93 /* TileCustomizationViewController.swift */,
+				24FD96301CADD99000BC2B93 /* backgroundImages.plist */,
+				24FD96361CAEA3D400BC2B93 /* BackgroundImageViewCell.swift */,
+			);
+			name = Tile;
 			sourceTree = "<group>";
 		};
 		24948F2F1C94EA2700EB118F /* Views */ = {
@@ -244,6 +268,7 @@
 			children = (
 				2403BBEA1C88F66B00F79C53 /* Main.storyboard */,
 				2403BBEF1C88F66B00F79C53 /* LaunchScreen.storyboard */,
+				245B6ACA1CAC509900C840A7 /* Tile.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -256,6 +281,14 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		24DDC7B11CADB20400B96AD8 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				24DDC7B21CADB22600B96AD8 /* CircleColorButton.swift */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
 		24E788201C9085A2004F766B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +297,7 @@
 				2435513A1C937D1B00D7E088 /* Door.swift */,
 				24948F381C95E1BF00EB118F /* Opening.swift */,
 				7D143C751CA81A6B004CAEF8 /* MapList.swift */,
+				24FD96321CADDA2000BC2B93 /* BackgroundItem.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -392,6 +426,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				245B6ACB1CAC509900C840A7 /* Tile.storyboard in Resources */,
+				24FD96311CADD99000BC2B93 /* backgroundImages.plist in Resources */,
 				2403BBF11C88F66B00F79C53 /* LaunchScreen.storyboard in Resources */,
 				2403BBEE1C88F66B00F79C53 /* Assets.xcassets in Resources */,
 				2403BBEC1C88F66B00F79C53 /* Main.storyboard in Resources */,
@@ -477,20 +513,24 @@
 				24948F351C95CBC400EB118F /* Map.swift in Sources */,
 				2429F7D11CA418FC0097D24E /* MapControlsView.swift in Sources */,
 				24948F4A1C95F5EE00EB118F /* Transform.swift in Sources */,
+				24FD96371CAEA3D400BC2B93 /* BackgroundImageViewCell.swift in Sources */,
 				2403BBE91C88F66B00F79C53 /* MapViewController.swift in Sources */,
 				24948F451C95E2D800EB118F /* RotationDirection.swift in Sources */,
 				24948F481C95ED7800EB118F /* UIImage+Rotation.swift in Sources */,
 				24EFBD341C9748DA00442921 /* Either.swift in Sources */,
 				2429F7ED1CA451850097D24E /* UIView.swift in Sources */,
 				24948F3E1C95E23E00EB118F /* Rotatable.swift in Sources */,
+				24FD962F1CADD80B00BC2B93 /* TileCustomizationViewController.swift in Sources */,
 				24948F311C94EA4C00EB118F /* TileView.swift in Sources */,
 				24DA4A1D1CA725F9005EDF71 /* MapListTableViewController.swift in Sources */,
+				24DDC7B31CADB22600B96AD8 /* CircleColorButton.swift in Sources */,
 				24DA4A1F1CA72681005EDF71 /* MapTableViewCell.swift in Sources */,
 				2403BBE71C88F66B00F79C53 /* AppDelegate.swift in Sources */,
 				7D143C761CA81A6B004CAEF8 /* MapList.swift in Sources */,
 				24948F401C95E25000EB118F /* Matchable.swift in Sources */,
 				7D80F5331CA833E3009FE4C6 /* PropertyListReadable.swift in Sources */,
 				24948F431C95E2C100EB118F /* Size.swift in Sources */,
+				24FD96331CADDA2000BC2B93 /* BackgroundItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -84,23 +84,17 @@ class MapListTableViewController: UITableViewController {
         mapList!.swapItems(fromIndexPath.row, toIndexPath.row)
     }
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+
 
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if (segue.identifier  == "MapSegue") {
-            let viewController = segue.destinationViewController as! MapViewController
-            selectedMap = mapList!.get(tableView.indexPathForSelectedRow!.row)
-            viewController.mapView = MapView()
-            viewController.mapView.map = selectedMap
+        if (segue.identifier  == "MapDetailSegue") {
+            if let mapViewController = segue.destinationViewController as? MapViewController {
+                selectedMap = mapList!.get(tableView.indexPathForSelectedRow!.row)
+                mapViewController.map = selectedMap
+            }
         }
         
     }

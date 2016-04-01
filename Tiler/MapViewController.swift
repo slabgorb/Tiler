@@ -14,8 +14,10 @@ class MapViewController: UIViewController {
     // MARK: Properties
 
     @IBOutlet var mapView: MapView!
-    
-    
+    var map:Map?
+
+
+
     func addTile(tile: Tile, _ row: Int, _ column: Int) {
         let added:Either<String,Bool> = self.mapView.addTileView(TileView(tile: tile), row: row, column: column)
         switch added {
@@ -29,7 +31,13 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if map == nil {
+            map = Map(title: "Untitled")
+        }
+        mapView.map = map!
         mapView.drawTiles()
+        navigationItem.title = map!.title
+
     }
 
     override func didReceiveMemoryWarning() {

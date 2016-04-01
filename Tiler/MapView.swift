@@ -13,8 +13,13 @@ class MapView: UIView {
     var zoom: Double = 1.0
     var tileViews:[TileView] = []
 
- 
     func drawTiles() {
+        tileViews = []
+        if map != nil {
+            for tile in map!.tiles {
+                tileViews.append(TileView(tile: tile))
+            }
+        }
         for view in tileViews {
             drawTileView(view)
         }
