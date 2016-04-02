@@ -9,10 +9,13 @@
 import UIKit
 
 class ImageViewCell: UICollectionViewCell {
-    @IBOutlet var itemImageView: UIImageView!
-    func setItem(item:ImageItem) {
-        itemImageView.image = UIImage(named: item.name)
+    func setItem(item: ImageItem) {
+        let imageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
+        imageView.image = UIImage(named: item.name)
+        self.addSubview(imageView)
         self.layer.borderColor = UIColor.blackColor().CGColor
         self.layer.borderWidth = 1
+
     }
+
 }

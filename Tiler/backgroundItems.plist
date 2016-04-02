@@ -10,15 +10,15 @@
 <plist version="1.0">
     <array>
         <dict>
-            <key>backgroundImage</key>
+            <key>backgroundItem</key>
             <string>texture1</string>
         </dict>
         <dict>
-            <key>backgroundImage</key>
+            <key>backgroundItem</key>
             <string>texture2</string>
         </dict>
         <dict>
-            <key>backgroundImage</key>
+            <key>backgroundItem</key>
             <string>texture3</string>
         </dict>
     </array>
