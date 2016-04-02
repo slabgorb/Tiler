@@ -1,5 +1,5 @@
 //
-//  BackgroundImageViewCell.swift
+//  ImageViewCell.swift
 //  Tiler
 //
 //  Created by Keith Avery on 4/1/16.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class BackgroundImageViewCell: UICollectionViewCell {
+class ImageViewCell: UICollectionViewCell {
     @IBOutlet var itemImageView: UIImageView!
-    func setBackgroundItem(item:ImageItem) {
+    func setItem(item:ImageItem) {
         itemImageView.image = UIImage(named: item.name)
         self.layer.borderColor = UIColor.blackColor().CGColor
         self.layer.borderWidth = 1

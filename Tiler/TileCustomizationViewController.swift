@@ -13,18 +13,16 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
 
     @IBOutlet var collectionView: UICollectionView!
 
-    var backgroundItems: [BackgroundItem] = []
+    var backgroundItems: [ImageItem] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         initBackgroundItems()
-
-        // Do any additional setup after loading the view.
+        self.collectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -40,26 +38,18 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     private func initBackgroundItems() {
-        var items = [BackgroundItem]()
+        var items = [ImageItem]()
         if let inputFile = NSBundle.mainBundle().pathForResource("backgroundImages", ofType: "plist") {
             if let inputDataArray = NSArray(contentsOfFile: inputFile) {
                 for item in inputDataArray as! [Dictionary<String, String>] {
-                    let backgroundItem = BackgroundItem(dataDictionary: item)
+                    let backgroundItem = ImageItem(key: "backgroundImage", dataDictionary: item)
                     items.append(backgroundItem)
                 }
             }
         }
+        self.backgroundItems = items
     }
 
 }
