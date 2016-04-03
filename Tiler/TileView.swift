@@ -9,12 +9,18 @@
 import UIKit
 
 class TileView: UIView {
-    static let width = 72.0
-    static let height = 72.0
-    let background: UIImage? = UIImage(named: "texture1")
+    var width: Double = TileView.defaultWidth
+    var height: Double = TileView.defaultHeight
+
+    static let defaultWidth = 72.0
+    static let defaultHeight = 72.0
     let grid: UIImage? = UIImage(named: "grid")
-    //var image: UIImage?
-    var tile: Tile!
+
+    var tile: Tile? {
+        didSet {
+            self.layout()
+        }
+    }
 
     init(frame: CGRect, tile: Tile) {
         super.init(frame: frame)
@@ -23,19 +29,10 @@ class TileView: UIView {
     }
     
     convenience init(tile: Tile) {
-        let  frame = CGRect(x: 0, y: 0, width: TileView.width, height: TileView.height)
+        let  frame = CGRect(x: 0, y: 0, width: TileView.defaultWidth, height: TileView.defaultHeight)
         self.init(frame: frame, tile: tile)
     }
     
-    func image() -> UIImage? {
-        if (self.tile != nil) && (tile!.imageName != nil){
-            if let image = UIImage(named: tile!.imageName!) {
-                return image
-            }
-        }
-        return nil
-    }
-
     func makeImageView(image: UIImage?) -> UIImageView {
         let imageView = UIImageView(frame: self.frame)
         var img = image
@@ -50,11 +47,20 @@ class TileView: UIView {
 
         return imageView
     }
-    
+
+    func clearImages() {
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
+
+    }
     func layout() {
-        addSubview(makeImageView(background))
-        if let img = image() {
-            addSubview(makeImageView(img))
+        clearImages()
+        if let backgroundName = tile?.backgroundImageName {
+            addSubview(makeImageView(UIImage(named: backgroundName)))
+        }
+        if let imageName = tile?.imageName {
+            addSubview(makeImageView(UIImage(named: imageName)))
         }
         addSubview(makeImageView(grid))
     }

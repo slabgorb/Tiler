@@ -12,7 +12,9 @@ class ImageViewCell: UICollectionViewCell {
     func setItem(item: ImageItem) {
         let imageView: UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
         imageView.image = UIImage(named: item.name)
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.addSubview(imageView)
+        self.backgroundColor = UIColor.whiteColor()
         self.layer.borderColor = UIColor.blackColor().CGColor
         self.layer.borderWidth = 1
 

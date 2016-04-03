@@ -46,7 +46,7 @@ class MapView: UIView {
     }
 
     private func drawTileView(tileView: TileView) {
-        let rect = CGRect(x: Double(tileView.tile!.column) * TileView.height * self.zoom , y: Double(tileView.tile!.row) * TileView.width * self.zoom ,  width: TileView.width * self.zoom , height: TileView.height * self.zoom)
+        let rect = CGRect(x: Double(tileView.tile!.column) * TileView.defaultWidth * self.zoom , y: Double(tileView.tile!.row) * TileView.defaultWidth * self.zoom ,  width: TileView.defaultWidth * self.zoom , height: TileView.defaultHeight * self.zoom)
         tileView.frame = rect
         addSubview(tileView)
     }

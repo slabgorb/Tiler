@@ -226,8 +226,8 @@
 		24948F2F1C94EA2700EB118F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				24DA4A201CA72685005EDF71 /* Cells */,
 				24948F301C94EA4C00EB118F /* TileView.swift */,
+				24DA4A201CA72685005EDF71 /* Cells */,
 				24948F321C95CADD00EB118F /* MapView.swift */,
 				2429F7D01CA418FC0097D24E /* MapControlsView.swift */,
 			);

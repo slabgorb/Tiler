@@ -31,6 +31,8 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
 
     @IBOutlet var collectionViews: [UICollectionView]!
 
+    @IBOutlet weak var currentTile: TileView!
+    
     var collectionViewItems: [CollectionViewType:[ImageItem]] = [:]
 
     override func viewDidLoad() {
@@ -40,13 +42,34 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
             let cvt:CollectionViewType = CollectionViewType.init(rawValue: cv.tag)!
             self.collectionViewItems[cvt] = self.initItems(cvt)
             cv.reloadData()
+
         }
+        self.currentTile.tile = Tile(openings: [], imageName: "t", backgroundImageName: "texture1")
+        self.currentTile.layout()   
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        if let cvt = CollectionViewType.init(rawValue: collectionView.tag) { 
+            if let cvi = self.collectionViewItems[cvt] {
+                switch cvt {
+                case .Background:
+                    if let tile = self.currentTile.tile {
+                        tile.backgroundImageName = cvi[indexPath.row].name
+                    }
+                case .Contents:
+                    if let tile = self.currentTile.tile {
+                        tile.imageName = cvi[indexPath.row].name
+                    }
+                }
+                self.currentTile.layout()
+            }
+        }
+    }
+
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let cvt = CollectionViewType.init(rawValue: collectionView.tag) {
             if let cvi = self.collectionViewItems[cvt] {
