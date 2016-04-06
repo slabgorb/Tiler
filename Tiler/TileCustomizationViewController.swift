@@ -51,9 +51,20 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func collectionView(collectionView: UICollectionView, didDeSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
+            cell.backgroundColor = UIColor.whiteColor()
+            cell.layer.borderColor = UIColor.blackColor().CGColor
+        }
+    }
 
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        if let cvt = CollectionViewType.init(rawValue: collectionView.tag) { 
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
+            cell.backgroundColor = UIColor.lightGrayColor()
+            cell.layer.borderColor = UIColor.blueColor().CGColor
+        }
+        if let cvt = CollectionViewType.init(rawValue: collectionView.tag) {
             if let cvi = self.collectionViewItems[cvt] {
                 switch cvt {
                 case .Background:

@@ -25,11 +25,11 @@ class MapView: UIView {
         }
     }
     
-    func addTileView(tileView: TileView, row: Int, column: Int)  -> Either<String,Bool> {
+    func addTileView(tileView: TileView)  -> Either<String,Bool> {
         
         if tileView.tile != nil {
             do {
-                try map?.add(tileView.tile!, row: row, column: column)
+                try map?.add(tileView.tile!)
                 self.tileViews.append(tileView)
             } catch MapError.TileDoesNotConnect  {
                 return Either.Left("Could not add tile to map, does not connect")

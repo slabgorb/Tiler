@@ -22,8 +22,8 @@ class TileTests: XCTestCase {
     }
     
     func testDeadEnd() {
-        let tile1 = Tile(openings:[Opening(.Small, .North)])
-        let tile2 = Tile(openings:[Opening(.Small, .North), Opening(.Large, .East)])
+        let tile1 = Tile(openings:[Opening(.Small, .North)], imageName: nil, backgroundImageName: nil)
+        let tile2 = Tile(openings:[Opening(.Small, .North), Opening(.Large, .East)], imageName: nil, backgroundImageName: nil)
         XCTAssert(tile1.isDeadEnd)
         XCTAssert(!tile2.isDeadEnd)
     }
@@ -38,7 +38,7 @@ class TileTests: XCTestCase {
     }
     
     func testRotation() {
-        let tile = Tile(openings:[Opening(.Small, .North)])
+        let tile = Tile(openings:[Opening(.Small, .North)], imageName: nil, backgroundImageName: nil)
         tile.rotate(.Clockwise)
         XCTAssert(tile.rotation == .East)
         XCTAssert(tile.openings[0].direction == .East)
@@ -49,9 +49,9 @@ class TileTests: XCTestCase {
     }
     
     func testMatchingTile() {
-        let tile1 = Tile(openings:[Opening(.Small, .North),Opening(.Large, .South)])
-        let tile2 = Tile(openings:[Opening(.Small, .South),Opening(.Large, .East)])
-        let tile3 = Tile(openings:[Opening(.Small, .North),Opening(.Large, .East)])
+        let tile1 = Tile(openings:[Opening(.Small, .North),Opening(.Large, .South)], imageName: nil, backgroundImageName: nil)
+        let tile2 = Tile(openings:[Opening(.Small, .South),Opening(.Large, .East)], imageName: nil, backgroundImageName: nil)
+        let tile3 = Tile(openings:[Opening(.Small, .North),Opening(.Large, .East)], imageName: nil, backgroundImageName: nil)
         XCTAssert(tile1 ~ tile2)
         XCTAssert(!(tile1 ~ tile3) )
     }
@@ -61,8 +61,8 @@ class TileTests: XCTestCase {
             Opening(.Small, .West),
             Opening(.Small, .North)
         ]
-        let tile1 = Tile(openings:openings)
-        let tile2 = Tile(openings:openings)
+        let tile1 = Tile(openings:openings, imageName: nil, backgroundImageName: nil)
+        let tile2 = Tile(openings:openings, imageName: nil, backgroundImageName: nil)
         tile1.rotate(.Counterclockwise)
         tile1.rotate(.Counterclockwise)
         XCTAssert(tile1 ~ tile2)

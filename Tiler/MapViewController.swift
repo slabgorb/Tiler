@@ -19,7 +19,7 @@ class MapViewController: UIViewController {
 
 
     func addTile(tile: Tile, _ row: Int, _ column: Int) {
-        let added:Either<String,Bool> = self.mapView.addTileView(TileView(tile: tile), row: row, column: column)
+        let added:Either<String,Bool> = self.mapView.addTileView(TileView(tile: tile))
         switch added {
         case .Left(let errorText):
             HUD.flash(HUDContentType.LabeledError(title: "Error Adding Tile", subtitle: errorText), delay: 1.0)

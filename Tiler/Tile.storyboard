@@ -18,21 +18,22 @@
                         <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DeZ-2b-tAZ" userLabel="Backgrounds">
-                                <rect key="frame" x="0.0" y="25" width="414" height="92"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-rl-9vJ" userLabel="Background">
+                                <rect key="frame" x="0.0" y="113" width="414" height="102"/>
                                 <color key="backgroundColor" red="0.72343188039999995" green="0.73786864370000005" blue="0.90542140149999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="92" id="GQR-hJ-Chq"/>
+                                    <constraint firstAttribute="height" constant="92" id="ET1-1a-lFF"/>
+                                    <constraint firstAttribute="height" constant="102" id="c7d-Kp-sY2"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="7" minimumInteritemSpacing="7" id="HWe-tG-n4P">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="7" minimumInteritemSpacing="7" id="SGh-BQ-hcA">
                                     <size key="itemSize" width="72" height="72"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageViewCell" id="bCH-2b-XpX" customClass="ImageViewCell" customModule="Tiler" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="72" height="72"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="ImageViewCell" id="rOd-xj-MgT" customClass="ImageViewCell" customModule="Tiler" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="15" width="72" height="72"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
@@ -41,15 +42,29 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ET1-1a-lFF"/>
+                                    </mask>
+                                </variation>
                                 <connections>
-                                    <outlet property="dataSource" destination="hMj-Ai-8PU" id="bnm-yd-IT8"/>
-                                    <outlet property="delegate" destination="hMj-Ai-8PU" id="a8y-8e-h8D"/>
+                                    <outlet property="dataSource" destination="hMj-Ai-8PU" id="h7B-Ep-3b1"/>
+                                    <outlet property="delegate" destination="hMj-Ai-8PU" id="hOX-Pj-u3e"/>
                                 </connections>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iea-FX-X9C" userLabel="Contents">
-                                <rect key="frame" x="0.0" y="125" width="414" height="92"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Br3-BC-PTH" customClass="TileView" customModule="Tiler" customModuleProvider="target">
+                                <rect key="frame" x="171" y="33" width="72" height="72"/>
                                 <color key="backgroundColor" red="0.72343188039999995" green="0.73786864370000005" blue="0.90542140149999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="4KW-l9-4eR"/>
+                                    <constraint firstAttribute="height" constant="72" id="orB-Jw-0dm"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iea-FX-X9C" userLabel="Contents">
+                                <rect key="frame" x="0.0" y="223" width="414" height="102"/>
+                                <color key="backgroundColor" red="0.72343188039999995" green="0.73786864370000005" blue="0.90542140149999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="102" id="yjg-Ds-Jnc"/>
                                     <constraint firstAttribute="height" constant="92" id="z8R-8R-2mH"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="7" minimumInteritemSpacing="7" id="C4F-FH-dZD">
@@ -59,8 +74,8 @@
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageViewCell" id="4P6-Jl-3pt" customClass="ImageViewCell" customModule="Tiler" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="72" height="72"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="ImageViewCell" id="4P6-Jl-3pt" customClass="ImageViewCell" customModule="Tiler" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="15" width="72" height="72"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
@@ -69,36 +84,42 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="z8R-8R-2mH"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="hMj-Ai-8PU" id="9dR-sw-6Mb"/>
                                     <outlet property="delegate" destination="hMj-Ai-8PU" id="tfv-kF-nvw"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Br3-BC-PTH" customClass="TileView" customModule="Tiler" customModuleProvider="target">
-                                <rect key="frame" x="135" y="267" width="144" height="144"/>
-                                <color key="backgroundColor" red="0.72343188039999995" green="0.73786864370000005" blue="0.90542140149999994" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="144" id="4KW-l9-4eR"/>
-                                    <constraint firstAttribute="height" constant="144" id="orB-Jw-0dm"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="f8B-rl-9vJ" firstAttribute="top" secondItem="Br3-BC-PTH" secondAttribute="bottom" constant="9" id="262-xS-mLJ"/>
                             <constraint firstItem="Br3-BC-PTH" firstAttribute="centerX" secondItem="gOS-d3-xWq" secondAttribute="centerX" id="9F7-rk-P73"/>
-                            <constraint firstItem="iea-FX-X9C" firstAttribute="top" secondItem="DeZ-2b-tAZ" secondAttribute="bottom" constant="8" id="DCx-8P-Wmi" userLabel="spacing between collections"/>
                             <constraint firstItem="iea-FX-X9C" firstAttribute="leading" secondItem="gOS-d3-xWq" secondAttribute="leadingMargin" constant="-20" id="ICO-EN-Rsy"/>
-                            <constraint firstItem="Br3-BC-PTH" firstAttribute="top" secondItem="iea-FX-X9C" secondAttribute="bottom" constant="50" id="Iip-0x-sbo"/>
+                            <constraint firstItem="Br3-BC-PTH" firstAttribute="top" secondItem="iea-FX-X9C" secondAttribute="bottom" constant="9" id="Iip-0x-sbo"/>
+                            <constraint firstItem="Br3-BC-PTH" firstAttribute="top" secondItem="3dt-Yu-hLv" secondAttribute="bottom" constant="33" id="MpZ-LC-lxS"/>
+                            <constraint firstItem="iea-FX-X9C" firstAttribute="top" secondItem="3dt-Yu-hLv" secondAttribute="bottom" id="PCD-Kf-KMN"/>
+                            <constraint firstItem="iea-FX-X9C" firstAttribute="top" secondItem="f8B-rl-9vJ" secondAttribute="bottom" constant="8" id="ZDz-2P-uQZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iea-FX-X9C" secondAttribute="trailing" constant="-20" id="ZqF-pG-DlK"/>
-                            <constraint firstAttribute="trailing" secondItem="DeZ-2b-tAZ" secondAttribute="trailing" id="ds3-wc-JGq"/>
-                            <constraint firstItem="DeZ-2b-tAZ" firstAttribute="leading" secondItem="gOS-d3-xWq" secondAttribute="leading" id="i1s-2I-b5k"/>
-                            <constraint firstItem="DeZ-2b-tAZ" firstAttribute="top" secondItem="3dt-Yu-hLv" secondAttribute="bottom" constant="25" id="pIp-YN-aHI"/>
+                            <constraint firstItem="f8B-rl-9vJ" firstAttribute="leading" secondItem="gOS-d3-xWq" secondAttribute="leadingMargin" constant="-20" id="eHA-AM-x7T"/>
+                            <constraint firstItem="f8B-rl-9vJ" firstAttribute="top" secondItem="Br3-BC-PTH" secondAttribute="bottom" constant="8" id="kqe-LZ-oca"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f8B-rl-9vJ" secondAttribute="trailing" constant="-20" id="wBR-uu-xZe"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="262-xS-mLJ"/>
+                                <exclude reference="Iip-0x-sbo"/>
+                                <exclude reference="PCD-Kf-KMN"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="jSH-CC-JjC"/>
                     <connections>
                         <outlet property="currentTile" destination="Br3-BC-PTH" id="h61-rM-bJc"/>
-                        <outletCollection property="collectionViews" destination="DeZ-2b-tAZ" collectionClass="NSMutableArray" id="chB-9o-LC3"/>
                         <outletCollection property="collectionViews" destination="iea-FX-X9C" collectionClass="NSMutableArray" id="XMy-fN-oaO"/>
                     </connections>
                 </viewController>

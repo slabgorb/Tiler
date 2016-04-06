@@ -91,7 +91,7 @@ class Map: NSObject, NSCoding {
     
     func getTileByRowAndColumn(row: Int, _ column: Int) -> Tile? {
         for tile in self.tiles {
-            if tile.row == Int32(row) && tile.column == Int32(column) {
+            if tile.row == row && tile.column == column {
                 return tile
             }
         }
@@ -125,18 +125,18 @@ class Map: NSObject, NSCoding {
     /**
      Add a tile to the map.
      */
-    func add(tile: Tile, row: Int, column: Int) throws {
+    func add(tile: Tile) throws {
         // check for valid column
-        guard row >= 0 else { throw MapError.BadRow }
-        guard column >= 0 else { throw MapError.BadColumn }
-        guard row <= maxRow() + 1 else { throw MapError.BadRow }
-        guard column <= maxColumn() + 1 else { throw MapError.BadColumn }
+        guard tile.row >= 0 else { throw MapError.BadRow }
+        guard tile.column >= 0 else { throw MapError.BadColumn }
+        guard tile.row <= maxRow() + 1 else { throw MapError.BadRow }
+        guard tile.column <= maxColumn() + 1 else { throw MapError.BadColumn }
         
         // check for matchability for the new tile
-        let top = getTileByRowAndColumn(row - 1, column)
-        let bottom = getTileByRowAndColumn(row + 1, column)
-        let left = getTileByRowAndColumn(row, column - 1)
-        let right = getTileByRowAndColumn(row, column + 1)
+        let top = getTileByRowAndColumn(tile.row - 1, tile.column)
+        let bottom = getTileByRowAndColumn(tile.row + 1, tile.column)
+        let left = getTileByRowAndColumn(tile.row, tile.column - 1)
+        let right = getTileByRowAndColumn(tile.row, tile.column + 1)
         guard (top ~ tile) && (bottom ~ tile) && (left ~ tile) && (right ~ tile) else { throw MapError.TileDoesNotConnect }
 
         // OK, all good, add it in

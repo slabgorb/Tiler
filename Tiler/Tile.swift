@@ -20,8 +20,8 @@ class Tile: NSObject, Matchable, Rotatable, Flippable, NSCoding {
     var backgroundImageName: String?
     var flippedVertically: Bool = false
     var flippedHorizontally: Bool = false
-    var row:Int32 = 0
-    var column: Int32 = 0
+    var row:Int = 0
+    var column: Int = 0
     
     struct PropertyKey {
         static let imageNameKey = "imageName"
@@ -57,8 +57,8 @@ class Tile: NSObject, Matchable, Rotatable, Flippable, NSCoding {
         self.openings = openings
         self.imageName = imageName
         self.backgroundImageName = backgroundImageName
-        self.row = Int32(row)
-        self.column = Int32(column)
+        self.row = Int(row)
+        self.column = Int(column)
         super.init()
     }
     
@@ -78,8 +78,8 @@ class Tile: NSObject, Matchable, Rotatable, Flippable, NSCoding {
         }
         self.flippedHorizontally = aDecoder.decodeBoolForKey(PropertyKey.flippedHorizontallyKey)
         self.flippedVertically = aDecoder.decodeBoolForKey(PropertyKey.flippedVerticallyKey)
-        self.row = aDecoder.decodeIntForKey(PropertyKey.rowKey)
-        self.column = aDecoder.decodeIntForKey(PropertyKey.columnKey)
+        self.row = Int(aDecoder.decodeIntForKey(PropertyKey.rowKey))
+        self.column = Int(aDecoder.decodeIntForKey(PropertyKey.columnKey))
         if let openingRawArray = aDecoder.decodeObjectForKey(PropertyKey.openingsKey) as? [NSDictionary] {
             self.openings = openingRawArray.map({Opening(propertyListRepresentation: $0)!})
         }
@@ -91,8 +91,8 @@ class Tile: NSObject, Matchable, Rotatable, Flippable, NSCoding {
         aCoder.encodeBool(self.flippedVertically, forKey: PropertyKey.flippedVerticallyKey)
         aCoder.encodeObject(self.imageName, forKey: PropertyKey.imageNameKey)
         aCoder.encodeObject(self.backgroundImageName, forKey: PropertyKey.backgroundImageNameKey)
-        aCoder.encodeInt(self.row, forKey: PropertyKey.rowKey)
-        aCoder.encodeInt(self.column, forKey: PropertyKey.columnKey)
+        aCoder.encodeInt(Int32(self.row), forKey: PropertyKey.rowKey)
+        aCoder.encodeInt(Int32(self.column), forKey: PropertyKey.columnKey)
         aCoder.encodeObject(openings.map({$0.propertyListRepresentation()}), forKey: PropertyKey.openingsKey)
         
     }
