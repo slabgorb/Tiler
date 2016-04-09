@@ -27,6 +27,7 @@ class MapListTableViewController: UITableViewController {
             mapList = loadSampleMaps()
         }
         self.clearsSelectionOnViewWillAppear = false
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Baskerville", size: 20)!]
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,30 +74,24 @@ class MapListTableViewController: UITableViewController {
         } else if editingStyle == .Insert {
             let newMap = Map(title: "Untitled")
             mapList!.append(newMap)
-
+            
         }
         saveMaps()
     }
-
-
 
     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
         mapList!.swapItems(fromIndexPath.row, toIndexPath.row)
     }
 
-
-
     // MARK: - Navigation
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if (segue.identifier  == "MapDetailSegue") {
             if let mapViewController = segue.destinationViewController as? MapViewController {
-                selectedMap = mapList!.get(tableView.indexPathForSelectedRow!.row)
-                mapViewController.map = selectedMap
+                if let row = tableView.indexPathForSelectedRow?.row {
+                    mapViewController.mapIndex = row
+                }
             }
         }
-        
     }
 
     // MARK: - Editing
@@ -154,9 +149,11 @@ class MapListTableViewController: UITableViewController {
     }
     
     func saveMaps() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(mapList!, toFile: MapList.ArchiveURL.path!)
-        if !isSuccessfulSave {
-            print("Failed to save maps...")
+        if let mapList = self.mapList {
+            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(mapList, toFile: MapList.ArchiveURL.path!)
+            if !isSuccessfulSave {
+                print("Failed to save maps...")
+            }
         }
     }
     

@@ -51,6 +51,10 @@ class Map: NSObject, NSCoding {
         return "\(maxRow()):\(maxColumn())"
     }
     
+    // MARK:- Archiving Paths
+    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("maps")
+    
     // MARK:- Initializers
     convenience init(title: String) {
         self.init(title: title, tiles:[])

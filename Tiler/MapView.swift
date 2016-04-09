@@ -15,14 +15,15 @@ class MapView: UIView {
 
     func drawTiles() {
         tileViews = []
-        if map != nil {
-            for tile in map!.tiles {
+        if let map = self.map {
+            for tile in map.tiles {
                 tileViews.append(TileView(tile: tile))
             }
         }
         for view in tileViews {
             drawTileView(view)
         }
+        drawBlankTiles()
     }
     
     func addTileView(tileView: TileView)  -> Either<String,Bool> {
@@ -45,9 +46,32 @@ class MapView: UIView {
         return Either.Right(true)
     }
 
+    private func rectForLocation(row row: Int, column: Int) -> CGRect {
+        return CGRect(x: Double(column) * TileView.defaultWidth * self.zoom , y: Double(row) * TileView.defaultWidth * self.zoom ,  width: TileView.defaultWidth * self.zoom , height: TileView.defaultHeight * self.zoom)
+    }
+    
     private func drawTileView(tileView: TileView) {
-        let rect = CGRect(x: Double(tileView.tile!.column) * TileView.defaultWidth * self.zoom , y: Double(tileView.tile!.row) * TileView.defaultWidth * self.zoom ,  width: TileView.defaultWidth * self.zoom , height: TileView.defaultHeight * self.zoom)
+        let rect = rectForLocation(row: tileView.tile!.row, column: tileView.tile!.column)
         tileView.frame = rect
         addSubview(tileView)
+    }
+    
+    private func drawBlankTile(rect: CGRect) {
+        let view = UIView(frame: rect)
+        view.layer.borderWidth = 1.0
+        view.layer.borderColor = UIColor(named: .LightBorder).CGColor
+        view.backgroundColor = UIColor(named: .Overlay)
+        addSubview(view)
+    }
+    
+    private func drawBlankTiles() {
+        if let maxRow = map?.maxRow(), let maxCol = map?.maxColumn() {
+            for i in 0...maxRow {
+                drawBlankTile(rectForLocation(row: i, column: maxCol + 1))
+            }
+            for i in 0...maxCol {
+                drawBlankTile(rectForLocation(row: maxRow + 1, column: i))
+            }
+        }
     }
 }

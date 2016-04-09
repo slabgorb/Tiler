@@ -189,7 +189,7 @@
         <!--Navigation Controller-->
         <scene sceneID="hWX-id-Vfg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="MlW-ox-hE0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="TileId" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" toolbarHidden="NO" id="MlW-ox-hE0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

@@ -48,6 +48,7 @@
 		7D143C761CA81A6B004CAEF8 /* MapList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D143C751CA81A6B004CAEF8 /* MapList.swift */; };
 		7D202D001CB9669800D945A0 /* UIButton+Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D202CFF1CB9669800D945A0 /* UIButton+Flash.swift */; };
 		7D202D041CB969EA00D945A0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D202D031CB969EA00D945A0 /* Constants.swift */; };
+		7D202D061CB9971F00D945A0 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D202D051CB9971F00D945A0 /* Map.storyboard */; };
 		7D76A1031CA74ED1004CA3B8 /* FileSaveHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76A1021CA74ED1004CA3B8 /* FileSaveHelper.swift */; };
 		7D80F5331CA833E3009FE4C6 /* PropertyListReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D80F5321CA833E3009FE4C6 /* PropertyListReadable.swift */; };
 		BF11D3F115554FBCA5909030 /* Pods_Tiler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE538244737F2468AB68F93A /* Pods_Tiler.framework */; };
@@ -119,6 +120,7 @@
 		7D143C751CA81A6B004CAEF8 /* MapList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapList.swift; sourceTree = "<group>"; };
 		7D202CFF1CB9669800D945A0 /* UIButton+Flash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Flash.swift"; sourceTree = "<group>"; };
 		7D202D031CB969EA00D945A0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7D202D051CB9971F00D945A0 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		7D76A1021CA74ED1004CA3B8 /* FileSaveHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSaveHelper.swift; sourceTree = "<group>"; };
 		7D80F5321CA833E3009FE4C6 /* PropertyListReadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListReadable.swift; sourceTree = "<group>"; };
 		8FB1D33F787124EF8087EB8F /* Pods-Tiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tiler/Pods-Tiler.debug.xcconfig"; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				2403BBEA1C88F66B00F79C53 /* Main.storyboard */,
 				2403BBEF1C88F66B00F79C53 /* LaunchScreen.storyboard */,
 				245B6ACA1CAC509900C840A7 /* Tile.storyboard */,
+				7D202D051CB9971F00D945A0 /* Map.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				245B6ACB1CAC509900C840A7 /* Tile.storyboard in Resources */,
+				7D202D061CB9971F00D945A0 /* Map.storyboard in Resources */,
 				24FE63F31CB033D900A7D4CA /* contentItems.plist in Resources */,
 				24FD96311CADD99000BC2B93 /* backgroundItems.plist in Resources */,
 				2403BBF11C88F66B00F79C53 /* LaunchScreen.storyboard in Resources */,

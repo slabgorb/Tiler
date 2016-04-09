@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Suy-Fl-1ar">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -8,7 +8,7 @@
         <!--Map List-->
         <scene sceneID="2Sq-AO-WPI">
             <objects>
-                <tableViewController title="Map List" id="w0b-et-JeJ" customClass="MapListTableViewController" customModule="Tiler" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ListId" title="Map List" id="w0b-et-JeJ" customClass="MapListTableViewController" customModule="Tiler" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qjd-0q-Xzc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -18,20 +18,20 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cY9-A8-6PK" id="Zyt-UK-Cqn">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S9h-SD-tuh">
-                                            <rect key="frame" x="15" y="12" width="32" height="20"/>
+                                            <rect key="frame" x="15" y="13" width="31" height="18.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mPs-h8-rGU">
-                                            <rect key="frame" x="357" y="12" width="42" height="20"/>
+                                            <rect key="frame" x="359.5" y="13" width="39.5" height="18.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="16"/>
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -40,7 +40,7 @@
                                 <connections>
                                     <outlet property="detailLabel" destination="mPs-h8-rGU" id="kTU-ww-tAj"/>
                                     <outlet property="titleLabel" destination="S9h-SD-tuh" id="jwZ-vS-gn8"/>
-                                    <segue destination="p1h-k4-q8L" kind="show" identifier="MapDetailSegue" action="showDetailViewController:sender:" id="3rI-TE-Hlp"/>
+                                    <segue destination="hi7-h0-jnz" kind="showDetail" id="nLH-Eh-MZc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,48 +70,13 @@
             </objects>
             <point key="canvasLocation" x="-420" y="48"/>
         </scene>
-        <!--Map View Controller-->
-        <scene sceneID="JRZ-dP-hDW">
+        <!--Map-->
+        <scene sceneID="QAe-Uy-gOY">
             <objects>
-                <viewController id="p1h-k4-q8L" customClass="MapViewController" customModule="Tiler" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wI3-Ik-M2z"/>
-                        <viewControllerLayoutGuide type="bottom" id="mXS-Zr-dNW"/>
-                    </layoutGuides>
-                    <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" id="Zfp-ED-KZL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nNM-Ne-2I2">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="WFz-xt-0U2">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="wzR-Vo-T5x"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXq-MG-igx" customClass="MapView" customModule="Tiler" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="648"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9Y-65-mrW">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <items>
-                                    <barButtonItem title="Item" id="jJL-10-xnB"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ONB-yY-y3U"/>
-                                    <barButtonItem title="Item" id="Ydo-I4-uel"/>
-                                </items>
-                            </toolbar>
-                        </subviews>
-                    </stackView>
-                    <navigationItem key="navigationItem" id="N6J-bp-mmk"/>
-                    <connections>
-                        <outlet property="mapView" destination="OXq-MG-igx" id="sZ4-8h-aOK"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cd4-rS-6r3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="MapId" storyboardName="Map" id="hi7-h0-jnz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BVT-Ks-Dam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="48"/>
+            <point key="canvasLocation" x="21.5" y="48"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SOW-fN-N9E">
