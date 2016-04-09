@@ -21,5 +21,21 @@
             <key>backgroundItem</key>
             <string>texture3</string>
         </dict>
+        <dict>
+            <key>backgroundItem</key>
+            <string>texture4</string>
+        </dict>
+        <dict>
+            <key>backgroundItem</key>
+            <string>texture5</string>
+        </dict>
+        <dict>
+            <key>backgroundItem</key>
+            <string>color1</string>
+        </dict>
+        <dict>
+            <key>backgroundItem</key>
+            <string>color2</string>
+        </dict>
     </array>
 </plist>

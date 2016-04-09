@@ -36,33 +36,36 @@ class TileView: UIView {
     
     func makeImageView(image: UIImage?) -> UIImageView {
         let imageView = UIImageView(frame: self.frame)
-        var img = image
-        if image != nil {
-            if (self.tile != nil) {
-                img = image?.imageRotatedByDegrees(CGFloat(tile!.rotation.toDegrees()), flipX: tile!.flippedHorizontally, flipY: tile!.flippedVertically)
-            } else {
-                img = image
+        if var img =  image {
+            if let tile = self.tile {
+                img = img.imageRotatedByDegrees(CGFloat(tile.rotation.toDegrees()), flipX: tile.flippedHorizontally, flipY: tile.flippedVertically)
             }
             imageView.image = img
         }
-
         return imageView
+    }
+    
+    func makeImageViewNamed(name: String) -> UIImageView {
+        return makeImageView(UIImage(named: name))
     }
 
     func clearImages() {
         for view in self.subviews {
             view.removeFromSuperview()
         }
-
     }
+
+    /**
+     Responsible for laying out the image stack that draws the item. 
+     */
     func layout() {
         clearImages()
         var imageViews:[UIImageView] = []
         if let backgroundName = tile?.backgroundImageName {
-            imageViews.append(makeImageView(UIImage(named: backgroundName)))
+            imageViews.append(makeImageViewNamed(backgroundName))
         }
         if let imageName = tile?.imageName {
-            imageViews.append(makeImageView(UIImage(named: imageName)))
+            imageViews.append(makeImageViewNamed(imageName))
         }
         imageViews.append(makeImageView(grid))
         for imageView in imageViews {

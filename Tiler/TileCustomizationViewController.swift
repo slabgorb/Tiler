@@ -29,15 +29,21 @@ enum CollectionViewType: Int {
 class TileCustomizationViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet var collectionViews: [UICollectionView]!
+    @IBOutlet weak var rotateButton: UIButton!
+    @IBOutlet weak var flipHorizontalButton: UIButton!
+    @IBOutlet weak var flipVerticalButton: UIButton!
     @IBOutlet weak var currentTile: TileView!
+    @IBOutlet var customizeTileView: UIView!
     
     var collectionViewItems: [CollectionViewType:[ImageItem]] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        customizeTileView.backgroundColor = UIColor(named: .Background)
+        
         for cv in collectionViews {
             cv.allowsMultipleSelection = false
+            cv.backgroundColor = UIColor(named: .TileSelectionsBackground)
             cv.registerClass(ImageViewCell.self, forCellWithReuseIdentifier: "ItemCell")
             let cvt:CollectionViewType = CollectionViewType.init(rawValue: cv.tag)!
             collectionViewItems[cvt] = initItems(cvt)
@@ -51,19 +57,18 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
 
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
-            cell.backgroundColor = UIColor.whiteColor()
-            cell.layer.borderColor = UIColor.blackColor().CGColor
+            cell.backgroundColor = UIColor(named: .Background)
+            cell.layer.borderColor = UIColor(named: .DeselectedTileBorder).CGColor
         }
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
-            cell.backgroundColor = UIColor.lightGrayColor()
-            cell.layer.borderColor = UIColor.blueColor().CGColor
+            cell.backgroundColor = UIColor.whiteColor()
+            cell.layer.borderColor = UIColor(named:.SelectedTileBorder).CGColor
         }
         if let collectionViewType = CollectionViewType.init(rawValue: collectionView.tag) {
             if let collectionViewItem = self.collectionViewItems[collectionViewType] {
@@ -95,6 +100,7 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
         if let collectionViewType =  CollectionViewType.init(rawValue: collectionView.tag) {
             if let collectionViewItem = self.collectionViewItems[collectionViewType] {
                 cell.setItem(collectionViewItem[indexPath.row])
+                cell.backgroundColor = UIColor(named: .Background)
             }
         }
         return cell
@@ -117,4 +123,22 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
         return items
     }
 
+    @IBAction func flipVertical(sender: UIButton) {
+        sender.flash(UIColor(named:.ButtonFlash))
+        currentTile.tile?.rotate(.Clockwise)
+        currentTile.layout()
+    }
+
+    @IBAction func flipHorizontal(sender: UIButton) {
+        sender.flash(UIColor(named:.ButtonFlash))
+        currentTile.tile?.flip(.Horizontal)
+        currentTile.layout()
+    }
+    
+    @IBAction func rotate(sender: UIButton) {
+        sender.flash(UIColor(named:.ButtonFlash))
+        currentTile.tile?.flip(.Vertical)
+        currentTile.layout()
+    }
+    
 }
