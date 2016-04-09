@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="f8B-rl-9vJ" userLabel="Background">
-                                <rect key="frame" x="0.0" y="113" width="414" height="102"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="102"/>
                                 <color key="backgroundColor" red="0.72343188039999995" green="0.73786864370000005" blue="0.90542140149999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="92" id="ET1-1a-lFF"/>
@@ -53,15 +54,14 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Br3-BC-PTH" customClass="TileView" customModule="Tiler" customModuleProvider="target">
-                                <rect key="frame" x="171" y="33" width="72" height="72"/>
+                                <rect key="frame" x="171" y="30" width="72" height="72"/>
                                 <color key="backgroundColor" red="0.72343188039999995" green="0.73786864370000005" blue="0.90542140149999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="72" id="4KW-l9-4eR"/>
-                                    <constraint firstAttribute="height" constant="72" id="orB-Jw-0dm"/>
+                                    <constraint firstAttribute="width" secondItem="Br3-BC-PTH" secondAttribute="height" multiplier="1:1" id="ybA-je-pxn"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iea-FX-X9C" userLabel="Contents">
-                                <rect key="frame" x="0.0" y="223" width="414" height="102"/>
+                                <rect key="frame" x="0.0" y="242" width="414" height="102"/>
                                 <color key="backgroundColor" red="0.72343188039999995" green="0.73786864370000005" blue="0.90542140149999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="102" id="yjg-Ds-Jnc"/>
@@ -101,18 +101,24 @@
                             <constraint firstItem="Br3-BC-PTH" firstAttribute="centerX" secondItem="gOS-d3-xWq" secondAttribute="centerX" id="9F7-rk-P73"/>
                             <constraint firstItem="iea-FX-X9C" firstAttribute="leading" secondItem="gOS-d3-xWq" secondAttribute="leadingMargin" constant="-20" id="ICO-EN-Rsy"/>
                             <constraint firstItem="Br3-BC-PTH" firstAttribute="top" secondItem="iea-FX-X9C" secondAttribute="bottom" constant="9" id="Iip-0x-sbo"/>
-                            <constraint firstItem="Br3-BC-PTH" firstAttribute="top" secondItem="3dt-Yu-hLv" secondAttribute="bottom" constant="33" id="MpZ-LC-lxS"/>
+                            <constraint firstItem="Br3-BC-PTH" firstAttribute="top" secondItem="3dt-Yu-hLv" secondAttribute="bottom" constant="30" id="MpZ-LC-lxS"/>
                             <constraint firstItem="iea-FX-X9C" firstAttribute="top" secondItem="3dt-Yu-hLv" secondAttribute="bottom" id="PCD-Kf-KMN"/>
                             <constraint firstItem="iea-FX-X9C" firstAttribute="top" secondItem="f8B-rl-9vJ" secondAttribute="bottom" constant="8" id="ZDz-2P-uQZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iea-FX-X9C" secondAttribute="trailing" constant="-20" id="ZqF-pG-DlK"/>
                             <constraint firstItem="f8B-rl-9vJ" firstAttribute="leading" secondItem="gOS-d3-xWq" secondAttribute="leadingMargin" constant="-20" id="eHA-AM-x7T"/>
-                            <constraint firstItem="f8B-rl-9vJ" firstAttribute="top" secondItem="Br3-BC-PTH" secondAttribute="bottom" constant="8" id="kqe-LZ-oca"/>
+                            <constraint firstItem="f8B-rl-9vJ" firstAttribute="top" secondItem="Br3-BC-PTH" secondAttribute="bottom" constant="30" id="kqe-LZ-oca"/>
+                            <constraint firstItem="Br3-BC-PTH" firstAttribute="top" secondItem="3dt-Yu-hLv" secondAttribute="bottom" constant="33" id="o4C-wq-7JB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="f8B-rl-9vJ" secondAttribute="trailing" constant="-20" id="wBR-uu-xZe"/>
+                            <constraint firstItem="f8B-rl-9vJ" firstAttribute="top" secondItem="Br3-BC-PTH" secondAttribute="bottom" constant="8" id="wGe-PB-iU0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Br3-BC-PTH" secondAttribute="trailing" constant="151" id="wJU-r2-rHR"/>
+                            <constraint firstItem="Br3-BC-PTH" firstAttribute="leading" secondItem="gOS-d3-xWq" secondAttribute="leadingMargin" constant="151" id="yVb-Ws-5Pe"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="262-xS-mLJ"/>
+                                <exclude reference="wGe-PB-iU0"/>
                                 <exclude reference="Iip-0x-sbo"/>
+                                <exclude reference="o4C-wq-7JB"/>
                                 <exclude reference="PCD-Kf-KMN"/>
                             </mask>
                         </variation>

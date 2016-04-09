@@ -91,15 +91,11 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var imageItem: ImageItem?
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ItemCell", forIndexPath: indexPath) as! ImageViewCell
-        if let cvt =  CollectionViewType.init(rawValue: collectionView.tag) {
-            if let cvi = self.collectionViewItems[cvt] {
-                imageItem = cvi[indexPath.row]
+        if let collectionViewType =  CollectionViewType.init(rawValue: collectionView.tag) {
+            if let collectionViewItem = self.collectionViewItems[collectionViewType] {
+                cell.setItem(collectionViewItem[indexPath.row])
             }
-        }
-        if let ii = imageItem {
-            cell.setItem(ii)
         }
         return cell
     }

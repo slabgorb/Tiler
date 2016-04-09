@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class TileView: UIView {
     var width: Double = TileView.defaultWidth
@@ -56,13 +57,24 @@ class TileView: UIView {
     }
     func layout() {
         clearImages()
+        var imageViews:[UIImageView] = []
         if let backgroundName = tile?.backgroundImageName {
-            addSubview(makeImageView(UIImage(named: backgroundName)))
+            imageViews.append(makeImageView(UIImage(named: backgroundName)))
         }
         if let imageName = tile?.imageName {
-            addSubview(makeImageView(UIImage(named: imageName)))
+            imageViews.append(makeImageView(UIImage(named: imageName)))
         }
-        addSubview(makeImageView(grid))
+        imageViews.append(makeImageView(grid))
+        for imageView in imageViews {
+            addSubview(imageView)
+            imageView.snp_makeConstraints { (make) -> Void in
+                make.top.equalTo(0)
+                make.left.equalTo(0)
+                make.height.equalTo(self)
+                make.width.equalTo(self)
+            }
+        }
+
     }
     
     required init?(coder aDecoder: NSCoder, tile: Tile?) {

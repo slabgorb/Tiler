@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'Tiler' do
   pod "PKHUD"
+  pod "SnapKit"
 end
 
 target 'TilerTests' do

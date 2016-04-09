@@ -1,10 +1,13 @@
 PODS:
   - PKHUD (3.1.0)
+  - SnapKit (0.20.0)
 
 DEPENDENCIES:
   - PKHUD
+  - SnapKit
 
 SPEC CHECKSUMS:
   PKHUD: 4167eccdb1b3a892fd80ce2b51cb6ba412a889ab
+  SnapKit: 5fce3c1bbbf1fbd31de9aa92f33eb9fa03f15650
 
 COCOAPODS: 0.39.0
