@@ -103,13 +103,13 @@ class MapListTableViewController: UITableViewController {
     func finishEditing() {
         self.tableView.setEditing(false, animated: true)
         saveMaps()
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "editMapList:")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(MapListTableViewController.editMapList(_:)))
         tableView.reloadData()
     }
     
     func startEditing() {
         self.tableView.setEditing(true, animated: true)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "editMapList:")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(MapListTableViewController.editMapList(_:)))
     }
     
     @IBAction func editMapList(sender: UIBarButtonItem) {
