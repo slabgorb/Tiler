@@ -39,6 +39,7 @@ enum Direction: String {
         case .West: return opposite()
         }
     }
+
     func flipVertical() -> Direction {
         switch self {
         case .North: return opposite()
@@ -56,6 +57,7 @@ enum Direction: String {
         case .West: return .East
         }
     }
+    
     func rotate(direction: RotationDirection) -> Direction {
         switch direction {
         case .Clockwise:

@@ -39,6 +39,7 @@
 		24DDC7B31CADB22600B96AD8 /* CircleColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DDC7B21CADB22600B96AD8 /* CircleColorButton.swift */; };
 		24DF1EA21CB569A600D192F2 /* RomanNumeralTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DF1EA11CB569A600D192F2 /* RomanNumeralTests.swift */; };
 		24DF1EA41CB56AF300D192F2 /* RomanNumeral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DF1EA31CB56AF300D192F2 /* RomanNumeral.swift */; };
+		24DF1EBB1CB5A23400D192F2 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DF1EBA1CB5A23400D192F2 /* Int.swift */; };
 		24EFBD2E1C96F9E900442921 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFBD2D1C96F9E900442921 /* MapTests.swift */; };
 		24EFBD341C9748DA00442921 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFBD331C9748DA00442921 /* Either.swift */; };
 		24FD962F1CADD80B00BC2B93 /* TileCustomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FD962E1CADD80B00BC2B93 /* TileCustomizationViewController.swift */; };
@@ -106,6 +107,7 @@
 		24DDC7B21CADB22600B96AD8 /* CircleColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleColorButton.swift; sourceTree = "<group>"; };
 		24DF1EA11CB569A600D192F2 /* RomanNumeralTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RomanNumeralTests.swift; sourceTree = "<group>"; };
 		24DF1EA31CB56AF300D192F2 /* RomanNumeral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RomanNumeral.swift; sourceTree = "<group>"; };
+		24DF1EBA1CB5A23400D192F2 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		24EFBD2D1C96F9E900442921 /* MapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
 		24EFBD331C9748DA00442921 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		24FD962E1CADD80B00BC2B93 /* TileCustomizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileCustomizationViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			children = (
 				24948F471C95ED7800EB118F /* UIImage+Rotation.swift */,
 				2429F7EC1CA451850097D24E /* UIView.swift */,
+				24DF1EBA1CB5A23400D192F2 /* Int.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				7D143C761CA81A6B004CAEF8 /* MapList.swift in Sources */,
 				24948F401C95E25000EB118F /* Matchable.swift in Sources */,
 				7D80F5331CA833E3009FE4C6 /* PropertyListReadable.swift in Sources */,
+				24DF1EBB1CB5A23400D192F2 /* Int.swift in Sources */,
 				24DF1EA41CB56AF300D192F2 /* RomanNumeral.swift in Sources */,
 				24948F431C95E2C100EB118F /* Size.swift in Sources */,
 			);

@@ -22,9 +22,9 @@ class RomanNumeralTests: XCTestCase {
     }
 
     func testRomanNumerals() {
-        XCTAssert(RomanNumeral.toRoman(5) == "V")
-        XCTAssert(RomanNumeral.toRoman(6) == "VI")
-        XCTAssert(RomanNumeral.toRoman(2016) == "MMXVI")
+        XCTAssert(5.toRoman() == "V")
+        XCTAssert(6.toRoman() == "VI")
+        XCTAssert(2016.toRoman() == "MMXVI")
     }
 
     func testPerformanceExample() {
