@@ -131,6 +131,9 @@
                                                     <constraint firstItem="4X0-gE-Mm3" firstAttribute="leading" secondItem="BMf-8q-B5O" secondAttribute="leading" id="tVw-SI-Yf7"/>
                                                 </constraints>
                                                 <size key="customSize" width="72" height="72"/>
+                                                <connections>
+                                                    <segue destination="LCV-L5-N9Z" kind="presentation" id="opk-24-e68"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                         <connections>
@@ -183,7 +186,6 @@
                         <outlet property="mapView" destination="eQ5-ak-HO6" id="QfU-oH-olf"/>
                         <outlet property="titleTextField" destination="jaI-Fc-PSY" id="xaX-Q1-mMK"/>
                         <outlet property="titleTextFieldRight" destination="8xV-LF-tNj" id="fJq-Na-crc"/>
-                        <segue destination="LCV-L5-N9Z" kind="presentation" identifier="TileConfigurationSegue" id="ofV-ds-ux6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJG-6e-2TC" userLabel="First Responder" sceneMemberID="firstResponder"/>

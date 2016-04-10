@@ -141,4 +141,8 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
         currentTile.layout()
     }
     
+    @IBAction func dismiss(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: {})
+    }
+    
 }

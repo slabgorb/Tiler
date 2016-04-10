@@ -170,7 +170,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Customize Tile" id="lba-Gd-s87">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="vSA-z8-miE"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="vSA-z8-miE">
+                            <connections>
+                                <action selector="dismiss:" destination="hMj-Ai-8PU" id="Xt6-hC-isY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="currentTile" destination="Br3-BC-PTH" id="h61-rM-bJc"/>

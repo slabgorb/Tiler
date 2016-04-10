@@ -87,10 +87,5 @@ class MapViewController: UIViewController, UICollectionViewDelegate, UICollectio
         }
     }
 
-
-
-    
-
-    
 }
 
