@@ -86,9 +86,11 @@ class MapListTableViewController: UITableViewController, MapPersistence {
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier  == "MapDetailSegue") {
-            if let mapViewController = segue.destinationViewController as? MapViewController {
-                if let row = tableView.indexPathForSelectedRow?.row {
-                    mapViewController.mapIndex = row
+            if let navigationController = segue.destinationViewController as? UINavigationController {
+                if let mapViewController = navigationController.topViewController as? MapViewController {
+                    if let row = tableView.indexPathForSelectedRow?.row {
+                        mapViewController.mapIndex = row
+                    }
                 }
             }
         }

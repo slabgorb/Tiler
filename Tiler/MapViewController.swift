@@ -20,7 +20,11 @@ class MapViewController: UIViewController, UICollectionViewDelegate, UICollectio
 
     @IBOutlet weak var finishedEditingTitleButton: UIButton!
     
-    var map:Map? = Map(title: "Untitled")
+    var map:Map? = Map(title: "Untitled") {
+        didSet {
+            self.mapView.map = map
+        }
+    }
     var mapIndex: Int = 0
     var mapList:MapList? 
 
@@ -46,7 +50,7 @@ class MapViewController: UIViewController, UICollectionViewDelegate, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         let mapList = loadMaps()
-        mapView.map = mapList?.get(mapIndex)
+        map = mapList?.get(mapIndex)
         //mapView.drawTiles()
         navigationItem.title = map?.title
         titleTextField.text = map?.title

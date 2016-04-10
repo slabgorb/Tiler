@@ -40,7 +40,7 @@
                                 <connections>
                                     <outlet property="detailLabel" destination="mPs-h8-rGU" id="kTU-ww-tAj"/>
                                     <outlet property="titleLabel" destination="S9h-SD-tuh" id="jwZ-vS-gn8"/>
-                                    <segue destination="hi7-h0-jnz" kind="showDetail" id="nLH-Eh-MZc"/>
+                                    <segue destination="hi7-h0-jnz" kind="show" identifier="MapDetailSegue" action="showDetailViewController:sender:" id="nLH-Eh-MZc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

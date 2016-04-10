@@ -132,7 +132,7 @@
                                                 </constraints>
                                                 <size key="customSize" width="72" height="72"/>
                                                 <connections>
-                                                    <segue destination="LCV-L5-N9Z" kind="presentation" id="opk-24-e68"/>
+                                                    <segue destination="LCV-L5-N9Z" kind="custom" identifier="expandTileSegueId" customClass="ExpandSegue" customModule="Tiler" customModuleProvider="target" id="opk-24-e68"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
