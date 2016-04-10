@@ -12,7 +12,6 @@ protocol MapPersistence {
     var mapList: MapList? { get set }
 }
 
-
 extension MapPersistence {
     func loadMaps() -> MapList? {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(MapList.ArchiveURL.path!) as? MapList

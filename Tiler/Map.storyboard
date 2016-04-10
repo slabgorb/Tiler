@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tile-->
@@ -100,27 +101,36 @@
                                     <constraint firstItem="Wce-Ud-kvp" firstAttribute="leading" secondItem="Zn7-0A-vk4" secondAttribute="leading" id="z5u-mp-Cbj"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JsB-Ii-Nsy">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JsB-Ii-Nsy">
                                 <rect key="frame" x="0.0" y="40" width="414" height="632"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eQ5-ak-HO6" customClass="MapView" customModule="Tiler" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-8" width="414" height="632"/>
-                                        <collectionViewLayout key="collectionViewLayout" id="5ZF-hN-RLa"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eQ5-ak-HO6" customClass="MapView" customModule="Tiler" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="632"/>
+                                        <collectionViewLayout key="collectionViewLayout" id="5ZF-hN-RLa" customClass="MapFlowLayout" customModule="Tiler" customModuleProvider="target"/>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BMf-8q-B5O">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TileCellId" id="BMf-8q-B5O">
+                                                <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4X0-gE-Mm3" customClass="TileView" customModule="Tiler" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4X0-gE-Mm3" customClass="TileView" customModule="Tiler" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="72" id="0Wc-qB-kco"/>
+                                                                <constraint firstAttribute="width" constant="72" id="qp2-bh-LhE"/>
+                                                            </constraints>
                                                         </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <constraints>
+                                                    <constraint firstItem="4X0-gE-Mm3" firstAttribute="top" secondItem="BMf-8q-B5O" secondAttribute="top" id="61z-zk-7OI"/>
+                                                    <constraint firstItem="4X0-gE-Mm3" firstAttribute="leading" secondItem="BMf-8q-B5O" secondAttribute="leading" id="tVw-SI-Yf7"/>
+                                                </constraints>
+                                                <size key="customSize" width="72" height="72"/>
                                             </collectionViewCell>
                                         </cells>
                                         <connections>
@@ -129,8 +139,34 @@
                                         </connections>
                                     </collectionView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="eQ5-ak-HO6" firstAttribute="leading" secondItem="JsB-Ii-Nsy" secondAttribute="leading" id="35m-Iy-cdK"/>
+                                    <constraint firstItem="eQ5-ak-HO6" firstAttribute="centerX" secondItem="JsB-Ii-Nsy" secondAttribute="centerX" id="FwM-vG-Lkc"/>
+                                    <constraint firstAttribute="bottom" secondItem="eQ5-ak-HO6" secondAttribute="bottom" id="jnI-Ck-MO7"/>
+                                    <constraint firstAttribute="trailing" secondItem="eQ5-ak-HO6" secondAttribute="trailing" id="kST-1Y-Uig"/>
+                                    <constraint firstItem="eQ5-ak-HO6" firstAttribute="top" secondItem="JsB-Ii-Nsy" secondAttribute="top" id="vit-ND-dnX"/>
+                                    <constraint firstItem="eQ5-ak-HO6" firstAttribute="centerY" secondItem="JsB-Ii-Nsy" secondAttribute="centerY" id="yTF-uv-82Y"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JsB-Ii-Nsy" secondAttribute="trailing" id="YQ7-sx-0MY"/>
+                            <constraint firstItem="iDx-dL-p5A" firstAttribute="top" secondItem="JsB-Ii-Nsy" secondAttribute="bottom" id="csD-YB-6LJ"/>
+                            <constraint firstItem="JsB-Ii-Nsy" firstAttribute="trailing" secondItem="6ej-id-Fv7" secondAttribute="trailingMargin" id="glO-wS-lY3"/>
+                            <constraint firstItem="JsB-Ii-Nsy" firstAttribute="top" secondItem="Zn7-0A-vk4" secondAttribute="bottom" id="iH5-ac-frv"/>
+                            <constraint firstItem="JsB-Ii-Nsy" firstAttribute="leading" secondItem="6ej-id-Fv7" secondAttribute="leadingMargin" id="una-dc-nIE"/>
+                            <constraint firstItem="JsB-Ii-Nsy" firstAttribute="leading" secondItem="6ej-id-Fv7" secondAttribute="leading" id="xFR-cZ-eAW"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YQ7-sx-0MY"/>
+                                <exclude reference="glO-wS-lY3"/>
+                                <exclude reference="iH5-ac-frv"/>
+                                <exclude reference="una-dc-nIE"/>
+                                <exclude reference="xFR-cZ-eAW"/>
+                                <exclude reference="csD-YB-6LJ"/>
+                            </mask>
+                        </variation>
                     </stackView>
                     <navigationItem key="navigationItem" id="JZk-a8-iZY">
                         <barButtonItem key="leftBarButtonItem" title="List" id="c5D-Xm-9cc">
