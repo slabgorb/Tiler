@@ -9,7 +9,7 @@
 import UIKit
 import PKHUD
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, MapPersistence {
 
     // MARK: Properties
 
@@ -17,10 +17,12 @@ class MapViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var titleTextFieldRight: NSLayoutConstraint!
     
+
     @IBOutlet weak var finishedEditingTitleButton: UIButton!
     
     var map:Map? = Map(title: "Untitled")
     var mapIndex: Int = 0
+    var mapList:MapList? 
 
     func addTile(tile: Tile, _ row: Int, _ column: Int) {
         let added:Either<String,Bool> = self.mapView.addTileView(TileView(tile: tile))
@@ -32,11 +34,20 @@ class MapViewController: UIViewController {
         }
     }
 
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TileCellId", forIndexPath: indexPath)
+        return cell
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let mapList = loadMaps()
         mapView.map = mapList?.get(mapIndex)
-        mapView.drawTiles()
+        //mapView.drawTiles()
         navigationItem.title = map?.title
         titleTextField.text = map?.title
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Baskerville", size: 20)!]
@@ -76,9 +87,10 @@ class MapViewController: UIViewController {
         }
     }
 
-    func loadMaps() -> MapList? {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(MapList.ArchiveURL.path!) as? MapList
-    }
+
+
+    
+
     
 }
 

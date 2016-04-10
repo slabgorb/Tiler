@@ -8,11 +8,12 @@
 
 import UIKit
 
-class MapView: UIView {
+
+class MapView: UICollectionView {
     var map: Map?
     var zoom: Double = 1.0
     var tileViews:[TileView] = []
-
+    
     func drawTiles() {
         tileViews = []
         if let map = self.map {
@@ -56,21 +57,32 @@ class MapView: UIView {
         addSubview(tileView)
     }
     
-    private func drawBlankTile(rect: CGRect) {
+    private func drawBlankTile(rect: CGRect) -> UIView{
         let view = UIView(frame: rect)
         view.layer.borderWidth = 1.0
         view.layer.borderColor = UIColor(named: .LightBorder).CGColor
         view.backgroundColor = UIColor(named: .Overlay)
         addSubview(view)
+        return view
+    }
+    
+    func tapBlank(row row: Int, column: Int) {
+        
     }
     
     private func drawBlankTiles() {
+
         if let maxRow = map?.maxRow(), let maxCol = map?.maxColumn() {
             for i in 0...maxRow {
-                drawBlankTile(rectForLocation(row: i, column: maxCol + 1))
+                let view = drawBlankTile(rectForLocation(row: i, column: maxCol + 1))
+                let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapView.tapBlank(row:column:)))
+                
             }
             for i in 0...maxCol {
-                drawBlankTile(rectForLocation(row: maxRow + 1, column: i))
+                let view = drawBlankTile(rectForLocation(row: maxRow + 1, column: i))
+                let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MapView.tapBlank(row:column:)))
+                view.addGestureRecognizer(tapRecognizer)
+                
             }
         }
     }

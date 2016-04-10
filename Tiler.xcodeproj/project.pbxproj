@@ -49,6 +49,8 @@
 		7D202D001CB9669800D945A0 /* UIButton+Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D202CFF1CB9669800D945A0 /* UIButton+Flash.swift */; };
 		7D202D041CB969EA00D945A0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D202D031CB969EA00D945A0 /* Constants.swift */; };
 		7D202D061CB9971F00D945A0 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D202D051CB9971F00D945A0 /* Map.storyboard */; };
+		7D202D0C1CB9D12100D945A0 /* MapFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D202D0B1CB9D12100D945A0 /* MapFlowLayout.swift */; };
+		7D202D0E1CBA97B700D945A0 /* MapPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D202D0D1CBA97B700D945A0 /* MapPersistence.swift */; };
 		7D76A1031CA74ED1004CA3B8 /* FileSaveHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76A1021CA74ED1004CA3B8 /* FileSaveHelper.swift */; };
 		7D80F5331CA833E3009FE4C6 /* PropertyListReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D80F5321CA833E3009FE4C6 /* PropertyListReadable.swift */; };
 		BF11D3F115554FBCA5909030 /* Pods_Tiler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE538244737F2468AB68F93A /* Pods_Tiler.framework */; };
@@ -121,6 +123,8 @@
 		7D202CFF1CB9669800D945A0 /* UIButton+Flash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Flash.swift"; sourceTree = "<group>"; };
 		7D202D031CB969EA00D945A0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7D202D051CB9971F00D945A0 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		7D202D0B1CB9D12100D945A0 /* MapFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFlowLayout.swift; sourceTree = "<group>"; };
+		7D202D0D1CBA97B700D945A0 /* MapPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPersistence.swift; sourceTree = "<group>"; };
 		7D76A1021CA74ED1004CA3B8 /* FileSaveHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSaveHelper.swift; sourceTree = "<group>"; };
 		7D80F5321CA833E3009FE4C6 /* PropertyListReadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyListReadable.swift; sourceTree = "<group>"; };
 		8FB1D33F787124EF8087EB8F /* Pods-Tiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tiler/Pods-Tiler.debug.xcconfig"; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 			children = (
 				245B6ACE1CAC58F800C840A7 /* Tile */,
 				2403BBE81C88F66B00F79C53 /* MapViewController.swift */,
+				7D202D0B1CB9D12100D945A0 /* MapFlowLayout.swift */,
 				24DA4A1C1CA725F9005EDF71 /* MapListTableViewController.swift */,
 			);
 			name = ViewControllers;
@@ -279,6 +284,7 @@
 				2429F7EC1CA451850097D24E /* UIView.swift */,
 				24DF1EBA1CB5A23400D192F2 /* Int.swift */,
 				7D202CFF1CB9669800D945A0 /* UIButton+Flash.swift */,
+				7D202D0D1CBA97B700D945A0 /* MapPersistence.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -549,12 +555,14 @@
 				24DA4A1D1CA725F9005EDF71 /* MapListTableViewController.swift in Sources */,
 				24DDC7B31CADB22600B96AD8 /* CircleColorButton.swift in Sources */,
 				24DA4A1F1CA72681005EDF71 /* MapTableViewCell.swift in Sources */,
+				7D202D0C1CB9D12100D945A0 /* MapFlowLayout.swift in Sources */,
 				2403BBE71C88F66B00F79C53 /* AppDelegate.swift in Sources */,
 				245BB4681CAF4A7C00CE1F81 /* ImageItem.swift in Sources */,
 				7D202D041CB969EA00D945A0 /* Constants.swift in Sources */,
 				7D143C761CA81A6B004CAEF8 /* MapList.swift in Sources */,
 				24948F401C95E25000EB118F /* Matchable.swift in Sources */,
 				7D80F5331CA833E3009FE4C6 /* PropertyListReadable.swift in Sources */,
+				7D202D0E1CBA97B700D945A0 /* MapPersistence.swift in Sources */,
 				24DF1EBB1CB5A23400D192F2 /* Int.swift in Sources */,
 				24DF1EA41CB56AF300D192F2 /* RomanNumeral.swift in Sources */,
 				24948F431C95E2C100EB118F /* Size.swift in Sources */,

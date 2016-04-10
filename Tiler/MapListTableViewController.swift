@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapListTableViewController: UITableViewController {
+class MapListTableViewController: UITableViewController, MapPersistence {
 
     var mapList:MapList?
     var selectedMap: Map?
@@ -144,18 +144,7 @@ class MapListTableViewController: UITableViewController {
         
     }
     
-    func loadMaps() -> MapList? {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(MapList.ArchiveURL.path!) as? MapList
-    }
-    
-    func saveMaps() {
-        if let mapList = self.mapList {
-            let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(mapList, toFile: MapList.ArchiveURL.path!)
-            if !isSuccessfulSave {
-                print("Failed to save maps...")
-            }
-        }
-    }
+
     
 
 }
