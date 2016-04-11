@@ -13,6 +13,10 @@ class TileView: UIView {
     var width: Double = TileView.defaultWidth
     var height: Double = TileView.defaultHeight
 
+    enum Layer {
+        case Background, Grid, Contents
+    }
+
     static let defaultWidth = 72.0
     static let defaultHeight = 72.0
     let grid: UIImage? = UIImage(named: "grid")
@@ -34,19 +38,21 @@ class TileView: UIView {
         self.init(frame: frame, tile: tile)
     }
     
-    func makeImageView(image: UIImage?) -> UIImageView {
+    func makeImageView(image: UIImage?, layer: Layer) -> UIImageView {
         let imageView = UIImageView(frame: self.frame)
         if var img =  image {
-            if let tile = self.tile {
-                img = img.imageRotatedByDegrees(CGFloat(tile.rotation.toDegrees()), flipX: tile.flippedHorizontally, flipY: tile.flippedVertically)
+            if let tile = self.tile  {
+                if layer == .Contents {
+                    img = img.imageRotatedByDegrees(CGFloat(tile.rotation.toDegrees()), flipX: tile.flippedHorizontally, flipY: tile.flippedVertically)
+                }
             }
             imageView.image = img
         }
         return imageView
     }
     
-    func makeImageViewNamed(name: String) -> UIImageView {
-        return makeImageView(UIImage(named: name))
+    func makeImageViewNamed(name: String, layer: Layer) -> UIImageView {
+        return makeImageView(UIImage(named: name), layer: layer)
     }
 
     func clearImages() {
@@ -62,12 +68,12 @@ class TileView: UIView {
         clearImages()
         var imageViews:[UIImageView] = []
         if let backgroundName = tile?.backgroundImageName {
-            imageViews.append(makeImageViewNamed(backgroundName))
+            imageViews.append(makeImageViewNamed(backgroundName, layer: .Background))
         }
         if let imageName = tile?.imageName {
-            imageViews.append(makeImageViewNamed(imageName))
+            imageViews.append(makeImageViewNamed(imageName, layer: .Contents))
         }
-        imageViews.append(makeImageView(grid))
+        imageViews.append(makeImageView(grid, layer: .Grid))
         for imageView in imageViews {
             addSubview(imageView)
             imageView.snp_makeConstraints { (make) -> Void in
