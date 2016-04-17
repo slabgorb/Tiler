@@ -15,6 +15,7 @@ class MapListTableViewController: UITableViewController, MapPersistence {
     
     @IBOutlet weak var editMapBarButton: UIBarButtonItem!
     @IBOutlet weak var addMapBarButton: UIBarButtonItem!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if let savedMaps = loadMaps() {
@@ -26,8 +27,8 @@ class MapListTableViewController: UITableViewController, MapPersistence {
         } else {
             mapList = loadSampleMaps()
         }
-        self.clearsSelectionOnViewWillAppear = false
-        self.navigationController?.navigationBar.titleTextAttributes = Constants.titleTextAttributes
+        clearsSelectionOnViewWillAppear = false
+        tableView.tableFooterView = UIView(frame: CGRectZero )
     }
 
     override func didReceiveMemoryWarning() {

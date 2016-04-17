@@ -36,11 +36,12 @@ class Tile: NSObject, Matchable, Rotatable, Flippable, NSCoding {
     
     override var description:String {
         var output:[String] = ["Tile Object #\(hashValue)"]
-        output.append("Image: \(self.imageName)")
-        output.append("Rotation: \(self.rotation) \(self.rotation.toDegrees())")
-        output.append("Flipped Vertically: \(self.flippedVertically)")
-        output.append("Flipped Horizontally: \(self.flippedHorizontally)")
-        output.append("Openings: \(self.openings.count)")
+        output.append("Image: \(imageName)")
+        output.append("Background: \(backgroundImageName)")
+        output.append("Rotation: \(rotation) \(rotation.toDegrees())°")
+        output.append("Flipped Vertically: \(flippedVertically)")
+        output.append("Flipped Horizontally: \(flippedHorizontally)")
+        output.append("Openings: \(openings.count)")
         for opening in openings {
             output.append("\t\(opening.description)")
         }

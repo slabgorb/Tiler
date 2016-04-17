@@ -61,7 +61,6 @@ class MapViewController: UIViewController, UICollectionViewDelegate, UICollectio
         map = mapList?.get(mapIndex)
         navigationItem.title = map?.title
         titleTextField.text = map?.title
-        self.navigationController?.navigationBar.titleTextAttributes = Constants.titleTextAttributes
 
     }
 
@@ -92,6 +91,7 @@ class MapViewController: UIViewController, UICollectionViewDelegate, UICollectio
                 self.finishedEditingTitleButton.hidden = true
         })
         if let map = self.map {
+            mapList = loadMaps()
             map.title = sender.text
             mapList![mapIndex] =  map
             saveMaps()

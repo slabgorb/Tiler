@@ -40,7 +40,6 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeTileView.backgroundColor = UIColor(named: .Background)
-        self.navigationController?.navigationBar.titleTextAttributes = Constants.titleTextAttributes
         for cv in collectionViews {
             cv.allowsMultipleSelection = false
             cv.backgroundColor = UIColor(named: .TileSelectionsBackground)
