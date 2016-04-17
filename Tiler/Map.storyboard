@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Jm0-EO-GWZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Jm0-EO-GWZ">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tile-->
@@ -108,7 +107,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="632"/>
                                         <collectionViewLayout key="collectionViewLayout" id="5ZF-hN-RLa" customClass="MapFlowLayout" customModule="Tiler" customModuleProvider="target"/>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TileCellId" id="BMf-8q-B5O">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TileCellId" id="BMf-8q-B5O" customClass="TileViewCell" customModule="Tiler" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -152,24 +151,6 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="JsB-Ii-Nsy" secondAttribute="trailing" id="YQ7-sx-0MY"/>
-                            <constraint firstItem="iDx-dL-p5A" firstAttribute="top" secondItem="JsB-Ii-Nsy" secondAttribute="bottom" id="csD-YB-6LJ"/>
-                            <constraint firstItem="JsB-Ii-Nsy" firstAttribute="trailing" secondItem="6ej-id-Fv7" secondAttribute="trailingMargin" id="glO-wS-lY3"/>
-                            <constraint firstItem="JsB-Ii-Nsy" firstAttribute="top" secondItem="Zn7-0A-vk4" secondAttribute="bottom" id="iH5-ac-frv"/>
-                            <constraint firstItem="JsB-Ii-Nsy" firstAttribute="leading" secondItem="6ej-id-Fv7" secondAttribute="leadingMargin" id="una-dc-nIE"/>
-                            <constraint firstItem="JsB-Ii-Nsy" firstAttribute="leading" secondItem="6ej-id-Fv7" secondAttribute="leading" id="xFR-cZ-eAW"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="YQ7-sx-0MY"/>
-                                <exclude reference="glO-wS-lY3"/>
-                                <exclude reference="iH5-ac-frv"/>
-                                <exclude reference="una-dc-nIE"/>
-                                <exclude reference="xFR-cZ-eAW"/>
-                                <exclude reference="csD-YB-6LJ"/>
-                            </mask>
-                        </variation>
                     </stackView>
                     <navigationItem key="navigationItem" id="JZk-a8-iZY">
                         <barButtonItem key="leftBarButtonItem" title="List" id="c5D-Xm-9cc">

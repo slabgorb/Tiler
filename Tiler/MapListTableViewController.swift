@@ -27,7 +27,7 @@ class MapListTableViewController: UITableViewController, MapPersistence {
             mapList = loadSampleMaps()
         }
         self.clearsSelectionOnViewWillAppear = false
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Baskerville", size: 20)!]
+        self.navigationController?.navigationBar.titleTextAttributes = Constants.titleTextAttributes
     }
 
     override func didReceiveMemoryWarning() {
@@ -120,6 +120,7 @@ class MapListTableViewController: UITableViewController, MapPersistence {
     @IBAction func addMap(sender: UIBarButtonItem) {
         let newMap = Map(title: "Untitled")
         mapList!.append(newMap)
+        saveMaps()
         self.tableView.reloadData()
         
     }

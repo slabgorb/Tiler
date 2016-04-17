@@ -37,3 +37,7 @@ extension UIColor {
     }
 }
 
+public struct Constants {
+    static let titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Baskerville", size: 20)! ]
+}
+

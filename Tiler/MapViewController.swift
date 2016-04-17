@@ -16,8 +16,6 @@ class MapViewController: UIViewController, UICollectionViewDelegate, UICollectio
     @IBOutlet var mapView: MapView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var titleTextFieldRight: NSLayoutConstraint!
-    
-
     @IBOutlet weak var finishedEditingTitleButton: UIButton!
     
     var map:Map? = Map(title: "Untitled") {
@@ -39,11 +37,21 @@ class MapViewController: UIViewController, UICollectionViewDelegate, UICollectio
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        if let map = self.map {
+            return map.tiles.count
+        } else {
+            return 1
+        }
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TileCellId", forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TileCellId", forIndexPath: indexPath) as! TileViewCell
+
+        if let map = self.map {
+            let tileView = TileView(tile:map.tiles[indexPath.row])
+            cell.tileView = tileView
+            cell.tileView?.layout()
+        }
         return cell
     }
     
@@ -51,10 +59,9 @@ class MapViewController: UIViewController, UICollectionViewDelegate, UICollectio
         super.viewDidLoad()
         let mapList = loadMaps()
         map = mapList?.get(mapIndex)
-        //mapView.drawTiles()
         navigationItem.title = map?.title
         titleTextField.text = map?.title
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Baskerville", size: 20)!]
+        self.navigationController?.navigationBar.titleTextAttributes = Constants.titleTextAttributes
 
     }
 
@@ -83,10 +90,11 @@ class MapViewController: UIViewController, UICollectionViewDelegate, UICollectio
             self.titleTextFieldRight.constant = 8
             }, completion: { finished -> Void  in
                 self.finishedEditingTitleButton.hidden = true
-                
         })
         if let map = self.map {
             map.title = sender.text
+            mapList![mapIndex] =  map
+            saveMaps()
             navigationItem.title = map.title
         }
     }

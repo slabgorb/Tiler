@@ -42,6 +42,7 @@
 		24DF1EBB1CB5A23400D192F2 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DF1EBA1CB5A23400D192F2 /* Int.swift */; };
 		24EFBD2E1C96F9E900442921 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFBD2D1C96F9E900442921 /* MapTests.swift */; };
 		24EFBD341C9748DA00442921 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EFBD331C9748DA00442921 /* Either.swift */; };
+		24FB583B1CBD264500E98C57 /* TileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FB583A1CBD264500E98C57 /* TileViewCell.swift */; };
 		24FD962F1CADD80B00BC2B93 /* TileCustomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FD962E1CADD80B00BC2B93 /* TileCustomizationViewController.swift */; };
 		24FD96311CADD99000BC2B93 /* backgroundItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24FD96301CADD99000BC2B93 /* backgroundItems.plist */; };
 		24FE63F31CB033D900A7D4CA /* contentItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24FE63F21CB033D900A7D4CA /* contentItems.plist */; };
@@ -116,6 +117,7 @@
 		24DF1EBA1CB5A23400D192F2 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		24EFBD2D1C96F9E900442921 /* MapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
 		24EFBD331C9748DA00442921 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
+		24FB583A1CBD264500E98C57 /* TileViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileViewCell.swift; sourceTree = "<group>"; };
 		24FD962E1CADD80B00BC2B93 /* TileCustomizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileCustomizationViewController.swift; sourceTree = "<group>"; };
 		24FD96301CADD99000BC2B93 /* backgroundItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = backgroundItems.plist; sourceTree = "<group>"; };
 		24FE63F21CB033D900A7D4CA /* contentItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = contentItems.plist; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				24DA4A1E1CA72681005EDF71 /* MapTableViewCell.swift */,
+				24FB583A1CBD264500E98C57 /* TileViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				2403BBE91C88F66B00F79C53 /* MapViewController.swift in Sources */,
 				24948F451C95E2D800EB118F /* RotationDirection.swift in Sources */,
 				7D202D001CB9669800D945A0 /* UIButton+Flash.swift in Sources */,
+				24FB583B1CBD264500E98C57 /* TileViewCell.swift in Sources */,
 				24948F481C95ED7800EB118F /* UIImage+Rotation.swift in Sources */,
 				24EFBD341C9748DA00442921 /* Either.swift in Sources */,
 				2429F7ED1CA451850097D24E /* UIView.swift in Sources */,

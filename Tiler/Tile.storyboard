@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MlW-ox-hE0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MlW-ox-hE0">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -61,10 +61,10 @@
                                 </connections>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Oey-1n-VQM">
-                                <rect key="frame" x="303" y="30" width="92" height="274"/>
+                                <rect key="frame" x="303" y="30" width="91" height="274"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgs-TX-V1Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="92" height="92"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="91" height="91"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Fgs-TX-V1Z" secondAttribute="height" multiplier="1:1" id="CQa-ec-eYB"/>
                                         </constraints>
@@ -76,7 +76,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aha-a7-4PC">
-                                        <rect key="frame" x="0.0" y="92" width="92" height="91"/>
+                                        <rect key="frame" x="0.0" y="91" width="91" height="92"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="aha-a7-4PC" secondAttribute="height" multiplier="1:1" id="kUF-2y-IRd"/>
                                         </constraints>
@@ -88,7 +88,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlF-ST-Nmm">
-                                        <rect key="frame" x="0.0" y="183" width="92" height="92"/>
+                                        <rect key="frame" x="0.0" y="183" width="91" height="91"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rlF-ST-Nmm" secondAttribute="height" multiplier="1:1" id="zVq-Wy-0vd"/>
                                         </constraints>

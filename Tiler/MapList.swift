@@ -8,10 +8,11 @@
 
 import Foundation
 
-class MapList:NSObject, NSCoding {
+class MapList: NSObject, NSCoding {
     
     // MARK:- Properties
     var list:[Map] = []
+
     private let file:FileSaveHelper = FileSaveHelper(fileName: "Maps", fileExtension: .JSON)
     var count:Int {
         return list.count
@@ -42,7 +43,21 @@ class MapList:NSObject, NSCoding {
     func get(index:Int) -> Map {
         return list[index]
     }
-    
+
+    func set(index:Int, map:Map) -> Void {
+        list[index] = map
+    }
+
+    subscript(index: Int) -> Map {
+        get {
+            return get(index)
+        }
+        set(newValue) {
+            set(index, map:newValue)
+        }
+
+    }
+
     func append(map:Map) {
         list.append(map)
     }
