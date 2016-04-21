@@ -32,9 +32,11 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
     @IBOutlet weak var rotateButton: UIButton!
     @IBOutlet weak var flipHorizontalButton: UIButton!
     @IBOutlet weak var flipVerticalButton: UIButton!
-    @IBOutlet weak var currentTile: TileView!
+    @IBOutlet weak var tileView: TileView!
     @IBOutlet var customizeTileView: UIView!
-    
+
+    var tile:Tile?
+
     var collectionViewItems: [CollectionViewType:[ImageItem]] = [:]
 
     override func viewDidLoad() {
@@ -49,10 +51,10 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
             cv.reloadData()
 
         }
-        if currentTile == nil {
-            currentTile.tile = Tile(openings: [], imageName: "t", backgroundImageName: "texture1")
-        }
-        currentTile.layout()
+
+        tile = tile ?? Tile(openings: [], imageName: "t", backgroundImageName: "texture1")
+        tileView.tile = tile
+        tileView.layout()
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,14 +75,14 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
         }
         if let collectionViewType = CollectionViewType.init(rawValue: collectionView.tag) {
             if let collectionViewItem = self.collectionViewItems[collectionViewType] {
-                if let tile = currentTile.tile {
+                if let tile = tile {
                     switch collectionViewType {
                     case .Background:
                         tile.backgroundImageName = collectionViewItem[indexPath.row].name
                     case .Contents:
                         tile.imageName = collectionViewItem[indexPath.row].name
                     }
-                    currentTile.layout()
+                    tileView.layout()
                 }
             }
         }
@@ -126,23 +128,26 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
 
     @IBAction func flipVertical(sender: UIButton) {
         sender.flash(UIColor(named:.ButtonFlash))
-        currentTile.tile?.rotate(.Clockwise)
-        currentTile.layout()
+        tile?.rotate(.Clockwise)
+        tileView.layout()
     }
 
     @IBAction func flipHorizontal(sender: UIButton) {
         sender.flash(UIColor(named:.ButtonFlash))
-        currentTile.tile?.flip(.Horizontal)
-        currentTile.layout()
+        tile?.flip(.Horizontal)
+        tileView.layout()
     }
     
     @IBAction func rotate(sender: UIButton) {
         sender.flash(UIColor(named:.ButtonFlash))
-        currentTile.tile?.flip(.Vertical)
-        currentTile.layout()
+        tile?.flip(.Vertical)
+        tileView.layout()
     }
     
     @IBAction func dismiss(sender: AnyObject) {
+        if let mvc = (parentViewController as? MapViewController) {
+            mvc.saveMap()
+        }
         dismissViewControllerAnimated(true, completion: {})
     }
     

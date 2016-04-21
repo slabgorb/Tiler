@@ -35,6 +35,13 @@ class MapViewController: UIViewController {
         
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        mapView.reloadData()
+
+
+    }
+
     func addTile(tile: Tile, _ row: Int, _ column: Int) {
         let added:Either<String,Bool> = self.mapView.addTileView(TileView(tile: tile))
         switch added {
@@ -68,7 +75,11 @@ class MapViewController: UIViewController {
         if segue.identifier == "expandTileSegueId" {
             if let navigationController = segue.destinationViewController as? UINavigationController  {
                 if let viewController = navigationController.topViewController as? TileCustomizationViewController {
-                    viewController.currentTile.tile = map?.tiles[mapView.indexPathsForSelectedItems()![0].row]
+                    if let currentSelection = mapView.indexPathsForSelectedItems()?.first {
+                        if let tile = map?.tiles[currentSelection.row] {
+                            viewController.tile = tile
+                        }
+                    }
                 }
             }
         }
@@ -109,6 +120,14 @@ extension MapViewController: UICollectionViewDataSource {
         }
         return cell
     }
+
+    func saveMap() {
+        mapList = loadMaps()
+        if let map = map, mapList = mapList {
+            mapList[mapIndex] =  map
+            saveMaps()
+        }
+    }
 }
 
 // MARK:- MapPersistence
@@ -126,9 +145,7 @@ extension MapViewController: TextInputViewControllerDelegate {
     func textInputViewController(viewController: TextInputViewController, saveButtonTappedWithText text:String) {
         if let map = map {
             map.title = text
-            mapList = loadMaps()
-            mapList![mapIndex] =  map
-            saveMaps()
+            saveMap()
             navigationItem.title = map.title
         }
         removeTextInputViewController()

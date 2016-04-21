@@ -177,11 +177,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="currentTile" destination="Br3-BC-PTH" id="h61-rM-bJc"/>
                         <outlet property="customizeTileView" destination="gOS-d3-xWq" id="8Um-zR-jP8"/>
                         <outlet property="flipHorizontalButton" destination="aha-a7-4PC" id="2fe-Uh-8uZ"/>
                         <outlet property="flipVerticalButton" destination="rlF-ST-Nmm" id="xBP-eF-Zj9"/>
                         <outlet property="rotateButton" destination="Fgs-TX-V1Z" id="12B-JF-A17"/>
+                        <outlet property="tileView" destination="Br3-BC-PTH" id="ysa-HU-JR2"/>
                         <outletCollection property="collectionViews" destination="iea-FX-X9C" collectionClass="NSMutableArray" id="XMy-fN-oaO"/>
                         <outletCollection property="collectionViews" destination="hk1-Qv-nuz" collectionClass="NSMutableArray" id="4aJ-Yf-uQW"/>
                     </connections>
