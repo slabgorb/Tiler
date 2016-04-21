@@ -38,7 +38,7 @@ extension UIColor {
 }
 
 public struct Constants {
-    static let titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Baskerville", size: 20)! ]
+    static let titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Baskerville", size: 18)! ]
     static let barButtonItems = [ NSFontAttributeName: UIFont(name: "Baskerville", size: 16)! ]
 }
 

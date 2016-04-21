@@ -52,10 +52,8 @@ class MapFlowLayout: UICollectionViewLayout {
     }
 
     override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        let attributes:UICollectionViewLayoutAttributes? = super.layoutAttributesForItemAtIndexPath(indexPath)
-        if attributes != nil {
-            modifyLayoutAttributes(attributes!)
-        }
+        let attributes:UICollectionViewLayoutAttributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+        modifyLayoutAttributes(attributes)
         return attributes
     }
 

@@ -83,6 +83,15 @@ extension MapViewController: UICollectionViewDelegate {
 
 // MARK:- UICollectionViewDataSource
 extension MapViewController: UICollectionViewDataSource {
+
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(collectionView: UICollectionView, canMoveItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return false
+    }
+
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let map = self.map {
             return map.tiles.count

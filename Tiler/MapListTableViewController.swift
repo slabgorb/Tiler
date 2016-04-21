@@ -10,7 +10,11 @@ import UIKit
 
 class MapListTableViewController: UITableViewController, MapPersistence {
 
-    var mapList:MapList?
+    var mapList:MapList? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     var selectedMap: Map?
     
     @IBOutlet weak var editMapBarButton: UIBarButtonItem!
@@ -29,6 +33,11 @@ class MapListTableViewController: UITableViewController, MapPersistence {
         }
         clearsSelectionOnViewWillAppear = false
         tableView.tableFooterView = UIView(frame: CGRectZero )
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        mapList = loadMaps()
     }
 
     override func didReceiveMemoryWarning() {
@@ -152,6 +161,6 @@ class MapListTableViewController: UITableViewController, MapPersistence {
 
     }
 
-    
 
 }
+

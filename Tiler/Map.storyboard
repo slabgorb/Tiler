@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tile-->
@@ -12,12 +11,12 @@
                 <viewControllerPlaceholder storyboardName="Tile" id="LCV-L5-N9Z" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcQ-qq-9Zc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1149.5" y="237"/>
+            <point key="canvasLocation" x="1131.5" y="237"/>
         </scene>
-        <!--Data Source-->
+        <!--Map View Controller-->
         <scene sceneID="y9h-d7-8rK">
             <objects>
-                <viewController storyboardIdentifier="MapId" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Txz-Qc-EBD" customClass="MapViewController" customModule="Tiler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapId" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Txz-Qc-EBD" userLabel="Map View Controller" customClass="MapViewController" customModule="Tiler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BPa-Q0-9wW"/>
                         <viewControllerLayoutGuide type="bottom" id="J5d-fH-55E"/>
@@ -26,25 +25,39 @@
                         <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndM-lK-9sg" customClass="MapView" customModule="Tiler" customModuleProvider="target">
-                                <rect key="frame" x="20" y="0.0" width="374" height="672"/>
-                                <color key="backgroundColor" white="0.79750034270000003" alpha="1" colorSpace="calibratedWhite"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rSJ-Kr-vlf" customClass="MapView" customModule="Tiler" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                                <collectionViewLayout key="collectionViewLayout" id="OLy-cT-CMR" customClass="MapFlowLayout" customModule="Tiler" customModuleProvider="target"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TileCellId" id="rAV-2W-sjY" customClass="TileViewCell" customModule="Tiler" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="LCV-L5-N9Z" kind="presentation" identifier="expandTileSegueId" id="R41-dC-3fE"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="Txz-Qc-EBD" id="xat-he-4AU"/>
-                                    <outlet property="delegate" destination="Txz-Qc-EBD" id="ri2-sA-irl"/>
+                                    <outlet property="dataSource" destination="Txz-Qc-EBD" id="U0a-Ke-kM9"/>
+                                    <outlet property="delegate" destination="Txz-Qc-EBD" id="F8W-LT-W2G"/>
                                 </connections>
-                            </view>
+                            </collectionView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ndM-lK-9sg" firstAttribute="centerY" secondItem="3qR-VZ-y9V" secondAttribute="centerY" id="Dx6-ih-aQF"/>
-                            <constraint firstItem="J5d-fH-55E" firstAttribute="top" secondItem="ndM-lK-9sg" secondAttribute="bottom" id="EOV-nX-O6G"/>
-                            <constraint firstItem="ndM-lK-9sg" firstAttribute="leading" secondItem="3qR-VZ-y9V" secondAttribute="leadingMargin" id="bPd-R4-YHy"/>
-                            <constraint firstItem="ndM-lK-9sg" firstAttribute="centerX" secondItem="3qR-VZ-y9V" secondAttribute="centerX" id="hMd-6h-ZXd"/>
-                            <constraint firstItem="ndM-lK-9sg" firstAttribute="top" secondItem="BPa-Q0-9wW" secondAttribute="bottom" id="kVI-yU-Keg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ndM-lK-9sg" secondAttribute="trailing" id="pWu-Ut-zE8"/>
+                            <constraint firstItem="rSJ-Kr-vlf" firstAttribute="top" secondItem="BPa-Q0-9wW" secondAttribute="bottom" id="FBo-Fn-PFY"/>
+                            <constraint firstAttribute="trailing" secondItem="rSJ-Kr-vlf" secondAttribute="trailing" id="Lui-yS-zoB"/>
+                            <constraint firstItem="rSJ-Kr-vlf" firstAttribute="centerX" secondItem="3qR-VZ-y9V" secondAttribute="centerX" id="Tph-xe-xKn"/>
+                            <constraint firstItem="rSJ-Kr-vlf" firstAttribute="leading" secondItem="3qR-VZ-y9V" secondAttribute="leading" id="kdb-cv-8VT"/>
+                            <constraint firstItem="J5d-fH-55E" firstAttribute="top" secondItem="rSJ-Kr-vlf" secondAttribute="bottom" id="ofS-fd-loo"/>
+                            <constraint firstItem="rSJ-Kr-vlf" firstAttribute="centerY" secondItem="3qR-VZ-y9V" secondAttribute="centerY" id="tPf-31-u53"/>
                         </constraints>
                     </scrollView>
-                    <navigationItem key="navigationItem" id="JZk-a8-iZY">
+                    <navigationItem key="navigationItem" title="Map Name" id="JZk-a8-iZY">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="gXh-BN-OrG">
                             <connections>
                                 <segue destination="qmC-qZ-xok" kind="unwind" unwindAction="unwindToList:" id="GEf-Zb-bnP"/>
@@ -60,7 +73,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="mapView" destination="ndM-lK-9sg" id="pFI-L6-Zrc"/>
+                        <outlet property="mapView" destination="rSJ-Kr-vlf" id="7iF-KL-way"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJG-6e-2TC" userLabel="First Responder" sceneMemberID="firstResponder"/>
