@@ -26,7 +26,7 @@ enum CollectionViewType: Int {
 
 }
 
-class TileCustomizationViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class TileCustomizationViewController: UIViewController {
 
     @IBOutlet var collectionViews: [UICollectionView]!
     @IBOutlet weak var rotateButton: UIButton!
@@ -59,58 +59,6 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
-            cell.backgroundColor = UIColor(named: .Background)
-            cell.layer.borderColor = UIColor(named: .DeselectedTileBorder).CGColor
-        }
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
-            cell.backgroundColor = UIColor.whiteColor()
-            cell.layer.borderColor = UIColor(named:.SelectedTileBorder).CGColor
-        }
-        if let collectionViewType = CollectionViewType.init(rawValue: collectionView.tag) {
-            if let collectionViewItem = self.collectionViewItems[collectionViewType] {
-                if let tile = tile {
-                    switch collectionViewType {
-                    case .Background:
-                        tile.backgroundImageName = collectionViewItem[indexPath.row].name
-                    case .Contents:
-                        tile.imageName = collectionViewItem[indexPath.row].name
-                    }
-                    tileView.layout()
-                }
-            }
-        }
-    }
-
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let cvt = CollectionViewType.init(rawValue: collectionView.tag) {
-            if let cvi = self.collectionViewItems[cvt] {
-                return cvi.count
-            }
-        }
-        // else
-        return 0
-    }
-
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ItemCell", forIndexPath: indexPath) as! ImageViewCell
-        if let collectionViewType =  CollectionViewType.init(rawValue: collectionView.tag) {
-            if let collectionViewItem = self.collectionViewItems[collectionViewType] {
-                cell.setItem(collectionViewItem[indexPath.row])
-                cell.backgroundColor = UIColor(named: .Background)
-            }
-        }
-        return cell
-    }
-
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
     }
 
     private func initItems(collectionViewType: CollectionViewType) -> [ImageItem] {
@@ -151,4 +99,64 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
         dismissViewControllerAnimated(true, completion: {})
     }
     
+}
+
+// MARK:- UICollectionViewDelegate
+extension TileCustomizationViewController: UICollectionViewDelegate {
+    
+    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
+            cell.backgroundColor = UIColor(named: .Background)
+            cell.layer.borderColor = UIColor(named: .DeselectedTileBorder).CGColor
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if let cell = collectionView.cellForItemAtIndexPath(indexPath) {
+            cell.backgroundColor = UIColor.whiteColor()
+            cell.layer.borderColor = UIColor(named:.SelectedTileBorder).CGColor
+        }
+        if let collectionViewType = CollectionViewType.init(rawValue: collectionView.tag) {
+            if let collectionViewItem = self.collectionViewItems[collectionViewType] {
+                if let tile = tile {
+                    switch collectionViewType {
+                    case .Background:
+                        tile.backgroundImageName = collectionViewItem[indexPath.row].name
+                    case .Contents:
+                        tile.imageName = collectionViewItem[indexPath.row].name
+                    }
+                    tileView.layout()
+                }
+            }
+        }
+    }
+}
+
+// MARK:- UICollectionViewDataSource
+extension TileCustomizationViewController: UICollectionViewDataSource {
+
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let cvt = CollectionViewType.init(rawValue: collectionView.tag) {
+            if let cvi = self.collectionViewItems[cvt] {
+                return cvi.count
+            }
+        }
+        // else
+        return 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ItemCell", forIndexPath: indexPath) as! ImageViewCell
+        if let collectionViewType =  CollectionViewType.init(rawValue: collectionView.tag) {
+            if let collectionViewItem = self.collectionViewItems[collectionViewType] {
+                cell.setItem(collectionViewItem[indexPath.row])
+                cell.backgroundColor = UIColor(named: .Background)
+            }
+        }
+        return cell
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
 }

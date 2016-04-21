@@ -88,9 +88,28 @@ class Map: NSObject, NSCoding {
         guard self.tiles.count > 0 else { return 0 }
         return Int(self.tiles.flatMap({$0.row}).maxElement()!)
     }
+    
     func maxColumn() -> Int {
         guard self.tiles.count > 0 else { return 0 }
         return Int(self.tiles.flatMap({$0.column}).maxElement()!)
+    }
+    
+    func maxColumnInRow(row:Int) -> Int {
+        guard self.tiles.count > 0 else { return 0 }
+        return tilesInRow(row).map{$0.column}.maxElement()!
+    }
+
+    func maxRowInColumn(column: Int) -> Int {
+        guard self.tiles.count > 0 else { return 0 }
+        return tilesInColumn(column).map{$0.row}.maxElement()!
+    }
+    
+    func tilesInRow(row: Int) -> [Tile] {
+        return tiles.filter{$0.row == row}
+    }
+    
+    func tilesInColumn(column: Int) -> [Tile] {
+        return tiles.filter{$0.column == column}
     }
     
     func getTileByRowAndColumn(row: Int, _ column: Int) -> Tile? {

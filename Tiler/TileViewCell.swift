@@ -9,19 +9,16 @@
 import UIKit
 
 class TileViewCell: UICollectionViewCell {
-    var tileView:TileView? {
-        didSet {
-            row = tileView?.tile?.row
-            column = tileView?.tile?.column
-        }
-    }
-
-    var row:Int?
-    var column: Int?
-
+    var tileView:TileView?
+    var label: UILabel?
     override func layoutSubviews() {
-        if let tileView = tileView {
+        if let tileView = tileView, let label = label {
             addSubview(tileView)
+            addSubview(label)
+            label.snp_makeConstraints { make in
+                make.centerY.equalTo(0)
+                make.centerX.equalTo(0)
+            }
             tileView.layout()
         }
         super.layoutSubviews()

@@ -17,12 +17,7 @@ class MapViewController: UIViewController {
 
     var textInputViewController: TextInputViewController?
 
-    var map:Map? = Map(title: "Untitled") {
-        didSet {
-            self.mapView.map = map
-        }
-    }
-
+    var map:Map? = Map(title: "Untitled")
 
     var mapIndex: Int = 0
     var mapList:MapList? 
@@ -35,22 +30,22 @@ class MapViewController: UIViewController {
         
     }
 
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        mapView.reloadData()
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        mapView.reloadData()
+//
+//
+//    }
 
-
-    }
-
-    func addTile(tile: Tile, _ row: Int, _ column: Int) {
-        let added:Either<String,Bool> = self.mapView.addTileView(TileView(tile: tile))
-        switch added {
-        case .Left(let errorText):
-            HUD.flash(HUDContentType.LabeledError(title: "Error Adding Tile", subtitle: errorText), delay: 1.0)
-        case .Right(_):
-            print("added tile")
-        }
-    }
+//    func addTile(tile: Tile, _ row: Int, _ column: Int) {
+//        let added:Either<String,Bool> = self.mapView.addTileView(TileView(tile: tile))
+//        switch added {
+//        case .Left(let errorText):
+//            HUD.flash(HUDContentType.LabeledError(title: "Error Adding Tile", subtitle: errorText), delay: 1.0)
+//        case .Right(_):
+//            print("added tile")
+//        }
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -88,7 +83,7 @@ class MapViewController: UIViewController {
 }
 // MARK:- UICollectionViewDelegate
 extension MapViewController: UICollectionViewDelegate {
-
+    
 }
 
 
@@ -96,7 +91,11 @@ extension MapViewController: UICollectionViewDelegate {
 extension MapViewController: UICollectionViewDataSource {
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
+        var count:Int = 1
+        if let maxRow = map?.maxRow() {
+            count =  maxRow + 1
+        }
+        return count
     }
 
     func collectionView(collectionView: UICollectionView, canMoveItemAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -104,19 +103,22 @@ extension MapViewController: UICollectionViewDataSource {
     }
 
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var count:Int = 0
         if let map = self.map {
-            return map.tiles.count
-        } else {
-            return 1
+            count =  map.maxColumnInRow(section) + 1
         }
+        return count
     }
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TileCellId", forIndexPath: indexPath) as! TileViewCell
 
         if let map = self.map {
-            let tile = map.tiles[indexPath.row]
-            let tileView = TileView(frame: cell.frame, tile:tile)
+            let tile = map.tilesInRow(indexPath.section)[indexPath.row]
+            let tileView = TileView(tile:tile)
             cell.tileView = tileView
+            cell.label = UILabel()
+            cell.label?.text = "\(indexPath.section):\(indexPath.row)"
         }
         return cell
     }
@@ -129,6 +131,27 @@ extension MapViewController: UICollectionViewDataSource {
         }
     }
 }
+
+// MARK:- UICollectionViewDelegateFlowLayout
+extension MapViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSizeMake(144, 144)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsZero
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return CGFloat(0)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return CGFloat(0)
+    }
+}
+
 
 // MARK:- MapPersistence
 extension MapViewController: MapPersistence {

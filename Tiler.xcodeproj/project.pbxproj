@@ -53,7 +53,7 @@
 		7D202D001CB9669800D945A0 /* UIButton+Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D202CFF1CB9669800D945A0 /* UIButton+Flash.swift */; };
 		7D202D041CB969EA00D945A0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D202D031CB969EA00D945A0 /* Constants.swift */; };
 		7D202D061CB9971F00D945A0 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D202D051CB9971F00D945A0 /* Map.storyboard */; };
-		7D202D0C1CB9D12100D945A0 /* MapFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D202D0B1CB9D12100D945A0 /* MapFlowLayout.swift */; };
+		7D202D0C1CB9D12100D945A0 /* MapCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D202D0B1CB9D12100D945A0 /* MapCollectionViewLayout.swift */; };
 		7D202D0E1CBA97B700D945A0 /* MapPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D202D0D1CBA97B700D945A0 /* MapPersistence.swift */; };
 		7D4312AE1CBB1364000D3E41 /* ExpandSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4312AD1CBB1364000D3E41 /* ExpandSegue.swift */; };
 		7D76A1031CA74ED1004CA3B8 /* FileSaveHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76A1021CA74ED1004CA3B8 /* FileSaveHelper.swift */; };
@@ -132,7 +132,7 @@
 		7D202CFF1CB9669800D945A0 /* UIButton+Flash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Flash.swift"; sourceTree = "<group>"; };
 		7D202D031CB969EA00D945A0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7D202D051CB9971F00D945A0 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
-		7D202D0B1CB9D12100D945A0 /* MapFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapFlowLayout.swift; sourceTree = "<group>"; };
+		7D202D0B1CB9D12100D945A0 /* MapCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCollectionViewLayout.swift; sourceTree = "<group>"; };
 		7D202D0D1CBA97B700D945A0 /* MapPersistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPersistence.swift; sourceTree = "<group>"; };
 		7D4312AD1CBB1364000D3E41 /* ExpandSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandSegue.swift; sourceTree = "<group>"; };
 		7D76A1021CA74ED1004CA3B8 /* FileSaveHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSaveHelper.swift; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				2403BBE81C88F66B00F79C53 /* MapViewController.swift */,
-				7D202D0B1CB9D12100D945A0 /* MapFlowLayout.swift */,
+				7D202D0B1CB9D12100D945A0 /* MapCollectionViewLayout.swift */,
 				24DA4A1C1CA725F9005EDF71 /* MapListTableViewController.swift */,
 			);
 			name = Map;
@@ -596,7 +596,7 @@
 				24DA4A1D1CA725F9005EDF71 /* MapListTableViewController.swift in Sources */,
 				24DDC7B31CADB22600B96AD8 /* CircleColorButton.swift in Sources */,
 				24DA4A1F1CA72681005EDF71 /* MapTableViewCell.swift in Sources */,
-				7D202D0C1CB9D12100D945A0 /* MapFlowLayout.swift in Sources */,
+				7D202D0C1CB9D12100D945A0 /* MapCollectionViewLayout.swift in Sources */,
 				2403BBE71C88F66B00F79C53 /* AppDelegate.swift in Sources */,
 				245BB4681CAF4A7C00CE1F81 /* ImageItem.swift in Sources */,
 				7D202D041CB969EA00D945A0 /* Constants.swift in Sources */,

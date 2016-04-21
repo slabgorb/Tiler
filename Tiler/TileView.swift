@@ -17,8 +17,8 @@ class TileView: UIView {
         case Background, Grid, Contents
     }
 
-    static let defaultWidth = 72.0
-    static let defaultHeight = 72.0
+    static let defaultWidth = 144.0
+    static let defaultHeight = 144.0
     let grid: UIImage? = UIImage(named: "grid")
 
     var tile: Tile? {
