@@ -11,20 +11,19 @@ import UIKit
 class TileViewCell: UICollectionViewCell {
     var tileView:TileView? {
         didSet {
-            if let tileView = self.tileView {
-                tileView.layout()
-            }
+            row = tileView?.tile?.row
+            column = tileView?.tile?.column
         }
-    }
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        if let tileView = self.tileView {
-            addSubview(tileView)
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
 
+    var row:Int?
+    var column: Int?
+
+    override func layoutSubviews() {
+        if let tileView = tileView {
+            addSubview(tileView)
+            tileView.layout()
+        }
+        super.layoutSubviews()
+    }
 }

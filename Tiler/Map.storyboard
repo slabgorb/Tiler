@@ -3,7 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tile-->
@@ -12,150 +12,47 @@
                 <viewControllerPlaceholder storyboardName="Tile" id="LCV-L5-N9Z" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcQ-qq-9Zc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150.5" y="210"/>
+            <point key="canvasLocation" x="1149.5" y="237"/>
         </scene>
-        <!--ListId-->
-        <scene sceneID="cOJ-ou-lpz">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="ListId" id="gOP-S6-skh" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RQg-Vy-WIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1156" y="264"/>
-        </scene>
-        <!--Map View Controller-->
+        <!--Data Source-->
         <scene sceneID="y9h-d7-8rK">
             <objects>
                 <viewController storyboardIdentifier="MapId" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Txz-Qc-EBD" customClass="MapViewController" customModule="Tiler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="dPR-Br-caA"/>
-                        <viewControllerLayoutGuide type="bottom" id="iDx-dL-p5A"/>
+                        <viewControllerLayoutGuide type="top" id="BPa-Q0-9wW"/>
+                        <viewControllerLayoutGuide type="bottom" id="J5d-fH-55E"/>
                     </layoutGuides>
-                    <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" id="6ej-id-Fv7">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3qR-VZ-y9V">
                         <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zn7-0A-vk4">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jaI-Fc-PSY">
-                                        <rect key="frame" x="45" y="8" width="361" height="24"/>
-                                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="changeTitle:" destination="Txz-Qc-EBD" eventType="editingDidEnd" id="z1Y-1J-h52"/>
-                                            <action selector="editTitle:" destination="Txz-Qc-EBD" eventType="editingDidBegin" id="2aA-y4-L9L"/>
-                                        </connections>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wce-Ud-kvp">
-                                        <rect key="frame" x="0.0" y="9" width="42" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="42" id="IvA-Pd-10S"/>
-                                            <constraint firstAttribute="width" constant="42" id="Wp9-u5-lYw"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Wp9-u5-lYw"/>
-                                            </mask>
-                                        </variation>
-                                    </label>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyC-Ar-9X2" customClass="CircleColorButton" customModule="Tiler" customModuleProvider="target">
-                                        <rect key="frame" x="382" y="8" width="24" height="24"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="46" id="j65-2z-dfM"/>
-                                            <constraint firstAttribute="width" secondItem="xyC-Ar-9X2" secondAttribute="height" multiplier="1:1" id="wgm-ox-xfr"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
-                                        <state key="normal" title="OK"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="j65-2z-dfM"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="finishEditingTitle:" destination="Txz-Qc-EBD" eventType="touchUpInside" id="DVj-rJ-dCu"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.90196084980000002" green="0.86666673419999996" blue="0.71764707569999997" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="jaI-Fc-PSY" secondAttribute="trailing" constant="8" id="8xV-LF-tNj"/>
-                                    <constraint firstItem="Wce-Ud-kvp" firstAttribute="centerY" secondItem="xyC-Ar-9X2" secondAttribute="centerY" id="FDm-Yr-DB5"/>
-                                    <constraint firstItem="jaI-Fc-PSY" firstAttribute="leading" secondItem="Zn7-0A-vk4" secondAttribute="leading" constant="45" id="FPK-Zz-DKH"/>
-                                    <constraint firstItem="xyC-Ar-9X2" firstAttribute="top" secondItem="Zn7-0A-vk4" secondAttribute="top" constant="8" id="KKg-Gm-QPe"/>
-                                    <constraint firstAttribute="height" constant="40" id="PKi-aT-5R9"/>
-                                    <constraint firstItem="Wce-Ud-kvp" firstAttribute="top" secondItem="Zn7-0A-vk4" secondAttribute="top" constant="9" id="WhH-98-CtB"/>
-                                    <constraint firstAttribute="bottom" secondItem="xyC-Ar-9X2" secondAttribute="bottom" constant="8" id="ZiH-JU-5fK"/>
-                                    <constraint firstAttribute="bottom" secondItem="jaI-Fc-PSY" secondAttribute="bottom" constant="8" id="e9v-L2-QVv"/>
-                                    <constraint firstAttribute="trailing" secondItem="xyC-Ar-9X2" secondAttribute="trailing" constant="8" id="rWw-LS-0lU"/>
-                                    <constraint firstItem="jaI-Fc-PSY" firstAttribute="top" secondItem="Zn7-0A-vk4" secondAttribute="top" constant="8" id="ruA-is-SPl"/>
-                                    <constraint firstItem="Wce-Ud-kvp" firstAttribute="leading" secondItem="Zn7-0A-vk4" secondAttribute="leading" id="z5u-mp-Cbj"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndM-lK-9sg" customClass="MapView" customModule="Tiler" customModuleProvider="target">
+                                <rect key="frame" x="20" y="0.0" width="374" height="672"/>
+                                <color key="backgroundColor" white="0.79750034270000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Txz-Qc-EBD" id="xat-he-4AU"/>
+                                    <outlet property="delegate" destination="Txz-Qc-EBD" id="ri2-sA-irl"/>
+                                </connections>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JsB-Ii-Nsy">
-                                <rect key="frame" x="0.0" y="40" width="414" height="632"/>
-                                <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eQ5-ak-HO6" customClass="MapView" customModule="Tiler" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="632"/>
-                                        <collectionViewLayout key="collectionViewLayout" id="5ZF-hN-RLa" customClass="MapFlowLayout" customModule="Tiler" customModuleProvider="target"/>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TileCellId" id="BMf-8q-B5O" customClass="TileViewCell" customModule="Tiler" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4X0-gE-Mm3" customClass="TileView" customModule="Tiler" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="72" id="0Wc-qB-kco"/>
-                                                                <constraint firstAttribute="width" constant="72" id="qp2-bh-LhE"/>
-                                                            </constraints>
-                                                        </view>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <constraints>
-                                                    <constraint firstItem="4X0-gE-Mm3" firstAttribute="top" secondItem="BMf-8q-B5O" secondAttribute="top" id="61z-zk-7OI"/>
-                                                    <constraint firstItem="4X0-gE-Mm3" firstAttribute="leading" secondItem="BMf-8q-B5O" secondAttribute="leading" id="tVw-SI-Yf7"/>
-                                                </constraints>
-                                                <size key="customSize" width="72" height="72"/>
-                                                <connections>
-                                                    <segue destination="LCV-L5-N9Z" kind="custom" identifier="expandTileSegueId" customClass="ExpandSegue" customModule="Tiler" customModuleProvider="target" id="opk-24-e68"/>
-                                                </connections>
-                                            </collectionViewCell>
-                                        </cells>
-                                        <connections>
-                                            <outlet property="dataSource" destination="Txz-Qc-EBD" id="IYX-r4-gaq"/>
-                                            <outlet property="delegate" destination="Txz-Qc-EBD" id="3Sp-45-wWq"/>
-                                        </connections>
-                                    </collectionView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="eQ5-ak-HO6" firstAttribute="leading" secondItem="JsB-Ii-Nsy" secondAttribute="leading" id="35m-Iy-cdK"/>
-                                    <constraint firstItem="eQ5-ak-HO6" firstAttribute="centerX" secondItem="JsB-Ii-Nsy" secondAttribute="centerX" id="FwM-vG-Lkc"/>
-                                    <constraint firstAttribute="bottom" secondItem="eQ5-ak-HO6" secondAttribute="bottom" id="jnI-Ck-MO7"/>
-                                    <constraint firstAttribute="trailing" secondItem="eQ5-ak-HO6" secondAttribute="trailing" id="kST-1Y-Uig"/>
-                                    <constraint firstItem="eQ5-ak-HO6" firstAttribute="top" secondItem="JsB-Ii-Nsy" secondAttribute="top" id="vit-ND-dnX"/>
-                                    <constraint firstItem="eQ5-ak-HO6" firstAttribute="centerY" secondItem="JsB-Ii-Nsy" secondAttribute="centerY" id="yTF-uv-82Y"/>
-                                </constraints>
-                            </scrollView>
                         </subviews>
-                    </stackView>
+                        <constraints>
+                            <constraint firstItem="ndM-lK-9sg" firstAttribute="centerY" secondItem="3qR-VZ-y9V" secondAttribute="centerY" id="Dx6-ih-aQF"/>
+                            <constraint firstItem="J5d-fH-55E" firstAttribute="top" secondItem="ndM-lK-9sg" secondAttribute="bottom" id="EOV-nX-O6G"/>
+                            <constraint firstItem="ndM-lK-9sg" firstAttribute="leading" secondItem="3qR-VZ-y9V" secondAttribute="leadingMargin" id="bPd-R4-YHy"/>
+                            <constraint firstItem="ndM-lK-9sg" firstAttribute="centerX" secondItem="3qR-VZ-y9V" secondAttribute="centerX" id="hMd-6h-ZXd"/>
+                            <constraint firstItem="ndM-lK-9sg" firstAttribute="top" secondItem="BPa-Q0-9wW" secondAttribute="bottom" id="kVI-yU-Keg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ndM-lK-9sg" secondAttribute="trailing" id="pWu-Ut-zE8"/>
+                        </constraints>
+                    </scrollView>
                     <navigationItem key="navigationItem" id="JZk-a8-iZY">
-                        <barButtonItem key="leftBarButtonItem" title="List" id="c5D-Xm-9cc">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="gXh-BN-OrG">
                             <connections>
-                                <segue destination="gOP-S6-skh" kind="show" id="Wbd-iR-Pdh"/>
+                                <segue destination="qmC-qZ-xok" kind="unwind" unwindAction="unwindToList:" id="GEf-Zb-bnP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Rename" id="Ee5-wv-9eM">
+                            <connections>
+                                <action selector="renameMap:" destination="Txz-Qc-EBD" id="ZtS-Rd-cns"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -163,13 +60,11 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="finishedEditingTitleButton" destination="xyC-Ar-9X2" id="bjb-cO-ukq"/>
-                        <outlet property="mapView" destination="eQ5-ak-HO6" id="QfU-oH-olf"/>
-                        <outlet property="titleTextField" destination="jaI-Fc-PSY" id="xaX-Q1-mMK"/>
-                        <outlet property="titleTextFieldRight" destination="8xV-LF-tNj" id="fJq-Na-crc"/>
+                        <outlet property="mapView" destination="ndM-lK-9sg" id="pFI-L6-Zrc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJG-6e-2TC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qmC-qZ-xok" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="754" y="237"/>
         </scene>

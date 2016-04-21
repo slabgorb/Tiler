@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextInputViewController" customModule="Tiler" customModuleProvider="target">
+            <connections>
+                <outlet property="buttonContainerViewBottomConstraint" destination="w3a-A2-T0Q" id="bla-t1-aeK"/>
+                <outlet property="cancelButton" destination="pky-yf-1Cp" id="wJS-R9-Lwq"/>
+                <outlet property="saveButton" destination="rrS-7T-73i" id="IHd-oC-4Gz"/>
+                <outlet property="theTextField" destination="gt4-5B-7HN" id="6XR-15-fKz"/>
+                <outlet property="theTextFieldYPosition" destination="4ye-6G-44o" id="u7q-v9-fAT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view opaque="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1aP-2P-c1X">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gt4-5B-7HN">
+                            <rect key="frame" x="18" y="272" width="339" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="lmo-tv-cvl"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </textField>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZz-Yg-UNp" userLabel="TextField underline">
+                            <rect key="frame" x="11" y="315" width="353" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="iTS-0l-C3U"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="x6N-Oq-dGj">
+                            <rect key="frame" x="20" y="324" width="335" height="60"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pky-yf-1Cp" customClass="CircleColorButton" customModule="Tiler" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                    <color key="backgroundColor" red="0.89681976009999997" green="0.89681976009999997" blue="0.89681976009999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="60" id="7pk-O6-oXE"/>
+                                        <constraint firstAttribute="height" constant="60" id="PP2-Tu-YfQ"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
+                                    <state key="normal" title="CANCEL">
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                            <color key="value" white="0.79750034270000003" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="cancelButtonTapped:" destination="-1" eventType="touchUpInside" id="9hf-xu-MyB"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrS-7T-73i" customClass="CircleColorButton" customModule="Tiler" customModuleProvider="target">
+                                    <rect key="frame" x="275" y="0.0" width="60" height="60"/>
+                                    <color key="backgroundColor" red="0.3641130293" green="0.67258815679999995" blue="0.8034840593" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="9Ic-iU-afh"/>
+                                        <constraint firstAttribute="width" constant="60" id="amf-r4-cvB"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
+                                    <state key="normal" title="SAVE">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                            <color key="value" red="0.3641130293" green="0.67258815679999995" blue="0.8034840593" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="E6i-xD-uQ7"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="gt4-5B-7HN" firstAttribute="centerY" secondItem="1aP-2P-c1X" secondAttribute="centerY" id="4ye-6G-44o"/>
+                        <constraint firstAttribute="trailing" secondItem="gt4-5B-7HN" secondAttribute="trailing" constant="18" id="6fO-E5-xIN"/>
+                        <constraint firstItem="x6N-Oq-dGj" firstAttribute="top" secondItem="qZz-Yg-UNp" secondAttribute="bottom" constant="8" symbolic="YES" id="Ak3-LV-MuV"/>
+                        <constraint firstItem="x6N-Oq-dGj" firstAttribute="leading" secondItem="1aP-2P-c1X" secondAttribute="leading" constant="20" id="HeH-49-iVc"/>
+                        <constraint firstItem="qZz-Yg-UNp" firstAttribute="bottom" secondItem="gt4-5B-7HN" secondAttribute="bottom" id="HeY-CM-tTL"/>
+                        <constraint firstItem="qZz-Yg-UNp" firstAttribute="trailing" secondItem="gt4-5B-7HN" secondAttribute="trailing" constant="7" id="Nfp-ca-BPW"/>
+                        <constraint firstItem="x6N-Oq-dGj" firstAttribute="centerX" secondItem="1aP-2P-c1X" secondAttribute="centerX" id="T2E-R0-zuG"/>
+                        <constraint firstItem="gt4-5B-7HN" firstAttribute="leading" secondItem="1aP-2P-c1X" secondAttribute="leading" constant="18" id="fcb-KP-qWg"/>
+                        <constraint firstItem="qZz-Yg-UNp" firstAttribute="leading" secondItem="gt4-5B-7HN" secondAttribute="leading" constant="-7" id="nvC-hE-vCP"/>
+                        <constraint firstAttribute="trailing" secondItem="x6N-Oq-dGj" secondAttribute="trailing" constant="20" id="oxq-Xh-6B0"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flU-I5-Adh">
+                    <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="Jox-WE-sOn"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="1aP-2P-c1X" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1GF-80-ZgY"/>
+                <constraint firstAttribute="trailing" secondItem="flU-I5-Adh" secondAttribute="trailing" id="5oQ-9B-xOB"/>
+                <constraint firstItem="flU-I5-Adh" firstAttribute="top" secondItem="1aP-2P-c1X" secondAttribute="bottom" id="Rb0-vw-fYA"/>
+                <constraint firstItem="1aP-2P-c1X" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cQn-Pw-Mm3"/>
+                <constraint firstItem="flU-I5-Adh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="o91-84-dse"/>
+                <constraint firstAttribute="bottom" secondItem="1aP-2P-c1X" secondAttribute="bottom" id="oTs-3A-685"/>
+                <constraint firstAttribute="trailing" secondItem="1aP-2P-c1X" secondAttribute="trailing" id="tML-C7-aQf"/>
+                <constraint firstAttribute="bottom" secondItem="flU-I5-Adh" secondAttribute="bottom" id="vlb-T3-Dox"/>
+                <constraint firstAttribute="bottom" secondItem="flU-I5-Adh" secondAttribute="bottom" id="w3a-A2-T0Q"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="oTs-3A-685"/>
+                    <exclude reference="w3a-A2-T0Q"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="539.5" y="395.5"/>
+        </view>
+    </objects>
+</document>

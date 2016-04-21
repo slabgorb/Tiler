@@ -147,7 +147,10 @@ class MapListTableViewController: UITableViewController, MapPersistence {
         ])
         
     }
-    
+
+    @IBAction func unwindToList(unwindSegue: UIStoryboardSegue) {
+
+    }
 
     
 

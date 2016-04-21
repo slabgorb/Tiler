@@ -49,7 +49,9 @@ class TileCustomizationViewController: UIViewController, UICollectionViewDataSou
             cv.reloadData()
 
         }
-        currentTile.tile = Tile(openings: [], imageName: "t", backgroundImageName: "texture1")
+        if currentTile == nil {
+            currentTile.tile = Tile(openings: [], imageName: "t", backgroundImageName: "texture1")
+        }
         currentTile.layout()
     }
 

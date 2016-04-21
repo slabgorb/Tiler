@@ -22,6 +22,9 @@
 		245B6ACB1CAC509900C840A7 /* Tile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 245B6ACA1CAC509900C840A7 /* Tile.storyboard */; };
 		245BB4661CAF4A5400CE1F81 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245BB4651CAF4A5400CE1F81 /* ImageViewCell.swift */; };
 		245BB4681CAF4A7C00CE1F81 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245BB4671CAF4A7C00CE1F81 /* ImageItem.swift */; };
+		247EB7901CC812CA00EF3881 /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247EB78F1CC812CA00EF3881 /* TextInputViewController.swift */; };
+		247EB7921CC812F400EF3881 /* TextInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 247EB7911CC812F400EF3881 /* TextInputViewController.xib */; };
+		247EB7941CC817DA00EF3881 /* TextInputViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247EB7931CC817DA00EF3881 /* TextInputViewControllerDelegate.swift */; };
 		24948F311C94EA4C00EB118F /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F301C94EA4C00EB118F /* TileView.swift */; };
 		24948F331C95CADD00EB118F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F321C95CADD00EB118F /* MapView.swift */; };
 		24948F351C95CBC400EB118F /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24948F341C95CBC400EB118F /* Map.swift */; };
@@ -97,6 +100,9 @@
 		245B6ACA1CAC509900C840A7 /* Tile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tile.storyboard; sourceTree = "<group>"; };
 		245BB4651CAF4A5400CE1F81 /* ImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
 		245BB4671CAF4A7C00CE1F81 /* ImageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
+		247EB78F1CC812CA00EF3881 /* TextInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
+		247EB7911CC812F400EF3881 /* TextInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputViewController.xib; sourceTree = "<group>"; };
+		247EB7931CC817DA00EF3881 /* TextInputViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputViewControllerDelegate.swift; sourceTree = "<group>"; };
 		24948F301C94EA4C00EB118F /* TileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		24948F321C95CADD00EB118F /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		24948F341C95CBC400EB118F /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
@@ -228,6 +234,7 @@
 		2429F7D21CA41CC90097D24E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				247EB78E1CC812BE00EF3881 /* Misc */,
 				7D4312AB1CBB1257000D3E41 /* Map */,
 				245B6ACE1CAC58F800C840A7 /* Tile */,
 			);
@@ -243,6 +250,15 @@
 				245BB4651CAF4A5400CE1F81 /* ImageViewCell.swift */,
 			);
 			name = Tile;
+			sourceTree = "<group>";
+		};
+		247EB78E1CC812BE00EF3881 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				247EB78F1CC812CA00EF3881 /* TextInputViewController.swift */,
+				247EB7911CC812F400EF3881 /* TextInputViewController.xib */,
+			);
+			name = Misc;
 			sourceTree = "<group>";
 		};
 		24948F2F1C94EA2700EB118F /* Views */ = {
@@ -264,6 +280,7 @@
 				24948F3F1C95E25000EB118F /* Matchable.swift */,
 				24C728031C986558009ED999 /* Flippable.swift */,
 				7D80F5321CA833E3009FE4C6 /* PropertyListReadable.swift */,
+				247EB7931CC817DA00EF3881 /* TextInputViewControllerDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -475,6 +492,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				247EB7921CC812F400EF3881 /* TextInputViewController.xib in Resources */,
 				245B6ACB1CAC509900C840A7 /* Tile.storyboard in Resources */,
 				7D202D061CB9971F00D945A0 /* Map.storyboard in Resources */,
 				24FE63F31CB033D900A7D4CA /* contentItems.plist in Resources */,
@@ -584,10 +602,12 @@
 				7D202D041CB969EA00D945A0 /* Constants.swift in Sources */,
 				7D4312AE1CBB1364000D3E41 /* ExpandSegue.swift in Sources */,
 				7D143C761CA81A6B004CAEF8 /* MapList.swift in Sources */,
+				247EB7901CC812CA00EF3881 /* TextInputViewController.swift in Sources */,
 				24948F401C95E25000EB118F /* Matchable.swift in Sources */,
 				7D80F5331CA833E3009FE4C6 /* PropertyListReadable.swift in Sources */,
 				7D202D0E1CBA97B700D945A0 /* MapPersistence.swift in Sources */,
 				24DF1EBB1CB5A23400D192F2 /* Int.swift in Sources */,
+				247EB7941CC817DA00EF3881 /* TextInputViewControllerDelegate.swift in Sources */,
 				24DF1EA41CB56AF300D192F2 /* RomanNumeral.swift in Sources */,
 				24948F431C95E2C100EB118F /* Size.swift in Sources */,
 			);
