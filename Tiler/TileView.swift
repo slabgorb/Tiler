@@ -10,15 +10,15 @@ import UIKit
 import SnapKit
 
 class TileView: UIView {
-    var width: Double = TileView.defaultWidth
-    var height: Double = TileView.defaultHeight
+    var width: CGFloat = TileView.defaultWidth
+    var height: CGFloat = TileView.defaultHeight
 
     enum Layer {
         case Background, Grid, Contents
     }
 
-    static let defaultWidth = 144.0
-    static let defaultHeight = 144.0
+    static let defaultWidth = CGFloat(72.0)
+    static let defaultHeight = CGFloat(72.0)
     let grid: UIImage? = UIImage(named: "grid")
 
     var tile: Tile? {

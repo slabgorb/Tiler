@@ -35,7 +35,9 @@ class TileCustomizationViewController: UIViewController {
     @IBOutlet weak var tileView: TileView!
     @IBOutlet var customizeTileView: UIView!
 
-    var tile:Tile?
+    var tile: Tile?
+    var isNew: Bool = false
+    var mapDelegate: MapDelegate?
 
     var collectionViewItems: [CollectionViewType:[ImageItem]] = [:]
 
@@ -51,8 +53,11 @@ class TileCustomizationViewController: UIViewController {
             cv.reloadData()
 
         }
-
-        tile = tile ?? Tile(openings: [], imageName: "t", backgroundImageName: "texture1")
+        if tile == nil {
+            isNew = true
+            navigationItem.title = "New Tile"
+            tile =  Tile(openings: [], imageName: "t", backgroundImageName: "texture1")
+        }
         tileView.tile = tile
         tileView.layout()
     }
@@ -93,8 +98,12 @@ class TileCustomizationViewController: UIViewController {
     }
     
     @IBAction func dismiss(sender: AnyObject) {
-        if let mvc = (parentViewController as? MapViewController) {
-            mvc.saveMap()
+
+        if  let mapDelegate = mapDelegate {
+            if isNew {
+                mapDelegate.add(tile!)
+            }
+            mapDelegate.saveMap()
         }
         dismissViewControllerAnimated(true, completion: {})
     }

@@ -30,6 +30,7 @@ class MapListTableViewController: UITableViewController, MapPersistence {
             }
         } else {
             mapList = loadSampleMaps()
+            saveMaps()
         }
         clearsSelectionOnViewWillAppear = false
         tableView.tableFooterView = UIView(frame: CGRectZero )

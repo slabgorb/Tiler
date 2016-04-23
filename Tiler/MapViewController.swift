@@ -65,19 +65,44 @@ class MapViewController: UIViewController {
             self.view.addSubview(textInputViewController.view)
         }
     }
-
+    
+    func saveMap() {
+        mapList = loadMaps()
+        if let map = map, mapList = mapList {
+            mapList[mapIndex] =  map
+            saveMaps()
+        }
+        mapView.reloadData()
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "expandTileSegueId" {
-            if let navigationController = segue.destinationViewController as? UINavigationController  {
-                if let viewController = navigationController.topViewController as? TileCustomizationViewController {
-                    if let currentSelection = mapView.indexPathsForSelectedItems()?.first {
-                        if let tile = map?.tiles[currentSelection.row] {
-                            viewController.tile = tile
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "expandTileSegueId":
+                if let navigationController = segue.destinationViewController as? UINavigationController  {
+                    if let viewController = navigationController.topViewController as? TileCustomizationViewController {
+                        if let currentSelection = mapView.indexPathsForSelectedItems()?.first {
+                            if let tile = map?.tiles[currentSelection.row] {
+                                viewController.mapDelegate = self
+                                viewController.tile = tile
+                            }
                         }
                     }
                 }
+            case "newTileSegueId":
+                if let navigationController = segue.destinationViewController as? UINavigationController  {
+                    if let viewController = navigationController.topViewController as? TileCustomizationViewController {
+                        viewController.mapDelegate = self
+                        viewController.tile = nil
+                    }
+                    
+                }
+            default:
+                break
             }
+
         }
+
     }
 
 }
@@ -86,12 +111,22 @@ extension MapViewController: UICollectionViewDelegate {
     
 }
 
+extension MapViewController: MapDelegate {
+    func add(tile: Tile) {
+        do {
+            try map!.add(tile)
+        } catch {
+            print("oops")
+        }
+    }
+}
+
 
 // MARK:- UICollectionViewDataSource
 extension MapViewController: UICollectionViewDataSource {
 
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        var count:Int = 1
+        var count:Int = 0
         if let maxRow = map?.maxRow() {
             count =  maxRow + 1
         }
@@ -114,43 +149,22 @@ extension MapViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TileCellId", forIndexPath: indexPath) as! TileViewCell
 
         if let map = self.map {
-            let tile = map.tilesInRow(indexPath.section)[indexPath.row]
-            let tileView = TileView(tile:tile)
-            cell.tileView = tileView
+            let tileRow = map.tilesInRow(indexPath.section)
+            if tileRow.count > 0 {
+                let tile = tileRow[indexPath.row]
+                let tileView = TileView(tile:tile)
+                cell.tileView = tileView
+            }
             cell.label = UILabel()
             cell.label?.text = "\(indexPath.section):\(indexPath.row)"
         }
         return cell
     }
 
-    func saveMap() {
-        mapList = loadMaps()
-        if let map = map, mapList = mapList {
-            mapList[mapIndex] =  map
-            saveMaps()
-        }
-    }
+
 }
 
-// MARK:- UICollectionViewDelegateFlowLayout
-extension MapViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(144, 144)
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsZero
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return CGFloat(0)
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return CGFloat(0)
-    }
-}
+
 
 
 // MARK:- MapPersistence
