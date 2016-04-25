@@ -115,8 +115,8 @@ extension MapViewController: MapDelegate {
     func add(tile: Tile) {
         do {
             try map!.add(tile)
-        } catch {
-            print("oops")
+        } catch let error as NSError {
+            print(error.description)
         }
     }
 }
